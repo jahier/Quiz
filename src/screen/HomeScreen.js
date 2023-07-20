@@ -7,7 +7,6 @@ import AppIntroSlider from 'react-native-app-intro-slider'
 import LinearGradient from 'react-native-linear-gradient';
 
 
-
 const HomeScreen = () => {
   const slides = [
     { eventDate: '15/04/2023', eventSeats: '500 Seats' },
