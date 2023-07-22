@@ -53,10 +53,8 @@ function BottomTab() {
                 </View>
 
             </TouchableOpacity>
-
         </View>
     )
-
     return (
         <Tab.Navigator
          screenOptions={{
