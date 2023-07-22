@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import authStack from './authStack';
 import MainStack from './mainStack';
-// BottomTab
+
 const Stack = createNativeStackNavigator();
 function ApplicationStack() {
     return (
@@ -17,5 +17,4 @@ function ApplicationStack() {
         </NavigationContainer>
     );
 }
-
 export default ApplicationStack;
