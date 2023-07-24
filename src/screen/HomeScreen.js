@@ -267,20 +267,6 @@ const HomeScreen = () => {
           showsHorizontalScrollIndicator={false}
         />
       </View>
-      {/* <View style={styles.recent_withdraw_container}>
-        <Text style={styles.recent_withdraw_text}>Recent Withdraw</Text>
-      </View>
-
-      <View style={{ paddingHorizontal: 10 }}>
-        <FlatList
-
-          data={TrendingQuiz}
-          renderItem={Bottom_list}
-          keyExtractor={(item) => item.id}
-          showsHorizontalScrollIndicator={false}
-        />
-      </View> */}
-
 
     </ScrollView>
   )
