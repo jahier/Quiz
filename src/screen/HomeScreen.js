@@ -7,6 +7,24 @@ import AppIntroSlider from 'react-native-app-intro-slider'
 import LinearGradient from 'react-native-linear-gradient';
 
 const HomeScreen = () => {
+  
+  const sliderRef = useRef();
+  const sliderRef2 = useRef();
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const onNextSlide = () => {
+    if (sliderRef.current) {
+      sliderRef.current.goToSlide(currentIndex + 1);
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
+
+  const onPrevSlide = () => {
+    if (sliderRef.current) {
+      sliderRef.current.goToSlide(currentIndex - 1);
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
   const slides = [
     { eventDate: '15/04/2023', eventSeats: '500 Seats' },
     { eventDate: '10/06/2023', eventSeats: '400 Seats' },
@@ -27,23 +45,6 @@ const HomeScreen = () => {
     {}, {}, {},
   ]
 
-  const sliderRef = useRef();
-  const sliderRef2 = useRef();
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const onNextSlide = () => {
-    if (sliderRef.current) {
-      sliderRef.current.goToSlide(currentIndex + 1);
-      setCurrentIndex(currentIndex + 1);
-    }
-  };
-
-  const onPrevSlide = () => {
-    if (sliderRef.current) {
-      sliderRef.current.goToSlide(currentIndex - 1);
-      setCurrentIndex(currentIndex - 1);
-    }
-  };
   const renderItem = ({ item, index }) => {
     return (
       <SafeAreaView style={{}}>
@@ -66,7 +67,6 @@ const HomeScreen = () => {
                 <Image style={styles.QuizFrame} source={ImagePath.QuizFrame} />
               </View>
             </View>
-
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 20, marginTop: 8 }}>
               <View>
                 <TouchableOpacity style={styles.EnrollNowBTN}>
@@ -88,7 +88,6 @@ const HomeScreen = () => {
       </SafeAreaView>
     );
   }
-
   const renderItem2 = ({ item, }) => {
     return (
       <SafeAreaView style={{ flex: 1 }}>
@@ -103,7 +102,7 @@ const HomeScreen = () => {
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <TouchableOpacity style={{ marginTop: 15, paddingHorizontal: 0, margin: 5 }}>
-          <Image style={{ resizeMode: 'contain', width: 70, height: 70, borderRadius: 35, overflow: 'hidden' }} source={item.winnerImage} />
+          <Image style={styles.winnerImage} source={item.winnerImage} />
         </TouchableOpacity>
       </SafeAreaView>
     );
@@ -114,13 +113,12 @@ const HomeScreen = () => {
         <LinearGradient colors={['#88C541', '#2352A4',]} style={{ flex: 1 }}>
 
           <View style={{ marginTop: 15, paddingHorizontal: 0, margin: 5 }}>
-            <Image style={{ resizeMode: 'contain', width: 70, height: 70, borderRadius: 35, overflow: 'hidden' }} source={ImagePath.WinnerImage} />
+            <Image style={styles.winnerImage} source={ImagePath.WinnerImage} />
           </View>
         </LinearGradient>
       </SafeAreaView>
     );
   }
-
   return (
     <ScrollView style={{ flex: 1, backgroundColor: '#27374D', }}>
       <View style={styles.hederContent}>
@@ -131,7 +129,6 @@ const HomeScreen = () => {
           <Text style={styles.learnText}>LEARN</Text>
         </View>
       </View>
-
       <View style={styles.SearchBarContent}>
         <TouchableOpacity style={{ width: '20%', paddingHorizontal: 15 }}>
           <Image style={styles.profileImage} source={ImagePath.profileImage} />
@@ -165,7 +162,7 @@ const HomeScreen = () => {
       // onSlideChange={onLastSlide}
       />
       <View style={{ marginTop: 0, paddingHorizontal: 15 }}>
-        <Text style={styles.gameModeText}>Choose your Game Mood</Text>
+        <Text style={styles.gameModeText}>Choose your Game Mod</Text>
       </View>
       <FlatList
         horizontal
@@ -215,6 +212,7 @@ const styles = StyleSheet.create({
   hederContent: {
     flexDirection: 'row', marginTop: 15, paddingHorizontal: 10
   },
+  winnerImage:{ resizeMode: 'contain', width: 70, height: 70, borderRadius: 35, overflow: 'hidden' },
   menuContent: {
     alignItems: 'center', justifyContent: 'center', width: '10%',
   },

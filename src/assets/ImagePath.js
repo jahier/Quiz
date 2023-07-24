@@ -27,7 +27,10 @@ const ImagePath={
     Sports:require('../assets/image/Sports.png'),
     business:require('../assets/image/business.png'),
     IT:require('../assets/image/IT.png'),
-    GK:require('../assets/image/GK.png')
+    GK:require('../assets/image/GK.png'),
+    BottomBack:require('../assets/image/BottamBack.png'),
+    WinnerCup:require('../assets/image/WinnerCup.png'),
+    
 
 
 

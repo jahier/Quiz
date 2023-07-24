@@ -1,8 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Screen2 from '../screen/Screen2';
 import ImagePath from '../assets/ImagePath';
-import { View, Image, Animated, Text,TouchableOpacity } from 'react-native';
-import { scale } from 'react-native-size-matters';
+import { View, Image, Animated, Text, TouchableOpacity, ImageBackground } from 'react-native';
+import { ScaledSheet, scale } from 'react-native-size-matters';
 import { useRef } from 'react';
 import { widthPercentageToDP } from 'react-native-responsive-screen';
 import Sign_up from '../screen/Sign_up';
@@ -11,7 +11,10 @@ import HomeScreen from '../screen/HomeScreen';
 
 const Tab = createBottomTabNavigator();
 
+
 function BottomTab() {
+
+
     // const spinValue = useRef(new Animated.Value(0)).current;
 
     // const startAnimation = () => {
@@ -27,15 +30,18 @@ function BottomTab() {
     //     outputRange: ['0deg', '360deg'],
     // });
     RenderTabIcon = (props) => {
-        const { isFocus, active, inActive, marginLeft ,TextFocus,activeText,inActiveText,activeRight,inActiveRight} = props;
+        const { isFocus, active, inActive, marginLeft, TextFocus, activeText, inActiveText, activeRight, inActiveRight } = props;
         return (
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',marginRight:isFocus?activeRight:inActiveRight }}>
-                <View style={{ backgroundColor:isFocus? "#27374D":'white',justifyContent:'center',alignItems:'center',borderRadius:15,flexDirection:'row',padding:1,paddingHorizontal:5 ,marginTop:12,}}>
-                    <Image style={{ width: isFocus ? 25 : 20, height: isFocus ? 22 : 20, resizeMode: 'contain',margin:3,tintColor:isFocus?'white':'#27374D'}} source={isFocus ? active : inActive} />
-                    {TextFocus&&(
-                        <Text style={{color:'white',fontSize:14,fontWeight:'300',lineHeight:15}}>{TextFocus?activeText:inActiveText}</Text>
+            <View style={{}}>
+                {/* <Image style={{ resizeMode:'contain' }} source={ImagePath.BottomBack}> */}
+
+                    <View style={{ backgroundColor: isFocus ? "#27374D" : 'white', justifyContent: 'center', alignItems: 'center', borderRadius: 15, flexDirection: 'row', padding: 1, paddingHorizontal: 5, marginTop: 12, }}>
+                    <Image style={{ width: isFocus ? 25 : 20, height: isFocus ? 22 : 20, resizeMode: 'contain', margin: 3, tintColor: isFocus ? 'white' : '#27374D' }} source={isFocus ? active : inActive} />
+                    {TextFocus && (
+                        <Text style={{ color: 'white', fontSize: 14, fontWeight: '300', lineHeight: 15 }}>{TextFocus ? activeText : inActiveText}</Text>
                     )}
                 </View>
+                {/* </Image> */}
             </View>
         )
     }
@@ -43,12 +49,12 @@ function BottomTab() {
     const CustomButton = ({ children, onPress }) => (
         <View>
             <TouchableOpacity
-                style={{flex:1, justifyContent: 'center', alignItems: 'center' }}
-                // onPress={() => ShowDataButton('1') ||setModal(true)}
-                // onPress={() => setModal(!modal)}
+                style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+            // onPress={() => ShowDataButton('1') ||setModal(true)}
+            // onPress={() => setModal(!modal)}
             >
                 <View
-                    style={{ width: 30, height: 30, borderRadius: 20, backgroundColor: '#9DB2BF', justifyContent: 'center', alignItems: 'center',position:'absolute',bottom:30  }}>
+                    style={{ width: 30, height: 30, borderRadius: 20, backgroundColor: '#9DB2BF', justifyContent: 'center', alignItems: 'center', bottom: 30, borderWidth: 1, borderColor: 'gray', position: 'absolute' }}>
                     {children}
                 </View>
 
@@ -57,11 +63,16 @@ function BottomTab() {
     )
     return (
         <Tab.Navigator
-         screenOptions={{
-                    tabBarHideOnKeyboard: true,
-                    headerShown: false,
-                    tabBarStyle: { backgroundColor: 'white', height: 45, elevation: 15, position: 'absolute', bottom: 10, width: widthPercentageToDP(96), alignSelf: 'center', borderRadius: 20, marginLeft: widthPercentageToDP(2.5) },
-                }}>
+            screenOptions={{
+                tabBarHideOnKeyboard: true,
+                headerShown: false,
+                tabBarStyle: {
+                    backgroundColor: 'white', height: 45, elevation: 0, position: 'absolute', bottom: 10,
+                    width: widthPercentageToDP(96), alignSelf: 'center', borderRadius: 20, marginLeft: widthPercentageToDP(2.5),
+                    borderColor:'gray',borderWidth:1
+                },
+            
+            }}>
             <Tab.Screen
                 options={{
                     tabBarLabel: '',
@@ -80,8 +91,8 @@ function BottomTab() {
                     }
                 }}
                 name="HomeScreen" component={HomeScreen} />
-                
-<Tab.Screen
+
+            <Tab.Screen
                 options={{
                     tabBarLabel: '',
                     headerShown: false,
@@ -101,24 +112,24 @@ function BottomTab() {
                     }
                 }}
                 name="Sign_up" component={Sign_up} />
-                
-<Tab.Screen
-                    name="post"
-                    component={Login}
-                    options={{
-                        tabBarLabel: '',
-                        tabBarIcon: ({ focus }) => (
-                            <Image style={{ width: 20, height: 20, tintColor: 'white', alignSelf: 'center', top: 6 }} source={ImagePath.scanIcon} resizeMode='contain' />
-                        ),
-                        tabBarButton: (props) => (
-                            <CustomButton {...props} />
-                        )
 
-                    }}
-                />
+            <Tab.Screen
+                name="post"
+                component={Login}
+                options={{
+                    tabBarLabel: '',
+                    tabBarIcon: ({ focus }) => (
+                        <Image style={{ width: 20, height: 20, tintColor: 'white', alignSelf: 'center', top: 6 }} source={ImagePath.scanIcon} resizeMode='contain' />
+                    ),
+                    tabBarButton: (props) => (
+                        <CustomButton {...props} />
+                    )
+
+                }}
+            />
             <Tab.Screen
                 options={{
-                    tabBarLabel:'' ,
+                    tabBarLabel: '',
                     headerShown: false,
                     tabBarIcon: ({ focused }) => {
 
@@ -136,7 +147,7 @@ function BottomTab() {
                 name="Login" component={Login} />
             <Tab.Screen
                 options={{
-                    tabBarLabel:'' ,
+                    tabBarLabel: '',
                     headerShown: false,
                     tabBarIcon: ({ focused }) => {
 
@@ -159,3 +170,14 @@ function BottomTab() {
     );
 }
 export default BottomTab
+const styles=ScaledSheet.create({
+     backgroundImage: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+    opacity: 0.8, // Adjust the opacity as needed to blend with tab bar items
+  },
+})
