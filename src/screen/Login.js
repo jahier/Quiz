@@ -10,7 +10,7 @@ import SocialButton from '../Component/SocialButton'
 const Login = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.mainContent}>
-            <View style={{ marginTop: 25 }}>
+            <View style={{ marginTop: 0}}>
                 <Header rightText='Skip' leftBtn={ImagePath.leftArrow} tintColor='white' />
             </View>
             <View style={styles.whiteContent}>
@@ -30,7 +30,7 @@ const Login = ({ navigation }) => {
                     <Text style={styles.forgetText}>Forgot password?</Text>
                 </TouchableOpacity>
                 <View style={styles.BTNContent}>
-                    <Button onPress={() => navigation.navigate('MultipleSkills')} title="Sign In" />
+                    <Button onPress={() => navigation.navigate('SelectSkill')} title="Sign In" />
                 </View>
                 <Text style={styles.orSign}>----- or sign with -----</Text>
                 <View style={{ paddingHorizontal: 20, marginTop: 15 }}>

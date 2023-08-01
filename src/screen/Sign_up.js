@@ -5,12 +5,11 @@ import ImagePath from '../assets/ImagePath'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
 import Input from '../Component/Input'
 import Button from '../Component/ButtonComponent'
-import SocialButton from '../Component/SocialButton'
 
 const Sign_up = ({navigation}) => {
     return (
         <SafeAreaView style={styles.mainContent}>
-            <View style={{ marginTop: 25 }}>
+            <View style={{ marginTop: 0 }}>
                 <Header rightText='Skip' leftBtn={ImagePath.leftArrow} tintColor='white' />
             </View>
             <View style={styles.whiteContent}>
@@ -37,7 +36,7 @@ const Sign_up = ({navigation}) => {
                 </View>
 
                 <View style={styles.BTNContent}>
-                    <Button onPress={() => navigation.navigate('MultipleSkills')} title="Sign Up" />
+                    <Button onPress={() => navigation.navigate('SelectSkill')} title="Sign Up" />
                 </View>
                 <Text style={styles.orSign}>----- or sign with -----</Text>
                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 10 }}>

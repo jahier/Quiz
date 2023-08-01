@@ -27,7 +27,18 @@ const ImagePath={
     Sports:require('../assets/image/Sports.png'),
     business:require('../assets/image/business.png'),
     IT:require('../assets/image/IT.png'),
-    GK:require('../assets/image/GK.png')
+    GK:require('../assets/image/GK.png'),
+    WinnerCup:require('../assets/image/WinnerCup.png'),
+    gameMode:require('../assets/image/gameMode.png'),
+    gameModeIcon:require('../assets/image/gameModeIcon.png'),
+    myImage:require('../assets/image/myImage.jpg'),
+    activeHome:require('../assets/image/activeHome.png'),
+    activeSearch:require('../assets/image/activeSearch.png'),
+    activeUser:require('../assets/image/activeUser.png'),
+
+
+
+
 
 
 

@@ -5,7 +5,7 @@ import {
     StyleSheet,
     SafeAreaView,
     TouchableOpacity,
-    Image
+    Image, ImageBackground
 } from 'react-native';
 import React, { useRef, useState } from 'react';
 import AppIntroSlider from 'react-native-app-intro-slider';
@@ -72,17 +72,22 @@ const slides = [
 
 const Swiper = ({ navigation }) => {
     const sliderRef = useRef();
-    // const onLastSlide = (index, lastIndex) => {
-    //     if (slides[index].key == slides.length) {
-    //         setTimeout(() => {
-    //             navigation.navigate('Login')
-    //         }, 1000)
-    //     }
-    // }
+    const onLastSlide = (index, lastIndex) => {
+        if (slides[index].key == slides.length) {
+            setTimeout(() => {
+                navigation.navigate('Login')
+            }, 1000)
+        }
+    }
     const renderItem = ({ item, index }) => {
         return (
             <SafeAreaView style={styles.slide}>
-                <View style={styles.skytextview}>
+                <ImageBackground source={item?.image} style={styles.imageStyle}>
+                    <Text style={styles.titleText}>LEARNO</Text>
+                    <Text style={styles.Text}>Open your wings{'\n'}
+                        and Fly with Learno </Text>
+                </ImageBackground>
+                {/* <View style={styles.skytextview}>
                     <TouchableOpacity onPress={() => navigation.navigate('Login')}>
                         <Text style={item.skipText}>Skip</Text>
                     </TouchableOpacity>
@@ -101,7 +106,7 @@ const Swiper = ({ navigation }) => {
                     <View style={styles.BTNContent}>
                         <Button onPress={()=>navigation.navigate('Login')} title="Get Started"/>
                     </View>
-                )}
+                )} */}
 
             </SafeAreaView>
         );
@@ -116,10 +121,9 @@ const Swiper = ({ navigation }) => {
                 showNextButton={false}
                 showDoneButton={false}
                 renderItem={renderItem}
-                dotStyle={{ bottom: hp(10), width: wp('2%'), height: hp('1%'), backgroundColor: '#D9D9D9', borderRadius: 50 }}
-                activeDotStyle={{ bottom: hp(10), width: wp('3%'), height: hp('1%'), backgroundColor: '#526D82', borderRadius: 50 }}
-            // onSlideChange={onLastSlide}
-
+                dotStyle={{ width: wp('2%'), height: hp('1%'), backgroundColor: '#D9D9D9', borderRadius: 50 }}
+                activeDotStyle={{ width: wp('4%'), height: hp('1%'), backgroundColor: '#526D82', borderRadius: 50 }}
+                onSlideChange={onLastSlide}
             />
 
         </SafeAreaView>
@@ -130,65 +134,25 @@ export default Swiper;
 const styles = ScaledSheet.create({
     slide: {
         flex: 1,
+        // justifyContent:'center',
+        // alignItems:'center'
+    },
+    Text: {
+        fontSize: 15, fontWeight: 'bold',
+        lineHeight: 16, color: '#FFFF', textAlign: 'center',
+        marginTop: 10
     },
 
 
-    activeDotStyle: {
-        width: wp(6),
-        height: hp(1.5),
-        backgroundColor: '#25378C',
-    },
-    dotStyle: {
-        width: wp(3),
-        height: hp(1.4),
-        backgroundColor: '#25378C',
-    },
-    infoContainer: {
-        flex: 1,
-        justifyContent: 'space-between',
-        paddingBottom: hp(9)
-    },
-    infoTextCon: {
-        paddingTop: hp(5),
-        alignItems: 'center',
-    },
-    buttonContainer: {
-        padding: hp(2.1),
-        alignSelf: 'center',
-        borderRadius: hp(1.5),
+    titleText: {
+        fontSize: 25, fontWeight: 'bold',
+        lineHeight: 27, color: '#FFFF'
     },
     imageStyle: {
-        width: wp(100),
-        height: hp(70)
-    },
-    sweet: {
-        position: 'absolute',
-        alignItems: 'center',
-        top: hp(55),
-        left: wp(18)
-        , flexDirection: 'row',
-        backgroundColor: 'rgba(255, 255, 255, 0.8)',
-        paddingHorizontal: scale(10), borderRadius: scale(10),
-        padding: scale(5)
-    },
-    headingText: {
-        color: '#000000', fontSize: '24@s', fontWeight: 'bold',
-        textAlign: 'center', marginTop: '22@s'
-    },
-    BTNContent:{
-        paddingHorizontal:50,bottom:20
-    },
-    skytextview: {
-        paddingHorizontal: '14@s',
-        position: 'absolute',
-        alignSelf: 'flex-end',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
 
     },
-    skiptext: {
-        color: '#000000', fontSize: '12@s',
-        fontWeight: '700', textAlign: 'right',
-        marginTop: '10@s',
-        // fontFamily:Font.Montserrat
-        textDecorationLine: 'underline'
-    },
+
 });
