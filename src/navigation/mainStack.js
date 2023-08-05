@@ -6,6 +6,7 @@ import BottomTab from './BottomTab'
 import MultipleSkills from '../screen/MultipleSkills'
 import SelectSkill from '../screen/SelectSkill';
 import Demo from '../screen/Demo';
+import DataShow from '../screen/DataShow';
 const Stack = createNativeStackNavigator();
 function MainStack() {
     return (
@@ -14,6 +15,8 @@ function MainStack() {
             <Stack.Screen name="BottomTab" component={BottomTab} />
             <Stack.Screen name="MultipleSkills" component={MultipleSkills} />
             <Stack.Screen name="Demo" component={Demo} />
+            <Stack.Screen name="DataShow" component={DataShow} />
+
 
         </>
     );
