@@ -6,7 +6,7 @@ const ImagePath={
     leftArrow:require('../assets/image/leftArrow.png'),
     loginFormImage:require('../assets/image/loginFormImage.png'),
     googleLogo:require('../assets/image/googleLogo.png'),
-    facebookLogo:require('../assets/image/facebookLogo.png'),
+    appleLogo:require('../assets/image/appleLogo.png'),
     twitterLogo:require('../assets/image/twitterLogo.png'),
     homeIcon:require('../assets/image/homeIcon.png'),
     profileIcon:require('../assets/image/profileIcon.png'),
@@ -35,6 +35,8 @@ const ImagePath={
     activeHome:require('../assets/image/activeHome.png'),
     activeSearch:require('../assets/image/activeSearch.png'),
     activeUser:require('../assets/image/activeUser.png'),
+    bacImage:require('../assets/image/bacImage.png'),
+    rightGif:require('../assets/image/rightGif.gif')
 
 
 

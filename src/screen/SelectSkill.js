@@ -4,7 +4,7 @@ import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsi
 import ImagePath from '../assets/ImagePath';
 import Icon from 'react-native-vector-icons/Feather';
 
-export default function SelectSkill({navigation}) {
+export default function SelectSkill({ navigation }) {
     const [showImage, setShowImage] = useState()
     const ShowImageBtn = (id) => {
         setShowImage(id)
@@ -98,11 +98,14 @@ export default function SelectSkill({navigation}) {
                     },
                 ]
             }]}>
-                <TouchableOpacity onPress={() => ShowImageBtn(item.id)} style={{ width: showImage === item.id ? 100 : 90, height: showImage === item.id ? 100 : 90, borderRadius: 50, backgroundColor: item.backgroundColor, marginTop: item.marginTop, marginLeft: item.marginLeft, bottom: item.bottom, elevation: showImage === item.id ? 10 : 0, shadowColor: 'rgba(5, 99, 100, 1)', justifyContent: 'center', alignItems: 'center', padding: 3 }}>
+                <TouchableOpacity onPress={() => ShowImageBtn(item.id)}
+                 style={{ width: showImage === item.id ? 100 : 90,
+                  height: showImage === item.id ? 100 : 90, borderRadius: 50,
+                   backgroundColor: item.backgroundColor, marginTop: item.marginTop,
+                    marginLeft: item.marginLeft, bottom: item.bottom, elevation: showImage === item.id ? 10 : 0, shadowColor: 'rgba(5, 99, 100, 1)', justifyContent: 'center', alignItems: 'center', padding: 3 }}>
                     {showImage === item.id ? <ImageBackground style={{ width: showImage === item.id ? 100 : 90, height: showImage === item.id ? 100 : 90, borderRadius: 60, resizeMode: 'contain', overflow: 'hidden' }} source={ImagePath.Swiper2} >
                         <View style={{ backgroundColor: 'rgba(45, 47, 188, 0.25)', height: 98, width: 98, justifyContent: 'center', alignItems: 'center' }}>
                             <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: 'bold', lineHeight: 19, color: 'white', }}>{item.skill}</Text>
-
                         </View>
                     </ImageBackground> : <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: 'bold', lineHeight: 19, color: 'white', }}>{item.skill}</Text>
                     }
@@ -112,7 +115,7 @@ export default function SelectSkill({navigation}) {
     }
     const renderItem = ({ item }) => {
         return (
-            <Animated.View style={[{ margin: 10, backgroundColor: 'rgba(235, 229, 232, 0.56)', borderRadius: 50, width: item.width, height: item.height, marginLeft: item.marginLeft, marginTop: item.marginTop }, {
+            <Animated.View style={[{ margin: 10, backgroundColor: 'rgba(160,156,191,0.55)', borderRadius: 50, width: item.width, height: item.height, marginLeft: item.marginLeft, marginTop: item.marginTop }, {
                 transform: [
                     {
                         translateY: animated.interpolate({
@@ -145,7 +148,7 @@ export default function SelectSkill({navigation}) {
     }
 
     return (
-        <View style={{ flex: 1, backgroundColor: 'white' }}>
+        <View style={{ flex: 1, backgroundColor: 'rgba(39, 127, 245, 0.48)' }}>
             <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: 'bold', lineHeight: 19, color: 'black', marginTop: 20 }}>SELECT SKILLS</Text>
             <FlatList
                 numColumns={3}
@@ -192,28 +195,14 @@ export default function SelectSkill({navigation}) {
                     },
                 ]
             }]}>
-                <TouchableOpacity onPress={ startAnimation2() } style={{ backgroundColor: 'blue', width: 100, padding: 10, justifyContent: 'center', alignItems: 'center', borderRadius: 10 }}>
-                <TouchableOpacity onPress={()=>navigation.navigate("BottomTab")}>
-                <Icon name="corner-down-right" size={25} color="white" />
-                </TouchableOpacity>
+                <TouchableOpacity onPress={startAnimation2()} style={{ backgroundColor: 'blue', width: 100, padding: 10, justifyContent: 'center', alignItems: 'center', borderRadius: 10 }}>
+                    <TouchableOpacity onPress={() => navigation.navigate("BottomTab")}>
+                        <Icon name="corner-down-right" size={25} color="white" />
+                    </TouchableOpacity>
                 </TouchableOpacity>
             </Animated.View> : ''}
 
-            {/* <TouchableOpacity onPress={() => {
-                startAnimation()
-                setBtnClick(!btnClick)
-            }} style={[
-                {
-                    width: '90%', alignSelf: 'center',
-                    marginTop: 30, backgroundColor: 'black',
-                    borderRadius: 15, height: 45,
-                    justifyContent: 'center', alignItems: 'center'
-                }
-            ]}
 
-            >
-                <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'white' }}>PRESS</Text>
-            </TouchableOpacity> */}
         </View>
     )
 }

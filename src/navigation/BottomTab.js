@@ -9,6 +9,7 @@ import Sign_up from '../screen/Sign_up';
 import Login from '../screen/Login';
 import HomeScreen from '../screen/HomeScreen';
 import Icon from 'react-native-vector-icons/AntDesign';
+import Demo from '../screen/Demo';
 
 const Tab = createBottomTabNavigator();
 
@@ -138,7 +139,7 @@ function BottomTab() {
                         )
                     }
                 }}
-                name="Login" component={Login} />
+                name="Demo" component={Demo} />
             <Tab.Screen
                 options={{
                     tabBarLabel: '',

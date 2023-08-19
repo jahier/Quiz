@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, TouchableOpacity ,Image} from 'react-native'
 import React from 'react'
 import { ScaledSheet } from 'react-native-size-matters'
 import ImagePath from '../assets/ImagePath'
+import Icon from 'react-native-vector-icons/Feather';
 
 const SocialButton = (props) => {
     return (
@@ -24,11 +25,16 @@ const styles = ScaledSheet.create({
         height: 42,
         borderRadius: 0,
         alignSelf: 'center',
-        backgroundColor: '#9DB2BF',justifyContent:'center',alignItems:'center',flexDirection:'row'
+       justifyContent:'center',
+       alignItems:'center',
+       flexDirection:'row',
+       borderWidth:0.5,
+       borderColor:'#FFFCFC',
+       backgroundColor:'rgba(160,156,191,0.25)'
     },
     titleText: {
-        fontWeight: '300',
-        fontSize: 14, color: '#000000', lineHeight:19, textAlign: 'left'
+        fontWeight: '700',
+        fontSize: 14, color: '#FFFFFF', lineHeight:19, textAlign: 'left'
     },
     socialLogo:{
         width:25,height:25,resizeMode:'contain',marginRight:10,alignSelf:'flex-end'

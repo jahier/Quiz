@@ -5,10 +5,37 @@ import AppIntroSlider from 'react-native-app-intro-slider';
 import ImagePath from '../assets/ImagePath';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon3 from 'react-native-vector-icons/Entypo';
+import Drawer from 'react-native-drawer';
+
 
 export default function Screen2() {
-  const sliderRef = useRef();
+  const MyDrawerContent = ({ closeDrawer }) => {
+    return (
+      <View style={{width:'70%',height:300,backgroundColor:'black'}}>
+        <TouchableOpacity style={styles.drawerItem} >
+          <Text style={{ color: 'red' }}>Option 1</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.drawerItem} onPress={closeDrawer}>
+          <Text>Option 2</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.drawerItem} onPress={closeDrawer}>
+          <Text>Option 3</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  };
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
+  const toggleDrawer = () => {
+    setIsDrawerOpen();
+  };
+
+  const closeDrawer = () => {
+    setIsDrawerOpen(false);
+  };
+
+
+  const sliderRef = useRef();
   const slides = [
     {}, {}, {}, {},
   ];
@@ -19,6 +46,12 @@ export default function Screen2() {
   ];
 
   const Winner = [
+    {}, {}, {}, {}, {}, {},
+  ]
+  const TrendingQuiz = [
+    {}, {}, {}, {}, {}, {},
+  ]
+  const Withdraws = [
     {}, {}, {}, {}, {}, {},
   ]
   const WinnerItem = ({ item, index }) => {
@@ -37,6 +70,27 @@ export default function Screen2() {
           </ImageBackground>
 
         </LinearGradient>
+      </TouchableOpacity>
+    )
+  }
+  const QuizRender = ({ item }) => {
+    return (
+      <TouchableOpacity style={{ flex: 1, marginVertical: 10, marginHorizontal: 6 }}>
+          <ImageBackground style={{ resizeMode: 'contain', width: 110, height: 130, borderRadius: 15, overflow: 'hidden', alignItems: 'center', justifyContent: 'flex-end' }} source={ImagePath.bacImage}>
+            <View style={{ justifyContent: 'center', width: '100%', borderBottomLeftRadius: 15, borderBottomRightRadius: 15, backgroundColor: 'rgba(57, 55, 58, 0.55)', height: 40 ,paddingHorizontal:5}}>
+              <Text style={{ color: '#FFFF', fontSize: 12, fontWeight: '500', top: 3 }}>Future of AI{'\n'}Tech</Text>
+            </View>
+          </ImageBackground>
+      </TouchableOpacity>
+    )
+  }
+  const RecentWithdraws = ({ item, index }) => {
+    return (
+      <TouchableOpacity style={{ flex: 1, marginVertical: 10, marginHorizontal: 6 }}>
+          <ImageBackground style={{ resizeMode: 'contain', width: 110, height: 130, borderRadius: 15, overflow: 'hidden', alignItems: 'center', justifyContent: 'flex-end' }} source={ImagePath.SlideBackImage}>
+      
+          </ImageBackground>
+
       </TouchableOpacity>
     )
   }
@@ -81,13 +135,15 @@ export default function Screen2() {
     <ScrollView style={{ flex: 1, backgroundColor: 'white', }}>
       <View style={styles.headerMainContent}>
         <View style={styles.headerContent}>
-          <TouchableOpacity>
-            <Icon name="menu" size={25} color="white" />
-          </TouchableOpacity>
-          <Text style={styles.projectName}>LEARNO</Text>
-            <TouchableOpacity style={{ backgroundColor: 'white', width: 30, height: 30, borderRadius: 25, justifyContent: 'center', alignItems: 'center', marginLeft: 0 }}>
-              <Icon3 name="bell" size={20} color="#6304FA" />
+            <TouchableOpacity style={{width:30,height:30,alignSelf:'flex-start'}} onPress={()=>setIsDrawerOpen(true)}>
+              <Icon name="menu" size={25} color="white" />
             </TouchableOpacity>
+        
+
+          <Text style={styles.projectName}>LEARNO</Text>
+          <TouchableOpacity style={{ backgroundColor: 'white', width: 30, height: 30, borderRadius: 25, justifyContent: 'center', alignItems: 'center', marginLeft: 0 }}>
+            <Icon3 name="bell" size={20} color="#6304FA" />
+          </TouchableOpacity>
         </View>
 
         <View style={{ flexDirection: 'row', paddingHorizontal: 0, marginTop: 10 }}>
@@ -119,11 +175,11 @@ export default function Screen2() {
           renderItem={renderItem}
           dotStyle={{ width: 0, height: 0 }}
           activeDotStyle={{ width: 0, height: 0 }}
-        onSlideChange={true}
-       
+          onSlideChange={true}
+
         />
       </View>
-    
+
       <View style={{ paddingHorizontal: 15, flexDirection: 'row', alignItems: 'center' }}>
         <Image style={{ resizeMode: 'contain' }} source={ImagePath.gameMode} />
         <Image style={{ resizeMode: 'contain', marginLeft: 15 }} source={ImagePath.gameModeIcon} />
@@ -144,7 +200,7 @@ export default function Screen2() {
           <Image style={styles.winnerCup} source={ImagePath.trophyIcon} />
         </View>
         <TouchableOpacity>
-          <Text style={styles.ViewAll}>View all</Text>
+          <Text style={styles.ViewAll}>View All</Text>
         </TouchableOpacity>
       </View>
 
@@ -153,6 +209,37 @@ export default function Screen2() {
           horizontal
           data={Winner}
           renderItem={WinnerItem}
+          keyExtractor={(item) => item.id}
+          showsHorizontalScrollIndicator={false}
+        />
+      </View>
+
+      <View style={{  paddingHorizontal:15 }}>
+          <Text style={styles.TopWinners}>Trending quiz</Text>
+        </View>
+
+        <View style={{ bottom: 15, marginTop: 15 }}>
+        <FlatList
+          horizontal
+          data={TrendingQuiz}
+          renderItem={QuizRender}
+          keyExtractor={(item) => item.id}
+          showsHorizontalScrollIndicator={false}
+        />
+      </View>
+       <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 15, marginTop: 15,bottom:15 }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <Text style={styles.TopWinners}>Recent withdraws</Text>
+        </View>
+        <TouchableOpacity>
+          <Text style={styles.ViewAll}>View All</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={{ bottom: 30, marginTop: 15 }}>
+        <FlatList
+          horizontal
+          data={Withdraws}
+          renderItem={RecentWithdraws}
           keyExtractor={(item) => item.id}
           showsHorizontalScrollIndicator={false}
         />
@@ -188,7 +275,7 @@ const styles = StyleSheet.create({
     fontSize: 10, color: '#FFFF', fontWeight: '700'
   },
   TopWinners: {
-    fontSize: 16, lineHeight: 19, fontWeight: '600', color: 'black'
+    fontSize: 16, lineHeight: 19, fontWeight: '700', color: 'black'
   },
   winnerCup: {
     resizeMode: 'contain', width: 20, height: 18, marginLeft: 5,
@@ -196,4 +283,9 @@ const styles = StyleSheet.create({
   ViewAll: {
     fontSize: 14, lineHeight: 17, fontWeight: '400', color: 'black'
   },
+
+
+
+
+
 })

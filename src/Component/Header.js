@@ -3,10 +3,10 @@ import React from 'react'
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import ImagePath from '../assets/ImagePath';
 
-const Header = ({leftBtn,rightText,tintColor,navigation}) => {
+const Header = ({leftBtn,rightText,tintColor,onPress}) => {
     return (
         <View style={styles.mainContent}>
-            <TouchableOpacity onPress={()=>    navigation.goBack()}>
+            <TouchableOpacity onPress={onPress}>
                 <Image style={{tintColor:tintColor,width: 20, height: 17, resizeMode: 'contain'}} source={leftBtn} />
                 {/* <Icon name='rocket' size={30} color="#900" />; */}
             </TouchableOpacity>

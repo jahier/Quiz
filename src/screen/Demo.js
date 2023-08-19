@@ -1,24 +1,32 @@
-import { FlatList, StyleSheet, Text, TouchableOpacity, View, RefreshControl } from 'react-native'
-import React, { useEffect } from 'react'
-import { faceData } from '..';
+import { FlatList, StyleSheet, Text, TouchableOpacity, View, RefreshControl, TextInput } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser, fetchApiData } from '../slices/userSlice';
 import { Image } from 'react-native-animatable';
+import Input from '../Component/Input';
 
 export default function Demo(props) {
+  const dispatch = useDispatch()
+  const data = useSelector((state) => state.user.data)
   const [refreshing, setRefreshing] = React.useState(false);
+  const [search, setSearch] = useState()
+  console.log('=====>>>---SEARCh=====', search);
+
+  useEffect(() => {
+    dispatch(fetchApiData())
+  }, [dispatch])
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     setTimeout(() => {
       setRefreshing(false);
     }, 2000);
   }, []);
-  const dispatch = useDispatch()
-  const data = useSelector((state) => state.user.data)
-  console.log('=====>>>---Data=====', data);
-  useEffect(() => {
-    dispatch(fetchApiData())
-  }, [dispatch])
+
+
+  // const SEARCHDATA = data.filter((item) => item.first_name === search || item.email === search)
+  const filteredData = data.filter(item => item.first_name.toLowerCase().includes(search));
+  console.log('=====>>>---SEARCHDATA=====', filteredData);
+
   const handleItemPress = (userId) => {
     const selectedUser = data.find((data) => data.id === userId);
     props.navigation.navigate("DataShow", { userData: selectedUser });
@@ -65,25 +73,65 @@ export default function Demo(props) {
       </View>
       <View style={{ height: 1, width: '100%', backgroundColor: 'white', marginTop: 0 }}></View> */}
       </View>
-      <View style={{ paddingHorizontal: 15 }}>
-        <FlatList
-          //   numColumns={1}
-          data={data}
-          renderItem={selectRender}
-          showsHorizontalScrollIndicator={false}
 
-          refreshControl={
-            <RefreshControl
-             refreshing={refreshing}
-              onRefresh={onRefresh}
-              colors={['#ff0000', '#00ff00', '#0000ff']}
-                progressBackgroundColor="#fffff"
-             />
-          }
+      <View style={{ paddingHorizontal: 15, marginTop: 20 }}>
+        <Text style={{ fontSize: 12, color: filteredData.length === 0 ? 'maroon' : 'black', fontWeight: '700', lineHeight: 13 }}>Search</Text>
+        <TextInput
+          style={{
+            width: '100%', borderWidth: 1,
+            borderColor: '#27374D', height: 40,
+            paddingHorizontal: 15,
+            color: filteredData.length === 0 ? 'maroon' : 'black',
+            marginTop: 3, justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'white',
+            fontSize: 14, fontWeight: '700',
+            elevation: 15, shadowColor: 'darkblue',
+          }}
+          placeholder='Search'
+          placeholderTextColor="gray"
+          value={search}
+          onChangeText={(text) => setSearch(text)}
         />
       </View>
+      {filteredData.length === 0 ?
+        <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 30 }}>
+          <Text style={styles.notFound}>User Not Found</Text>
+        </View>
+        :
+        <View style={{ paddingHorizontal: 15, flex: 1, marginTop: 10 }}>
+          <FlatList
+            //   numColumns={1}
+            data={filteredData}
+            renderItem={selectRender}
+            showsHorizontalScrollIndicator={false}
+            keyExtractor={item => item.id.toString()}
+            refreshControl={
+              <RefreshControl
+                refreshing={refreshing}
+                onRefresh={onRefresh}
+                colors={['blue', 'pink', 'blue']}
+                progressBackgroundColor="white"
+              />
+            }
+          />
+        </View>}
+
     </View>
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  Input: {
+    width: '100%', borderWidth: 1,
+    borderColor: '#27374D', height: 40,
+    paddingHorizontal: 15, color: 'black',
+    marginTop: 3, justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
+    fontSize: 14, fontWeight: '700',
+    elevation: 15, shadowColor: 'darkblue'
+  },
+  label: { fontSize: 12, color: 'maroon', fontWeight: '700', lineHeight: 13 },
+  notFound: { fontSize: 30, color: 'gray', fontWeight: '700', lineHeight: 31 },
+})
