@@ -47,16 +47,7 @@ export default function SelectSkill({ navigation }) {
         { width: 100, height: 100 },
         { width: 70, height: 70, marginTop: heightPercentageToDP(15) },
         { width: 90, height: 90, marginTop: 25, marginLeft: 30 },
-        // 9
-        { width: 100, height: 100, marginTop: heightPercentageToDP(8), marginLeft: -20 },
-        { width: 70, height: 70 },
-        { width: 90, height: 90, marginTop: 30 },
-        { width: 100, height: 100 },
-        { width: 70, height: 70, marginLeft: widthPercentageToDP(15) },
-        { width: 60, height: 60, marginTop: -75, marginLeft: 30 },
-        { width: 100, height: 100, marginTop: -25, marginLeft: -30 },
-        { width: 70, height: 70 },
-        { width: 90, height: 90 },
+       
     ]
     const selectData = [
         { marginLeft: widthPercentageToDP(15), marginTop: heightPercentageToDP(2), backgroundColor: '#FF9850', id: '1', skill: 'Science' },
@@ -115,7 +106,7 @@ export default function SelectSkill({ navigation }) {
     }
     const renderItem = ({ item }) => {
         return (
-            <Animated.View style={[{ margin: 10, backgroundColor: 'rgba(160,156,191,0.55)', borderRadius: 50, width: item.width, height: item.height, marginLeft: item.marginLeft, marginTop: item.marginTop }, {
+            <Animated.View style={[{ margin: 10, backgroundColor: 'rgba(160,156,191,0.45)', borderRadius: 50, width: item.width, height: item.height, marginLeft: item.marginLeft, marginTop: item.marginTop }, {
                 transform: [
                     {
                         translateY: animated.interpolate({
@@ -148,8 +139,10 @@ export default function SelectSkill({ navigation }) {
     }
 
     return (
-        <View style={{ flex: 1, backgroundColor: 'rgba(39, 127, 245, 0.48)' }}>
+        <ImageBackground style={{ flex: 1 }} source={require('../assets/image/checkBacImage.png')} >
+        <View style={{ flex: 1,backgroundColor: 'rgba(160,156,191,0.25)', }}>
             <Text style={{ textAlign: 'center', fontSize: 18, fontWeight: 'bold', lineHeight: 19, color: 'black', marginTop: 20 }}>SELECT SKILLS</Text>
+            <View style={{justifyContent:'center',alignItems:'center'}}>
             <FlatList
                 numColumns={3}
                 data={Data}
@@ -157,6 +150,8 @@ export default function SelectSkill({ navigation }) {
                 keyExtractor={(item) => item.id}
                 showsHorizontalScrollIndicator={false}
             />
+            </View>
+            
             <View style={{ position: 'absolute', width: '100%', top: 115, }}>
                 <FlatList
                     //   numColumns={1}
@@ -204,6 +199,7 @@ export default function SelectSkill({ navigation }) {
 
 
         </View>
+        </ImageBackground>
     )
 }
 

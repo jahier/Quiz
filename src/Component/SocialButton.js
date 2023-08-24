@@ -9,7 +9,7 @@ const SocialButton = (props) => {
         <View>
             <TouchableOpacity onPress={props.onPress} style={styles.button}>
             <View style={{width:'30%'}}>
-            <Image style={styles.socialLogo} source={props.socialLogo}/>
+            <Image style={[styles.socialLogo,{tintColor:props.tintColor}]} source={props.socialLogo}/>
             </View>
             <View style={{width:'70%'}}>
             <Text style={styles.titleText}>{props.title}</Text>

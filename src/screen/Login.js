@@ -82,10 +82,10 @@ const Login = ({ navigation }) => {
 
                 {/* <ImageBackground style={styles.whiteContent} source={ImagePath.bacImage}> */}
                 <View style={styles.whiteContent}>
-                    {/* <View style={{ marginTop: 20 }}>
-                        <Text style={styles.SignInText}>Sign In !</Text>
-                    </View> */}
-                    <View style={{ paddingHorizontal: 15, marginTop: 35 }}>
+                    <View style={{ marginTop: 20 }}>
+                        <Text style={styles.SignInText}>WELCOME !</Text>
+                    </View>
+                    <View style={{ paddingHorizontal: 15, marginTop: 45 }}>
                         <Input placeholder="Email" label="Email Address"
                             value={email}
                             onChangeText={(text) => setEmail(text)}
@@ -114,7 +114,7 @@ const Login = ({ navigation }) => {
                     <View style={styles.BTNContent}>
                         <Button onPress={() => validate() || setShowImage(true)} title="Login Now" />
                     </View>
-                    <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')} style={{ paddingHorizontal: 15, marginTop: 10 }}>
+                    <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')} style={{ paddingHorizontal: 15, marginTop: 15 }}>
                         <Text style={styles.forgetText}>Forgot password?</Text>
                     </TouchableOpacity>
                     <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 15 }}>
@@ -126,11 +126,9 @@ const Login = ({ navigation }) => {
                     <View style={{ paddingHorizontal: 20, marginTop: 5 }}>
                         <SocialButton title="Login in with Google" socialLogo={ImagePath.googleLogo} />
                     </View>
-                    <View style={{ paddingHorizontal: 20, marginTop: 15 }}>
-                        <SocialButton title="Login in with Apple" socialLogo={ImagePath.appleLogo} />
+                    <View style={{ paddingHorizontal: 20, marginTop: 50,bottom:35 }}>
+                        <SocialButton title="Login in with Apple" socialLogo={ImagePath.appleLogo} tintColor="white"/>
                     </View>
-
-
                 </View>
                 {/* </ImageBackground> */}
                 {/* </LinearGradient> */}
@@ -146,7 +144,7 @@ const styles = StyleSheet.create({
         flex: 1, backgroundColor: '#27374D'
     },
     headingText: {
-        fontSize: 60, lineHeight: 61,
+        fontSize: 46, lineHeight: 61,
         color: 'white',
         fontWeight: 'bold',
         textAlign: 'center',
@@ -154,36 +152,37 @@ const styles = StyleSheet.create({
         marginTop: 40
     },
     LoginText: {
-        fontSize: 18, lineHeight: 19,
+        fontSize: 16, lineHeight: 16,
         color: 'white',
         fontWeight: '700',
-        textAlign: 'center'
+        textAlign: 'center',
+        marginTop:8
     },
     Lorem: {
-        fontSize: 11, lineHeight: 12,
+        fontSize: 12, lineHeight: 12,
         color: 'white',
-        fontWeight: '700',
-        textAlign: 'center', marginTop: 5
+        fontWeight: '500',
+        textAlign: 'center', marginTop: 8
     },
     whiteContent: {
-        backgroundColor: 'rgba(160,156,191,0.55)',
-        height: 440,
-        marginTop: heightPercentageToDP(5),
-        borderRadius: 20, width: '90%',
+        backgroundColor: 'rgba(160,156,191,0.25)',
+        // height: heightPercentageToDP(100),
+        marginTop: heightPercentageToDP(10),
+        borderRadius: 30, width: '100%',
         alignSelf: 'center',
-        borderWidth: 0.5, borderColor: 'white',
+        // borderWidth: 0.5, borderColor: 'white',
         // elevation: 10, shadowColor: 'white'
     },
     loginTopImage: {
         resizeMode: 'contain',
     },
     SignInText: {
-        fontSize: 24, fontWeight: '600',
-        lineHeight: 29, color: 'black',
+        fontSize: 30, fontWeight: '700',
+        lineHeight: 31, color: 'white',
         textAlign: 'center'
     },
     forgetText: {
-        color: 'white', fontSize: 12, lineHeight: 14, fontWeight: '600', textAlign: 'right'
+        color: 'white', fontSize: 14, lineHeight: 15, fontWeight: '600', textAlign: 'right'
     },
     BTNContent: {
         paddingHorizontal: 15, marginTop: 20
@@ -192,10 +191,10 @@ const styles = StyleSheet.create({
         color: 'white', fontSize: 12, lineHeight: 14, fontWeight: '500', textAlign: 'center', marginTop: 15
     },
     DonHaveAccount: {
-        color: 'white', fontSize: 12, lineHeight: 12, fontWeight: '500',
+        color: 'white', fontSize: 14, lineHeight: 15, fontWeight: '500',
     },
     createAccount: {
-        color: 'white', fontSize: 14, lineHeight: 15, fontWeight: 'bold',
+        color: 'white', fontSize: 16, lineHeight: 15, fontWeight: 'bold',
 
     },
 })

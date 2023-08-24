@@ -1,4 +1,4 @@
-import { StyleSheet, View, SafeAreaView, Image, Text, TouchableOpacity, ImageBackground } from 'react-native'
+import { StyleSheet, View, SafeAreaView, Image, Text, TouchableOpacity, ImageBackground, ScrollView } from 'react-native'
 import React from 'react'
 import Header from '../Component/Header'
 import ImagePath from '../assets/ImagePath'
@@ -11,43 +11,58 @@ const Sign_up = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.mainContent}>
             <ImageBackground style={{ flex: 1 }} source={ImagePath.bacImage}>
-                <View style={{ marginTop: 0 }}>
-                    <Header leftBtn={ImagePath.leftArrow} tintColor='white' onPress={()=>    navigation.goBack()} />
+                <View style={{ marginTop: 0, }}>
+                    <Header leftBtn={ImagePath.leftArrow} tintColor='white' onPress={() => navigation.goBack()} />
                 </View>
-                <Text style={styles.headingText}>LEARNO</Text>
-                <Text style={styles.LoginText}>Create an account</Text>
-                <Text style={styles.Lorem}>Please complete your profile</Text>
+                <ScrollView style={{ flex: 1, paddingHorizontal: 15 }}>
+                    <Text style={styles.headingText}>LEARN<Text style={{ color: 'orange' }}>NO</Text></Text>
+                    {/* <Image style={{width:'100%',height:100,resizeMode:'contain'}} source={require('../assets/image/logo.png')}/> */}
+                    <Text style={styles.LoginText}>Create an account</Text>
+                    <Text style={styles.Lorem}>Please complete your profile</Text>
+                    <View style={styles.whiteContent}>
+                        <View style={{ marginTop: 20 }}>
+                            <Text style={styles.SignInText}>Get Started !</Text>
+                        </View>
+                        <View style={styles.inputContent}>
+                            <Input placeholder="Full Name" label="Full Name" />
+                        </View>
+                        <View style={styles.inputContent}>
+                            <Input placeholder="Mobile Number" label="Mobile Number" />
+                        </View>
+                        <View style={styles.inputContent}>
+                            <Input placeholder="Email Address" label="Email Address" />
+                        </View>
+                        <View style={styles.inputContent}>
+                            <Input placeholder="Password" label="Password" />
+                        </View>
+                        <View style={styles.inputContent}>
+                            <Input placeholder="Confirm Password" label="Confirm Password" />
+                        </View>
+                        <View style={styles.inputContent}>
+                            <Input placeholder="Refer Code" label="Refer Code (if any)" />
+                        </View>
+                        {/* <View style={{ paddingHorizontal: 15, marginTop: 10 }}>
+                        <Text style={styles.label}>DOB</Text>
+                    </View> */}
 
-                <View style={styles.whiteContent}>
-                    <View style={{ marginTop: 10 }}>
-                    </View>
-                    <View style={{ paddingHorizontal: 15, marginTop: 15 }}>
-                        <Input placeholder="Full Name" label="Full Name" />
-                    </View>
-                    <View style={{ paddingHorizontal: 15, marginTop: 10 }}>
-                        <Input placeholder="Mobile Number" label="Mobile Number" />
-                    </View>
-                    <View style={{ paddingHorizontal: 15, marginTop: 10 }}>
-                        <Input placeholder="Email Address" label="Email Address" />
-                    </View>
-                    <View style={{ paddingHorizontal: 15, marginTop: 10 }}>
-                        <Input placeholder="Password" label="Password" />
-                    </View>
-                    <View style={{ paddingHorizontal: 15, marginTop: 10 }}>
-                        <Input placeholder="Confirm Password" label="Confirm Password" />
-                    </View>
+                        <View style={styles.BTNContent}>
+                            <Button onPress={() => navigation.navigate('MultipleSkills')} title="Sign Up" />
+                        </View>
+                        <View style={{ paddingHorizontal: 20, marginTop: 15 }}>
+                            <Text style={styles.Lorem}>Login in with </Text>
+                        </View>
+                        <View style={styles.socialBtnContent}>
+                            <TouchableOpacity>
+                                <Image style={styles.socialLogo} source={ImagePath.googleLogo} />
+                            </TouchableOpacity>
+                            <TouchableOpacity>
+                                <Image style={styles.appleLogo} source={ImagePath.appleLogo} />
+                            </TouchableOpacity>
+                        </View>
 
-                    <View style={styles.BTNContent}>
-                        <Button onPress={() => navigation.navigate('SelectSkill')} title="Sign Up"  />
                     </View>
-                    <View style={{ paddingHorizontal: 20, marginTop: 20 }}>
-                        <SocialButton title="Login up with Google" socialLogo={ImagePath.googleLogo} />
-                    </View>
-                    <View style={{ paddingHorizontal: 20, marginTop: 10 }}>
-                        <SocialButton title="Login up with Apple" socialLogo={ImagePath.appleLogo} />
-                    </View>
-                    
-                </View>
+                </ScrollView>
+
             </ImageBackground>
         </SafeAreaView>
     )
@@ -56,42 +71,73 @@ export default Sign_up
 
 const styles = StyleSheet.create({
     mainContent: {
-        flex: 1, backgroundColor: '#27374D'
+        flex: 1,
+    },
+    socialBtnContent: {
+        paddingHorizontal: 20,
+        marginTop: 30, bottom: 20,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        width: '25%', alignSelf: 'center',
+        alignItems: 'center'
+    },
+    inputContent: {
+        paddingHorizontal: 15,
+        marginTop: 15
+    },
+    socialLogo: {
+        width: 25, height: 25, resizeMode: 'contain',
+
+    },
+    appleLogo: {
+        width: 25, height: 25,
+        resizeMode: 'contain',
+        tintColor: 'white'
+
     },
     headingText: {
-        fontSize: 60, lineHeight: 61,
-        color: 'white',
+        fontSize: 46, lineHeight: 61,
+        color: 'skyblue',
         fontWeight: 'bold',
         textAlign: 'center',
 
-        marginTop: 10
+        marginTop: 40
     },
     LoginText: {
-        fontSize: 18, lineHeight: 19,
+        fontSize: 16, lineHeight: 16,
         color: 'white',
         fontWeight: '700',
-        textAlign: 'center'
+        textAlign: 'center',
+        marginTop: 8
     },
-    Lorem: {
-        fontSize: 11, lineHeight: 12,
-        color: 'white',
+    label: {
+        fontSize: 12,
+        color: '#FFFFFF',
         fontWeight: '700',
-        textAlign: 'center', marginTop: 5
+        lineHeight: 13
+    },
+
+    Lorem: {
+        fontSize: 12, lineHeight: 12,
+        color: 'white',
+        fontWeight: '500',
+        textAlign: 'center', marginTop: 8
     },
     whiteContent: {
-        backgroundColor: 'rgba(160,156,191,0.55)',
-        height: 580,
-        marginTop: heightPercentageToDP(3),
-        borderRadius: 20, width: '90%',
+        backgroundColor: 'rgba(160,156,191,0.25)',
+        // height: heightPercentageToDP(80),
+        marginTop: heightPercentageToDP(5),
+        borderRadius: 30, width: '100%',
         alignSelf: 'center',
-        borderWidth: 0.5, borderColor: '#FFFCFC',
+        // flex: 1
+        marginBottom: heightPercentageToDP(5)
     },
     loginTopImage: {
         resizeMode: 'contain', height: 180
     },
     SignInText: {
-        fontSize: 24, fontWeight: '600',
-        lineHeight: 29, color: '#27374D',
+        fontSize: 30, fontWeight: '700',
+        lineHeight: 31, color: 'white',
         textAlign: 'center'
     },
     forgetText: {

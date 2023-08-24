@@ -27,11 +27,11 @@ const styles = StyleSheet.create({
     width: '100%', borderWidth: 1,
     borderColor: '#E0E0E0', height: 40,
     paddingHorizontal: 15, color: 'White',
-    marginTop: 2, justifyContent: 'center',
+    marginTop: 3, justifyContent: 'center',
     alignItems: 'center',
     backgroundColor:'rgba(160,156,191,0.25)',
     fontSize:14,fontWeight:'700'
   },
   label: { fontSize: 12, color: '#FFFFFF', fontWeight: '700', lineHeight: 13 },
-  star:{ fontSize: 12, color: 'darkred', fontWeight: '700', lineHeight: 13 },
+  star:{ fontSize: 16, color: 'white', fontWeight: '700', lineHeight: 16 },
 })

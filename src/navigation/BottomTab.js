@@ -64,7 +64,7 @@ function BottomTab() {
             screenOptions={{
                 tabBarHideOnKeyboard: true,
                 headerShown: false,
-                tabBarStyle: { backgroundColor: '#7C4DEB', height: 50, elevation: 10,  width: widthPercentageToDP(100), alignSelf: 'center',  },
+                tabBarStyle: { backgroundColor: '#172866', height: 50, elevation: 10,  width: widthPercentageToDP(100), alignSelf: 'center',  },
             }}>
             <Tab.Screen
                 options={{

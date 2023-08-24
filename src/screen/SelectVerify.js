@@ -6,7 +6,7 @@ import ImagePath from '../assets/ImagePath'
 export default function SelectVerify({navigation}) {
   return (
     <View style={styles.mainContent}>
-      <ImageBackground style={styles.bacImage} source={ImagePath.bacImage}>
+      <ImageBackground style={styles.bacImage} source={require('../assets/image/checkBacImage.png')}>
         <Text style={styles.headingText}>LEARNO</Text>
         <Text style={styles.LoginText}>Login into account</Text>
         <View style={{ marginTop: 20 }}>

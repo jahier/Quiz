@@ -36,7 +36,19 @@ const ImagePath={
     activeSearch:require('../assets/image/activeSearch.png'),
     activeUser:require('../assets/image/activeUser.png'),
     bacImage:require('../assets/image/bacImage.png'),
-    rightGif:require('../assets/image/rightGif.gif')
+    rightGif:require('../assets/image/rightGif.gif'),
+    singleMode:require('../assets/image/singalMode.png'),
+    dualMode:require('../assets/image/dualMode.png'),
+    multipleMode:require('../assets/image/multipleMode.png'),
+    drawerBac:require('../assets/image/drawerBac.png'),
+    menuDrawer:require('../assets/image/menuDrawer.jpg'),
+    Union:require('../assets/image/Union.png'),
+
+    
+
+
+
+
 
 
 

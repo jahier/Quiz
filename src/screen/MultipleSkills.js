@@ -9,12 +9,18 @@ import { heightPercentageToDP } from 'react-native-responsive-screen'
 
 
 export default function MultipleSkills({ navigation }) {
-    const [select, setSelect] = useState(false)
-    const selectBtn = (id) => {
-        setSelect(id)
-    }
+    const [select, setSelect] = useState([])
+    console.log('======>>>>', select);
+    const toggleItemSelection = (itemId) => {
+        if (select.includes(itemId)) {
+            setSelect(select.filter((id) => id !== itemId));
+        } else {
+            setSelect([...select, itemId]);
+        }
+    };
+
     const Data = [
-        { id: '1', skill: "Science", img: ImagePath.ScienceLAB }, { id: '2', skill: 'GK', img: ImagePath.GK },
+        { id: '1', skill: "Science", img: ImagePath.swiper1 }, { id: '2', skill: 'GK', img: ImagePath.GK },
         { id: '3', skill: 'Entertainment', img: ImagePath.entertainment }, { id: '4', skill: 'Business', img: ImagePath.business },
         { id: '5', skill: 'IT', img: ImagePath.IT }, { id: '6', skill: 'Sport', img: ImagePath.Sports },
     ]
@@ -22,46 +28,66 @@ export default function MultipleSkills({ navigation }) {
     const renderItem = ({ item }) => {
         return (
             <View>
-                <TouchableOpacity onPress={() => selectBtn(item.id)} style={{flex:1,elevation:10}}>
-                <View style={{
-                     backgroundColor: select === item.id ? 'rgba(160,156,191,0.30)' : 'rgba(160,156,181,0.30)',
-                    width: 150, height: 120, margin: 10, marginVertical: 10,
-                    justifyContent: 'center', padding: 0,
-                    alignItems: 'center',
-                    borderWidth: select === item.id ? 0.5 : 0,
-                    borderColor: select === item.id ? 'white' : 'lightgray',
-                    elevation: 1.5, shadowColor: 'rgba(188, 4, 161, 0.2)',
-                    borderTopLeftRadius:15,borderTopRightRadius:15,borderBottomRightRadius:15
-                }}>
-                <Text style={styles.skillText}>{item.skill}</Text>
+                <TouchableOpacity onPress={() => toggleItemSelection(item.id)} style={{ flex: 1, elevation: 15 }}>
+                    <View style={{
+                        backgroundColor: select.includes(item.id) ? 'rgba(160,156,191,0.25)' : 'rgba(160,156,191,0.25)',
+                        width: 150, height: 120, margin: 5, marginVertical: 10,
+                        justifyContent: 'center', padding: 0,
+                        alignItems: 'center',
+                        borderWidth: select.includes(item.id) ? 1.5 : 0.3,
+                        borderColor: select.includes(item.id) ? 'skyblue' : 'white',
+                        elevation: 0, shadowColor: 'rgba(188, 4, 161, 0.2)',
+                        borderTopLeftRadius: 20, borderBottomRightRadius: 20
+                    }}>
+                        {select.includes(item.id) ?
+                            <ImageBackground style={{
+                                width: 150,
+                                height: 120, alignItems: 'center',
+                                justifyContent: 'center',
+                                borderTopLeftRadius: 20, borderBottomRightRadius: 20,
+                                borderWidth: select.includes(item.id) ? 1.5 : 0.3,
+                                borderColor: select.includes(item.id) ? 'skyblue' : 'white',
+                                overflow: 'hidden'
+                            }} source={ImagePath.swiper1} >
+                                <Text style={styles.skillText}>{item.skill}</Text>
 
-                </View>
+                            </ImageBackground>
+                            :
+                            <Text style={styles.skillText}>{item.skill}</Text>
+                        }
+
+                    </View>
                 </TouchableOpacity>
             </View>
         )
     }
     return (
-        <ImageBackground style={{ flex: 1 }} source={require('../assets/image/bacImage2.png')}>
-            <View style={styles.mainContent}>
-                <Header rightText='Skip' leftBtn={ImagePath.leftArrow} tintColor='white' />
-                <Text style={styles.headingText}>LEARNO</Text>
-                <View style={styles.userNameContent}>
-                    <Text style={styles.userName}>Hii{'ZAHEER'}</Text>
-                    <Text style={styles.SkillsText}>Choose Your Skills</Text>
-                </View>
-                <View style={styles.FlatListContent}>
-                    <FlatList
-                        numColumns={2}
-                        data={Data}
-                        renderItem={renderItem}
-                        keyExtractor={(item) => item.id}
-                        showsHorizontalScrollIndicator={false}
-                    />
-                </View>
-                <View style={styles.btnContent}>
-                    <Button onPress={() => navigation.navigate('BottomTab')} title='NEXT' />
+        <ImageBackground style={{ flex: 1 }} source={ImagePath.bacImage} >
+            {/* <View style={{ flex: 1, backgroundColor: 'rgba(19, 18, 19, 0.29)' }}> */}
+            <Header leftBtn={ImagePath.leftArrow} tintColor='white' onPress={() => navigation.goBack()} />
+            <Text style={styles.headingText}>LEARNO</Text>
+            <View style={styles.userNameContent}>
+                <Text style={styles.userName}>Hii: {'ZAHEER'}</Text>
+                <Text style={styles.SkillsText}>Choose Your Skills</Text>
+            </View>
+            <View style={{ paddingHorizontal: 15, flex: 1 }}>
+                <View style={styles.mainContent}>
+
+                    <View style={styles.FlatListContent}>
+                        <FlatList
+                            numColumns={2}
+                            data={Data}
+                            renderItem={renderItem}
+                            keyExtractor={(item) => item.id}
+                            showsHorizontalScrollIndicator={false}
+                        />
+                    </View>
+                    <View style={styles.btnContent}>
+                        <Button onPress={() => navigation.navigate('BottomTab')} title='NEXT' />
+                    </View>
                 </View>
             </View>
+            {/* </View> */}
         </ImageBackground>
     )
 }
@@ -69,16 +95,17 @@ export default function MultipleSkills({ navigation }) {
 const styles = ScaledSheet.create({
     mainContent: {
         flex: 1,
-        backgroundColor: 'rgba(12, 240, 242, 0)',
-        // elevation:10
+        backgroundColor: 'rgba(160,156,191,0.25)',
+        marginTop: 50,
+        borderRadius: 30,
+        bottom:30
     },
     headingText: {
-        color: 'rgba(100,126,191,100.25)',
-        fontSize: 54,
+        fontSize: 45, lineHeight: 46,
+        color: 'white',
         fontWeight: 'bold',
-        lineHeight: 55,
         textAlign: 'center',
-        marginTop: scale(30)
+        marginTop: 25
     },
     btnContent: {
         paddingHorizontal: 15,
@@ -90,17 +117,17 @@ const styles = ScaledSheet.create({
         marginTop: 20
     },
     userName: {
-        color: 'black',
+        color: 'white',
         fontSize: 14,
         fontWeight: '400',
         lineHeight: 15
     },
     userNameContent: {
-        paddingHorizontal: 15,
-        marginTop: 30
+        paddingHorizontal: 20,
+        marginTop: 30,
     },
     SkillsText: {
-        color: 'black',
+        color: 'white',
         fontSize: 16,
         fontWeight: '700',
         lineHeight: 17,
@@ -113,7 +140,7 @@ const styles = ScaledSheet.create({
     skillText: {
         textAlign: 'center',
         fontSize: 17,
-        color: 'black',
+        color: 'white',
         fontWeight: '700',
         lineHeight: 18,
         bottom: 0
