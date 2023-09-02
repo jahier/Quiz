@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
         color: 'white', fontSize: 14, lineHeight: 15, fontWeight: '500',
     },
     createAccount: {
-        color: 'white', fontSize: 16, lineHeight: 15, fontWeight: 'bold',
+        color: 'white', fontSize: 16, lineHeight: 17, fontWeight: 'bold',
 
     },
 })

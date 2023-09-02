@@ -43,6 +43,14 @@ const ImagePath={
     drawerBac:require('../assets/image/drawerBac.png'),
     menuDrawer:require('../assets/image/menuDrawer.jpg'),
     Union:require('../assets/image/Union.png'),
+    sportsBac:require('../assets/image/sportsBac.png'),
+    ITBack:require('../assets/image/ITBack.png'),
+    subDataImg:require('../assets/image/subDataImg.png'),
+    gameTypBac:require('../assets/image/gameTypBac.jpg'),
+
+
+
+
 
     
 
