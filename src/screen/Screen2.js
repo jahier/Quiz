@@ -51,10 +51,17 @@ export default function Screen2(props) {
   const clickData2 = () => {
     props.navigation.navigate('SkillVerify', { data: '2' })
   }
+  const clickData3 = () => {
+    props.navigation.navigate('SkillVerify', { data: '3' })
+  }
+  const clickData4 = () => {
+    props.navigation.navigate('SkillVerify', { data: '4' })
+  }
   const Data = [
     { modeText: 'Practice Mode\n\Play Single', img: ImagePath.singleMode, onPress: clickData },
     { modeText: 'Dual  Play \n\ with friends', img: ImagePath.dualMode, onPress: clickData2 },
-    { modeText: 'Slots\n\Play in groups', img: ImagePath.multipleMode, onPress: clickData2 },
+    { modeText: 'Multiply\n\Play in groups', img: ImagePath.multipleMode, onPress: clickData3 },
+    { modeText: 'Slots\n\Play in groups', img: ImagePath.multipleMode, onPress: clickData4 },
   ];
 
   const Winner = [
@@ -73,7 +80,7 @@ export default function Screen2(props) {
           width: 110, height: 130, borderRadius: 10, justifyContent: 'center', alignItems: 'center',
           elevation: 0, shadowColor: 'black'
         }}
-          colors={['#C1C2C4', '#C1C2C4',]}
+          colors={['#E8E8E836', '#E8E8E836']}
           start={{ x: 0, y: 0 }}
           end={{ x: 0, y: 0 }}
         >
@@ -143,7 +150,7 @@ export default function Screen2(props) {
       <SafeAreaView style={{ flex: 1, }}>
         <View style={{ marginTop: 15, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 15 }}>
           <LinearGradient
-            colors={['#FFFCFC9B', '#FFFFFF66', '#FFFEFE00']}
+            colors={['#E8E8E836', '#E8E8E836']}
             start={{ x: 0.0, y: 0.25 }} end={{ x: 0.9, y: 1.5 }}
             style={{ width: '100%', height: 150, overflow: 'hidden', borderBottomRightRadius: 15, borderBottomLeftRadius: 15 }} >
             {/* <TouchableOpacity style={{ backgroundColor: '#94A3B2', padding: 5, borderRadius: 10, alignSelf: 'flex-end', marginTop: 10, marginRight: 15, paddingHorizontal: 10 }}>
@@ -155,7 +162,7 @@ export default function Screen2(props) {
                 <Text style={styles.event}>LEARNO MEGA EVENT </Text>
                 <Text style={styles.eventDetails}>Event Date: 15/04/2023</Text>
                 <Text style={styles.eventDetails}>500 Seats</Text>
-                <TouchableOpacity style={{ backgroundColor: '#94A3B2', padding: 5, paddingHorizontal: 10, borderRadius: 10, alignSelf: 'center', marginTop: 10, marginRight: 15 }}>
+                <TouchableOpacity style={{ backgroundColor: '#666666', padding: 5, paddingHorizontal: 10, borderRadius: 10, marginTop: 10, marginRight: 15,width:70 }}>
                   <Text style={styles.btnLabel}>Enroll Now</Text>
                 </TouchableOpacity>
               </View>
@@ -171,9 +178,12 @@ export default function Screen2(props) {
   return (
     <ImageBackground source={ImagePath.homeBackground} style={{ flex: 1, }}>
       {/* <View style={styles.headerMainContent}> */}
-      <LinearGradient colors={['#FFFCFC9B', '#FFFFFF69','#FFFFFF66']}
+      <LinearGradient colors={[
+        // 'rgba(138, 136, 144, 1)', 'rgba(109, 108, 114, 0.8)','rgba(109, 108, 114, 0.5)'
+        '#E8E8E836', '#E8E8E836'
+      ]}
         start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 0 }}
+        end={{ x: 0, y: 1 }}
         style={styles.headerMainContent}>
 
         <View style={styles.headerContent}>
@@ -186,12 +196,12 @@ export default function Screen2(props) {
 
           </View>
           <View style={{ flexDirection: 'row', width: '18%' }}>
-            <TouchableOpacity style={{ backgroundColor: 'white', width: 30, height: 30, borderRadius: 25, justifyContent: 'center', alignItems: 'center', marginRight: 10 }}>
-              <Icon name="search" size={20} color="#172866" />
+            <TouchableOpacity style={{ backgroundColor: '#666666', width: 30, height: 30, borderRadius: 25, justifyContent: 'center', alignItems: 'center', marginRight: 10 }}>
+              <Icon name="search" size={20} color="white" />
 
             </TouchableOpacity>
-            <TouchableOpacity style={{ backgroundColor: 'white', width: 30, height: 30, borderRadius: 25, justifyContent: 'center', alignItems: 'center', marginLeft: 0 }}>
-              <Icon3 name="bell" size={20} color="#172866" />
+            <TouchableOpacity style={{ backgroundColor: '#666666', width: 30, height: 30, borderRadius: 25, justifyContent: 'center', alignItems: 'center', marginLeft: 0 }}>
+              <Icon3 name="bell" size={20} color="white" />
             </TouchableOpacity>
           </View>
         </View>
@@ -203,16 +213,16 @@ export default function Screen2(props) {
           <View style={{ justifyContent: 'center', marginLeft: 15 }}>
             <Text style={styles.userName}>Zaheer</Text>
             <View style={{ flexDirection: 'row', marginTop: 5, width: '100%' }}>
-              <View style={{ backgroundColor: '#E4E3E342', width: 60, height: 30, borderTopRightRadius: 0, borderBottomRightRadius: 20, borderTopLeftRadius: 20, paddingHorizontal: 10, flexDirection: 'row', alignItems: 'center', borderBottomLeftRadius: 20 }}>
+              <View style={{ backgroundColor: '#666666', width: 60, height: 30, borderTopRightRadius: 0, borderBottomRightRadius: 20, borderTopLeftRadius: 20, paddingHorizontal: 10, flexDirection: 'row', alignItems: 'center', borderBottomLeftRadius: 20 }}>
                 <Icon3 name="bar-graph" size={20} color="orange" />
                 <Text style={{ marginLeft: 10, fontSize: 14, color: 'white', fontWeight: '700' }}>0</Text>
               </View>
-              <View style={{ backgroundColor: '#C1C0C4', width: 70, height: 30, borderTopRightRadius: 0, borderBottomRightRadius: 20, borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginLeft: 10, paddingHorizontal: 5, flexDirection: 'row', alignItems: 'center' }}>
-                <Icon3 name="wallet" size={16} color="#172866" />
-                <Text style={{ marginLeft: 5, fontSize: 12, color: '#172866', fontWeight: '700' }}>₹ {"5000"}</Text>
+              <View style={{ backgroundColor: '#666666', width: 70, height: 30, borderTopRightRadius: 0, borderBottomRightRadius: 20, borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginLeft: 10, paddingHorizontal: 5, flexDirection: 'row', alignItems: 'center' }}>
+                <Icon3 name="wallet" size={16} color="white" />
+                <Text style={{ marginLeft: 5, fontSize: 12, color: 'white', fontWeight: '700' }}>₹ {"5000"}</Text>
               </View>
-              <TouchableOpacity onPress={() => openBottomSheet()} style={{ backgroundColor: '#C1C0C4', width: 70, height: 30, borderTopRightRadius: 0, borderBottomRightRadius: 20, borderTopLeftRadius: 20, marginLeft: 10, paddingHorizontal: 5, flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-end', borderBottomLeftRadius: 20 }}>
-                <Text style={{ marginLeft: 5, fontSize: 12, color: '#172866', fontWeight: '700' }}>Join Quiz</Text>
+              <TouchableOpacity onPress={() => openBottomSheet()} style={{ backgroundColor: '#666666', width: 70, height: 30, borderTopRightRadius: 0, borderBottomRightRadius: 20, borderTopLeftRadius: 20, marginLeft: 10, paddingHorizontal: 5, flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-end', borderBottomLeftRadius: 20 }}>
+                <Text style={{ marginLeft: 5, fontSize: 12, color: 'white', fontWeight: '700' }}>Join Quiz</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -220,7 +230,7 @@ export default function Screen2(props) {
       </LinearGradient>
       {/* </View> */}
       <ScrollView>
-        <View style={{ height: 230 }}>
+        <View style={{ flex:1 }}>
           <AppIntroSlider
             ref={sliderRef}
             data={slides}
@@ -235,18 +245,32 @@ export default function Screen2(props) {
           />
         </View>
 
-        <View style={{ paddingHorizontal: 15, flexDirection: 'row', alignItems: 'center' }}>
+        <View style={{ paddingHorizontal: 15, flexDirection: 'row', alignItems: 'center',marginTop:20 }}>
           <Image style={{ resizeMode: 'contain', tintColor: 'white' }} source={ImagePath.gameMode} />
           <Image style={{ resizeMode: 'contain', marginLeft: 15 }} source={ImagePath.gameModeIcon} />
         </View>
         <View style={{ flex: 1 }}>
           <FlatList
+          
             horizontal
             data={Data}
             renderItem={renderItem2}
             keyExtractor={(item) => item.id}
             showsHorizontalScrollIndicator={false}
           />
+          {/* <AppIntroSlider
+            ref={sliderRef}
+            data={Data}
+            showSkipButton={false}
+            showNextButton={false}
+            showDoneButton={false}
+            renderItem={renderItem2}
+            dotStyle={{ width: 0, height: 0 }}
+            activeDotStyle={{ width: 0, height: 0 }}
+            onSlideChange={true}
+            style={{width:200}}
+
+          /> */}
         </View>
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 15, marginTop: 15 }}>
@@ -281,7 +305,7 @@ export default function Screen2(props) {
           </TouchableOpacity> */}
         </View>
 
-        <View style={{ bottom: 15, marginTop: 15 }}>
+        <View style={{  marginTop: 0 }}>
           <FlatList
             horizontal
             data={TrendingQuiz}
@@ -301,15 +325,16 @@ export default function Screen2(props) {
 
 
             <LinearGradient style={{
-              backgroundColor: 'rgba(51, 51, 116, 0.78)'
-              , padding: 10,
+              // backgroundColor: 'rgba(51, 51, 116, 0.78)',
+              backgroundColor: 'rgba(34, 32, 63, 0.7)',
+              padding: 10,
               width: drawer ? 240 : 100, height: heightPercentageToDP(93),
               bottom: 25, borderWidth: 0, borderColor: 'lightgray',
               marginLeft: -17, borderTopRightRadius: 20, borderBottomRightRadius: 20
             }}
               colors={[
-                '#E3E8FF81', '#E3E8FF64', '#E3E8FF1D', '#FFFFFF66'
-                // 'rgba(150, 150, 166, 0.81)', 'rgba(150, 150, 166, 0.81)'
+                // '#E3E8FF81', '#E3E8FF64', '#E3E8FF1D', '#FFFFFF66'
+                'rgba(150, 150, 166, 0.81)', 'rgba(150, 150, 166, 0.81)'
                 // 'rgba(191, 188, 189, 0.7)', 'rgba(191, 188, 189, 0.7)',
               ]}
               start={{ x: 0.5, y: 0 }}
@@ -508,12 +533,12 @@ export default function Screen2(props) {
             container: {
               borderTopLeftRadius: 20,
               borderTopRightRadius: 20,
-              backgroundColor: 'rgba(150, 150, 166, 0.91)'
+              backgroundColor: 'rgba(125, 126, 133, 0.99)'
             },
 
           }}
         >
-         
+
           <View>
             <TouchableOpacity onPress={() => closeBottomSheet()} style={{ paddingHorizontal: 15, alignItems: 'flex-end', marginTop: 10 }}>
               <Icon3 name="circle-with-cross" size={25} color="white" />
@@ -522,7 +547,7 @@ export default function Screen2(props) {
             <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 15 }}>
               <TextInput style={{ width: 150, padding: 4, paddingHorizontal: 15, borderRadius: 15, color: 'white', fontSize: 17, backgroundColor: 'rgba(59, 67, 72, 0.37)' }} />
             </View>
-            <TouchableOpacity style={{ width: '95%', padding: 4, borderRadius: 5, backgroundColor: 'rgba(59, 67, 72, 0.37)', justifyContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: 7 }}>
+            <TouchableOpacity onPress={()=>props.navigation.navigate('ProfileGame')} style={{ width: '95%', padding: 4, borderRadius: 5, backgroundColor: 'rgba(59, 67, 72, 0.37)', justifyContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: 7 }}>
               <Text style={{ fontSize: 18, color: 'white', fontWeight: '700', }}>Join Room</Text>
             </TouchableOpacity>
           </View>
@@ -554,7 +579,9 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 140, borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20, paddingHorizontal: 15,
-    elevation: 10, 
+    elevation: 10,
+    // backgroundColor:'rgba(34, 32, 63, 0.5)',
+
   },
   profile: {
     width: 60, height: 60, borderRadius: 40

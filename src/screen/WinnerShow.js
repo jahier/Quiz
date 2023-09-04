@@ -12,7 +12,7 @@ export default function WinnerShow({navigation}) {
 
 
     return (
-        <SafeAreaView style={styles.mainContent}>
+        <ImageBackground source={ImagePath.homeBackground} style={styles.mainContent}>
             <View style={styles.headerMainContent}>
                 <View style={styles.headerContent}>
                     <TouchableOpacity style={{ alignSelf: 'flex-start', alignItems: 'center' }}>
@@ -31,25 +31,25 @@ export default function WinnerShow({navigation}) {
                 </View>
             </View>
             <View style={{ paddingHorizontal: 15 }}>
-                <View style={{ width: '100%', height: 400, backgroundColor: '#D9DBE6', elevation: 10, marginTop: 15, borderRadius: 15 }}>
+                <View style={{ width: '100%', height: 400, backgroundColor: '#E8E8E836', elevation: 10, marginTop: 15, borderRadius: 15 }}>
                     <View style={{ flexDirection: 'row', marginTop: 10 }}>
                         <View style={{ width: '50%', flexDirection: 'row', paddingHorizontal: 10 }}>
                             <View>
-                                <View style={{ width: 15, height: 15, backgroundColor: '#172866', borderRadius: 20 }}></View>
+                                <View style={{ width: 15, height: 15, backgroundColor: 'white', borderRadius: 20 }}></View>
                             </View>
                             <View style={{ marginLeft: 10 }}>
-                                <Text style={{ fontSize: 15, color: '#172866', fontWeight: '700', lineHeight: 16 }}>20</Text>
-                                <Text style={{ fontSize: 15, color: '#000000', fontWeight: '400', lineHeight: 16 }}>Total Questions</Text>
+                                <Text style={{ fontSize: 15, color: 'white', fontWeight: '700', lineHeight: 16 }}>20</Text>
+                                <Text style={{ fontSize: 15, color: 'white', fontWeight: '400', lineHeight: 16 }}>Total Questions</Text>
                             </View>
 
                         </View>
                         <View style={{ width: '50%', flexDirection: 'row', paddingHorizontal: 10 }}>
                             <View>
-                                <View style={{ width: 15, height: 15, backgroundColor: '#172866', borderRadius: 20 }}></View>
+                                <View style={{ width: 15, height: 15, backgroundColor: 'white', borderRadius: 20 }}></View>
                             </View>
                             <View style={{ marginLeft: 10 }}>
-                                <Text style={{ fontSize: 15, color: '#172866', fontWeight: '700', lineHeight: 16 }}>100%</Text>
-                                <Text style={{ fontSize: 15, color: '#000000', fontWeight: '400', lineHeight: 16 }}>Completion</Text>
+                                <Text style={{ fontSize: 15, color: 'white', fontWeight: '700', lineHeight: 16 }}>100%</Text>
+                                <Text style={{ fontSize: 15, color: 'white', fontWeight: '400', lineHeight: 16 }}>Completion</Text>
                             </View>
                         </View>
 
@@ -61,7 +61,7 @@ export default function WinnerShow({navigation}) {
                             </View>
                             <View style={{ marginLeft: 10 }}>
                                 <Text style={{ fontSize: 15, color: '#1F8435', fontWeight: '700', lineHeight: 16 }}>15</Text>
-                                <Text style={{ fontSize: 15, color: '#000000', fontWeight: '400', lineHeight: 16 }}>Correct</Text>
+                                <Text style={{ fontSize: 15, color: 'white', fontWeight: '400', lineHeight: 16 }}>Correct</Text>
                             </View>
                         </View>
                         <View style={{ width: '50%', flexDirection: 'row', paddingHorizontal: 10 }}>
@@ -70,7 +70,7 @@ export default function WinnerShow({navigation}) {
                             </View>
                             <View style={{ marginLeft: 10 }}>
                                 <Text style={{ fontSize: 15, color: '#FF2626', fontWeight: '700', lineHeight: 16 }}>05</Text>
-                                <Text style={{ fontSize: 15, color: '#000000', fontWeight: '400', lineHeight: 16 }}>Wrong</Text>
+                                <Text style={{ fontSize: 15, color: 'white', fontWeight: '400', lineHeight: 16 }}>Wrong</Text>
                             </View>
                         </View>
                     </View>
@@ -102,20 +102,19 @@ export default function WinnerShow({navigation}) {
                 </View>
 
             </View>
-        </SafeAreaView>
+        </ImageBackground>
     )
 }
 
 const styles = StyleSheet.create({
     mainContent: {
         flex: 1,
-        backgroundColor: 'white'
     },
     btnContent: {
         justifyContent: 'center', alignItems: 'center', width: '33.33%'
     },
     btnText:{
-        fontSize:13,color:'#000000',fontWeight:'500',lineHeight:14,marginTop:15
+        fontSize:13,color:'white',fontWeight:'500',lineHeight:14,marginTop:15
     },
     CountdownCircleTimer: {
         justifyContent: 'center', alignItems: 'center',
@@ -137,10 +136,10 @@ const styles = StyleSheet.create({
         bottom: 80, borderRadius: 15
     },
     headerMainContent: {
-        backgroundColor: '#172866', width: '100%',
+        backgroundColor: '#E8E8E836', width: '100%',
         height: 250, borderBottomLeftRadius: 15,
         borderBottomRightRadius: 15, paddingHorizontal: 15,
-        elevation: 10, shadowColor: 'black'
+        elevation:0, shadowColor: 'black'
     },
     headerContent: {
         flexDirection: 'row',

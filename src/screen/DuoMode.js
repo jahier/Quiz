@@ -1,10 +1,13 @@
 
 import { StyleSheet, } from 'react-native'
-import React,{useRef} from 'react'
+import React,{useRef, useState} from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import SubData from '../Component/SubData';
 
 export default function DuoMode(props) {
+const [Data,setData]=useState(props.route.params.data)
+console.log('-=-=-=-++++++++++++++++++++++',Data);
+
     const bottomSheetRef = useRef();
 
     const openBottomSheet = () => {
@@ -16,10 +19,10 @@ export default function DuoMode(props) {
     
     return (
         <SafeAreaView style={styles.mainContent}>
-            <SubData onPress={()=>openBottomSheet()}
-            navigation={() => props.navigation.navigate('PlayTyp')}
-            bottomSheetRef={bottomSheetRef}
-            closeBottomSheet={closeBottomSheet}
+            <SubData onPress={()=>props.navigation.navigate('DualModeGame',{data:Data})}
+            // navigation={() => props.navigation.navigate('PlayTyp')}
+            // bottomSheetRef={bottomSheetRef}
+            // closeBottomSheet={closeBottomSheet}
             />
 
         </SafeAreaView>

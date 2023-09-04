@@ -13,6 +13,10 @@ import Quiz from '../screen/Quiz';
 import WinnerShow from '../screen/WinnerShow';
 import DuoMode from '../screen/DuoMode';
 import PlayTyp from '../screen/PlayTyp';
+import DualModeGame from '../screen/DualModeGame';
+import ProfileGame from '../screen/ProfileGame';
+import Congratulations from '../screen/Congratulations';
+
 const Stack = createNativeStackNavigator();
 function MainStack() {
     return (
@@ -28,6 +32,12 @@ function MainStack() {
             <Stack.Screen name="Quiz" component={Quiz} />
             <Stack.Screen name="WinnerShow" component={WinnerShow} />
             <Stack.Screen name="PlayTyp" component={PlayTyp} />
+            <Stack.Screen name="DualModeGame" component={DualModeGame} />
+            <Stack.Screen name="ProfileGame" component={ProfileGame} />
+            <Stack.Screen name="Congratulations" component={Congratulations} />
+
+
+
 
             
 

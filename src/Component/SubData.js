@@ -16,11 +16,11 @@ export default function SubData(props, { navigation }) {
     const [walletPay, setWalletPay] = useState('20')
     const [onClickData, setOnClickData] = useState('')
     const Data = [
-        { colors: ['#42CADE', '#8450FF'] },
-        { colors: ['#B8D5EE', '#8450FF'] },
-        { colors: ['#42CADE', '#8450FF'] },
-        { colors: ['#B8D5EE', '#8450FF'] },
-        { colors: ['#42CADE', '#8450FF'] },
+        { colors: ['#E8E8E836', '#E8E8E836'] },
+        { colors: ['#E8E8E836', '#E8E8E836'] },
+        { colors: ['#E8E8E836', '#E8E8E836'] },
+        { colors: ['#E8E8E836', '#E8E8E836'] },
+        { colors: ['#E8E8E836', '#E8E8E836'] },
     ];
     const Data2 = [
         { id: '1', pay: 10 },
@@ -90,7 +90,7 @@ export default function SubData(props, { navigation }) {
     }
     return (
         <SafeAreaView style={styles.mainContent}>
-            <ImageBackground style={{ flex: 1 }} source={ImagePath.bacImage}>
+            <ImageBackground style={{ flex: 1 }} source={ImagePath.homeBackground}>
                 <View style={styles.headerMainContent}>
                     <View style={styles.headerContent}>
                         <TouchableOpacity style={{ alignSelf: 'flex-start', alignItems: 'center' }}>
@@ -266,10 +266,10 @@ const styles = StyleSheet.create({
         fontWeight: '700', lineHeight: 15, marginTop: 5
     },
     headerMainContent: {
-        backgroundColor: '#172866', width: '100%',
+        backgroundColor: '#E8E8E836', width: '100%',
         height: 140, borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20, paddingHorizontal: 15,
-        elevation: 10, shadowColor: 'black'
+        elevation:0, shadowColor: 'black'
     },
     headerContent: {
         flexDirection: 'row',

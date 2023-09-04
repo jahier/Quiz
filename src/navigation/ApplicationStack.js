@@ -10,12 +10,11 @@ const Stack = createNativeStackNavigator();
 function ApplicationStack() {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName='BottomTab' screenOptions={{ headerShown: false }}>
+            <Stack.Navigator initialRouteName='ProfileGame' screenOptions={{ headerShown: false }}>
                 {authStack(Stack)}
                 {MainStack(Stack)}  
             </Stack.Navigator>
         </NavigationContainer>
     );
 }
-
 export default ApplicationStack;
