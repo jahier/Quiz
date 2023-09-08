@@ -96,8 +96,8 @@ export default function Edit_Profile(props) {
                     <Text style={styles.label}>Password & Security</Text>
                     <View style={{ marginTop: 20 }}>
                         <TouchableOpacity onPress={()=>props.navigation.navigate('Change_Password')} style={styles.changePasswordBtn}>
-                            <Text style={styles.passwordBtnText}>Password & Security</Text>
-                            <AntDesign name="right" size={20} color="white" />
+                            <Text style={styles.passwordBtnText}>Change Password</Text>
+                            <AntDesign name="right" size={18} color="white" />
                         </TouchableOpacity>
                     </View>
                 </View>

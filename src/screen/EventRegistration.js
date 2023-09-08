@@ -1,16 +1,25 @@
-import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, Image, ImageBackground, FlatList, ScrollView, TextInput } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, Image, ImageBackground, FlatList, ScrollView, TextInput, } from 'react-native'
+import React, { useState } from 'react'
 import ImagePath from '../assets/ImagePath';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon3 from 'react-native-vector-icons/Entypo';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import Modal from 'react-native-modal';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/Feather';
 import { heightPercentageToDP } from 'react-native-responsive-screen';
 import { BlurView } from '@react-native-community/blur';
+import LottieView from 'lottie-react-native';
 
 
-export default function EventRegistration() {
+export default function EventRegistration({navigation}) {
+    const [modalVisible, setModalVisible] = useState(false);
+    const openModal = () => {
+        setModalVisible(true);
+    };
+    const closeModal = () => {
+
+        setModalVisible(false);
+    };
     return (
         <ImageBackground source={ImagePath.homeBackground} style={{ flex: 1, }}>
             <LinearGradient colors={[
@@ -71,7 +80,7 @@ export default function EventRegistration() {
                     // backgroundColor: 'rgba(34, 32, 63, 0.7)',
                     padding: 0,
                     width: '100%', height: heightPercentageToDP(50),
-                    borderRadius: 0
+                    borderRadius: 20
                 }}
                     colors={[
                         // '#E3E8FF81', '#E3E8FF64', '#E3E8FF1D', '#FFFFFF66'
@@ -81,31 +90,70 @@ export default function EventRegistration() {
                     start={{ x: 0.5, y: 0 }}
                     end={{ x: 0, y: 0.5 }}
                 >
-                    <BlurView
+                    {/* <BlurView
                         style={{
-                            flex: 1, borderRadius: 20
+                            width: '100%', height: heightPercentageToDP(50), borderRadius: 20
                         }}
                         blurType="light"
                         blurAmount={5}
                         reducedTransparencyFallbackColor="white"
-                    >
-                        <View style={{ paddingHorizontal: 15, }}>
-                            <Text style={styles.label}>Name</Text>
-                            <TextInput style={styles.TextInput} />
-                            <Text style={styles.label}>Username</Text>
-                            <TextInput style={styles.TextInput} />
-                            <Text style={styles.label}>Gender</Text>
-                            <TextInput style={styles.TextInput} />
+                    > */}
+                    <View style={{ paddingHorizontal: 15, }}>
+                        <Text style={styles.label}>Name</Text>
+                        <TextInput style={styles.TextInput} />
+                        <Text style={styles.label}>Email</Text>
+                        <TextInput style={styles.TextInput} />
+                        <Text style={styles.label}>Phone Number</Text>
+                        <TextInput style={styles.TextInput} />
+                        <View style={{ marginTop: 50, paddingHorizontal: 80 }}>
+                            <TouchableOpacity onPress={() => openModal()} style={styles.changePasswordBtn}>
+                                <Text style={styles.passwordBtnText}>Submit</Text>
+                            </TouchableOpacity>
                         </View>
-                        <View style={{ marginTop: 20 }}>
-                        <TouchableOpacity onPress={()=>props.navigation.navigate('Change_Password')} style={styles.changePasswordBtn}>
-                            <Text style={styles.passwordBtnText}>Password & Security</Text>
-                            <AntDesign name="right" size={20} color="white" />
-                        </TouchableOpacity>
+
                     </View>
-                    </BlurView>
+
+                    {/* </BlurView> */}
                 </LinearGradient>
             </View>
+            <Modal
+                isVisible={modalVisible}
+                animationIn="slideInLeft"  // You can customize the animation style
+                animationOut="slideOutLeft"
+                onBackdropPress={closeModal}
+            // backdropColor='transparent'
+            >
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 40 }}>
+                    <LinearGradient style={{
+                        // backgroundColor: 'rgba(51, 51, 116, 0.78)',
+                        // backgroundColor: 'rgba(34, 32, 63, 0.7)',
+                        padding: 20,
+                        width: '100%', height: heightPercentageToDP(20),
+                        borderRadius: 20
+                    }}
+                        colors={[
+                            // '#E3E8FF81', '#E3E8FF64', '#E3E8FF1D', '#FFFFFF66'
+                            'rgba(227,232,255, 0.454)', 'rgba(227,232,255, 0.45)', 'rgba(224,229,255,0.48)', 'rgba(255, 255, 255, 0.4)'
+                            // 'rgba(191, 188, 189, 0.7)', 'rgba(191, 188, 189, 0.7)',
+                        ]}
+                        start={{ x: 0.5, y: 0 }}
+                        end={{ x: 0, y: 0.5 }}
+                    >
+                        <Text style={{ fontSize: 14, color: '#000000', lineHeight: 18, fontWeight: '700', marginTop: 10 }}>You are going to register for this event with the total fee of</Text>
+                        <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center',marginTop:10 }}>
+                            <Text style={{ fontSize: 15, color: '#000000', lineHeight: 18, fontWeight: 'bold', }}>100</Text>
+                            <LottieView style={{ width: 25, height: 25, }} source={require('../assets/image/coinWithdraaw.json')} autoPlay loop />
+                        </View>
+                        <View style={{justifyContent:'flex-end',alignItems:'flex-end',paddingHorizontal:70,marginTop:10}}>
+                            <TouchableOpacity onPress={() =>navigation.navigate('BottomTab')} style={styles.changePasswordBtn}>
+                                <Text style={styles.passwordBtnText}>OK</Text>
+                            </TouchableOpacity>
+                        
+                        </View>
+
+                    </LinearGradient>
+                </View>
+            </Modal>
         </ImageBackground>
     )
 }
@@ -116,6 +164,7 @@ const styles = StyleSheet.create({
         alignItems: 'center', justifyContent: 'space-between',
         marginTop: 10
     },
+    passwordBtnText: { fontSize: 13, fontWeight: '600', color: 'white', },
     label: { fontSize: 12, fontWeight: '600', color: '#C1C0C4', marginTop: 20 },
     TextInput: {
         borderBottomWidth: 0.5, borderColor: '#C1C0C4', height: 40,
@@ -130,11 +179,11 @@ const styles = StyleSheet.create({
 
     },
     changePasswordBtn: {
-        width: '100%', height: 35, backgroundColor: 'black',
+        width: '100%', paddingVertical: 8, backgroundColor: 'black',
         borderWidth: 0.5, borderColor: '#666666',
-        shadowColor: 'white', elevation: 5, borderRadius: 20,
-        justifyContent: 'space-between', alignItems: 'center',
-        flexDirection: 'row', paddingHorizontal: 15
+        shadowColor: 'white', elevation: 5, borderRadius: 10,
+        justifyContent: 'center', alignItems: 'center',
+        // flexDirection: 'row', paddingHorizontal: 15
     },
     // historyUser:{},
     profileContent: {

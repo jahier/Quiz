@@ -252,6 +252,7 @@ export default function Screen2(props) {
           <View style={{ flexDirection: 'row', width: '18%', alignItems: 'flex-end', justifyContent: 'flex-end' }}>
             <TouchableOpacity onPress={() => props.navigation.navigate('Notifications')} style={{ backgroundColor: '#666666', width: 30, height: 30, borderRadius: 25, justifyContent: 'center', alignItems: 'center', marginLeft: 0 }}>
               <Icon3 name="bell" size={20} color="white" />
+              {/* <LottieView style={{width:25,height:25,resizeMode:'contain'}} source={require('../assets/image/bellIcon.json')}/> */}
             </TouchableOpacity>
           </View>
         </View>
@@ -267,11 +268,11 @@ export default function Screen2(props) {
                 <Icon3 name="bar-graph" size={20} color="orange" />
                 <Text style={{ marginLeft: 10, fontSize: 14, color: 'white', fontWeight: '700' }}>0</Text>
               </View> */}
-              <View style={{ backgroundColor: '#666666', width: 80, height: 30, borderTopRightRadius: 0, borderBottomRightRadius: 20, borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginLeft: 0, paddingHorizontal: 5, flexDirection: 'row', alignItems: 'center' }}>
+              <TouchableOpacity onPress={()=>props.navigation.navigate('Wallet')} style={{ backgroundColor: '#666666', width: 80, height: 30, borderTopRightRadius: 0, borderBottomRightRadius: 20, borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginLeft: 0, paddingHorizontal: 5, flexDirection: 'row', alignItems: 'center' }}>
                 <Ionicons name="wallet-outline" size={16} color="white" />
                 <Image style={{ width: 13, height: 13, resizeMode: 'contain', marginLeft: 5 }} source={require('../assets/image/coin.png')} />
                 <Text style={{ marginLeft: 5, fontSize: 12, color: 'white', fontWeight: '700' }}>{"5000"}</Text>
-              </View>
+              </TouchableOpacity>
               <TouchableOpacity onPress={() => openBottomSheet()} style={{ backgroundColor: '#666666', width: 70, height: 30, borderTopRightRadius: 0, borderBottomRightRadius: 20, borderTopLeftRadius: 20, marginLeft: 10, paddingHorizontal: 5, flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-end', borderBottomLeftRadius: 20 }}>
                 <Text style={{ marginLeft: 5, fontSize: 12, color: 'white', fontWeight: '700' }}>Join Quiz</Text>
               </TouchableOpacity>
@@ -299,7 +300,8 @@ export default function Screen2(props) {
         <View style={{ paddingHorizontal: 15, flexDirection: 'row', alignItems: 'center', marginTop: 20, justifyContent: 'space-between' }}>
           <View style={{ flexDirection: 'row' }}>
             <Image style={{ resizeMode: 'contain', tintColor: 'white' }} source={ImagePath.gameMode} />
-            <Image style={{ resizeMode: 'contain', marginLeft: 15 }} source={ImagePath.gameModeIcon} />
+                          <LottieView style={{width:35,height:35,resizeMode:'contain'}} source={require('../assets/image/gameMode.json')} autoPlay loop/>
+            {/* <Image style={{ resizeMode: 'contain', marginLeft: 15 }} source={ImagePath.gameModeIcon} /> */}
           </View>
 
           <View style={{ alignItems: 'flex-end', }}>

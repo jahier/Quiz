@@ -22,6 +22,7 @@ import Change_Password from '../screen/Change_Password';
 import Notifications from '../screen/Notifications';
 import EventRegistration from '../screen/EventRegistration';
 import DrawerNavigator from './DrawerNavigator';
+import Wallet from '../screen/Wallet';
 
 const Stack = createNativeStackNavigator();
 function MainStack() {
@@ -47,6 +48,8 @@ function MainStack() {
             <Stack.Screen name="Change_Password" component={Change_Password} />
             <Stack.Screen name="Notifications" component={Notifications} />
             <Stack.Screen name="EventRegistration" component={EventRegistration} />
+            <Stack.Screen name="Wallet" component={Wallet} />
+
 
 
 
