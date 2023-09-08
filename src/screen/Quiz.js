@@ -41,15 +41,16 @@ export default function Quiz(props) {
 
     useEffect(() => {
         handleTimerToggle()
-        setTimeout(() => {
-            openModal()
-        }, 16000)
+        // setTimeout(() => {
+        //     openModal()
+        // }, 16000)
     }, [])
-    useEffect(()=>{
-        setTimeout(() => {
-            props.navigation.navigate('WinnerShow')
-        }, 20000)
-    })
+    // useEffect(()=>{
+    //     setTimeout(() => {
+    //         props.navigation.navigate('WinnerShow')
+    //     }, 20000)
+    // })
+    
     const renderItem2 = ({ item, }) => {
         return (
             <View style={{ marginVertical: 5, paddingHorizontal: 30, justifyContent: 'center' }}>

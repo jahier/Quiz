@@ -8,6 +8,8 @@ import Icon3 from 'react-native-vector-icons/Entypo';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import RBSheet from "react-native-raw-bottom-sheet";
 import Modal from 'react-native-modal';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 
 export default function SubData(props, { navigation }) {
     const { closeBottomSheet, bottomSheetRef } = props;
@@ -112,15 +114,14 @@ export default function SubData(props, { navigation }) {
                         </View>
                         <View style={{ justifyContent: 'center', marginLeft: 15 }}>
                             <Text style={styles.userName}>Zaheer</Text>
-                            <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                                <View style={{ backgroundColor: 'rgba(237, 232, 235, 0.31)', width: 70, height: 35, borderTopRightRadius: 20, borderBottomRightRadius: 20, borderTopLeftRadius: 20, paddingHorizontal: 10, flexDirection: 'row', alignItems: 'center' }}>
-                                    <Icon3 name="bar-graph" size={20} color="orange" />
-                                    <Text style={{ marginLeft: 10, fontSize: 14, color: 'white', fontWeight: '700' }}>0</Text>
+                            <View style={{ flexDirection: 'row', marginTop: 5, width: '100%' }}>
+
+                                <View style={{ backgroundColor: '#666666', width: 80, height: 30, borderTopRightRadius: 0, borderBottomRightRadius: 20, borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginLeft: 0, paddingHorizontal: 5, flexDirection: 'row', alignItems: 'center' }}>
+                                    <Ionicons name="wallet-outline" size={16} color="white" />
+                                    <Image style={{ width: 13, height: 13, resizeMode: 'contain', marginLeft: 5 }} source={require('../assets/image/coin.png')} />
+                                    <Text style={{ marginLeft: 5, fontSize: 12, color: 'white', fontWeight: '700' }}>{"5000"}</Text>
                                 </View>
-                                <View style={{ backgroundColor: '#E4E3E3', width: 80, height: 35, borderTopRightRadius: 20, borderBottomRightRadius: 20, borderTopLeftRadius: 20, marginLeft: 10, paddingHorizontal: 5, flexDirection: 'row', alignItems: 'center' }}>
-                                    <Icon3 name="wallet" size={20} color="#172866" />
-                                    <Text style={{ marginLeft: 5, fontSize: 14, color: '#172866', fontWeight: '700' }}>₹ {"5000"}</Text>
-                                </View>
+
                             </View>
                         </View>
                     </View>
@@ -269,7 +270,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#E8E8E836', width: '100%',
         height: 140, borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20, paddingHorizontal: 15,
-        elevation:0, shadowColor: 'black'
+        elevation: 0, shadowColor: 'black'
     },
     headerContent: {
         flexDirection: 'row',

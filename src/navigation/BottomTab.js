@@ -10,6 +10,8 @@ import Login from '../screen/Login';
 import HomeScreen from '../screen/HomeScreen';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Demo from '../screen/Demo';
+import Profile from '../screen/Profile';
+import DrawerNavigator from './DrawerNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -117,7 +119,6 @@ function BottomTab() {
                     tabBarButton: (props) => (
                         <CustomButton {...props} />
                     )
-
                 }}
             />
             <Tab.Screen
@@ -157,7 +158,7 @@ function BottomTab() {
                         )
                     }
                 }}
-                name="HomeScreen" component={HomeScreen} />
+                name="Profile" component={Profile} />
 
 
 

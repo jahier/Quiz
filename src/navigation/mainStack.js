@@ -16,6 +16,12 @@ import PlayTyp from '../screen/PlayTyp';
 import DualModeGame from '../screen/DualModeGame';
 import ProfileGame from '../screen/ProfileGame';
 import Congratulations from '../screen/Congratulations';
+import WinningShow from '../screen/WinningShow';
+import Edit_Profile from '../screen/Edit_Profile';
+import Change_Password from '../screen/Change_Password';
+import Notifications from '../screen/Notifications';
+import EventRegistration from '../screen/EventRegistration';
+import DrawerNavigator from './DrawerNavigator';
 
 const Stack = createNativeStackNavigator();
 function MainStack() {
@@ -23,6 +29,7 @@ function MainStack() {
         <>
             <Stack.Screen name="SelectSkill" component={SelectSkill} />
             <Stack.Screen name="BottomTab" component={BottomTab} />
+            {/* <Stack.Screen name="DrawerNavigator" component={DrawerNavigator} /> */}
             <Stack.Screen name="MultipleSkills" component={MultipleSkills} />
             <Stack.Screen name="Demo" component={Demo} />
             <Stack.Screen name="DataShow" component={DataShow} />
@@ -35,6 +42,16 @@ function MainStack() {
             <Stack.Screen name="DualModeGame" component={DualModeGame} />
             <Stack.Screen name="ProfileGame" component={ProfileGame} />
             <Stack.Screen name="Congratulations" component={Congratulations} />
+            <Stack.Screen name="WinningShow" component={WinningShow} />
+            <Stack.Screen name="Edit_Profile" component={Edit_Profile} />
+            <Stack.Screen name="Change_Password" component={Change_Password} />
+            <Stack.Screen name="Notifications" component={Notifications} />
+            <Stack.Screen name="EventRegistration" component={EventRegistration} />
+
+
+
+
+
 
 
 

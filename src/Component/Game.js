@@ -6,8 +6,8 @@ import ImagePath from '../assets/ImagePath';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon3 from 'react-native-vector-icons/Entypo';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import RBSheet from "react-native-raw-bottom-sheet";
-import Modal from 'react-native-modal';
+import LottieView from 'lottie-react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function Game(props, { navigation }) {
     const { closeBottomSheet, bottomSheetRef } = props;
@@ -67,26 +67,32 @@ export default function Game(props, { navigation }) {
                     colors={item.colors}
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 0 }}>
-                    <View style={{ flexDirection: 'row' }}>
-                        <View style={{ width: '65%', height: 120, paddingHorizontal: 5 }}>
-                            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 20 }}>
-                                <Text style={styles.subCategory}>Entry Fees: {item.prize}</Text>
-                                <Image style={{ width: 20, height: 20, resizeMode: 'contain', marginLeft: 5 }} source={require('../assets/image/coin.png')} />
+                    <View style={{}}>
+                        <View style={{ width: '100%', paddingHorizontal: 5, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', bottom: 30 }}>
+                            <View style={{}}>
+                                <Text style={styles.subCategory}>Entry Fees</Text>
+                                <View style={{ flexDirection: 'row', alignItems: 'center',marginTop:0,height:37 }}>
+                                    <Text style={styles.subCategory}>{item.prize}</Text>
+                                    <Image style={{ width: 20, height: 20, resizeMode: 'contain', marginLeft: 5 }} source={require('../assets/image/coin.png')} />
+                                </View>
                             </View>
-                            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 0 }}>
-                                <Text style={styles.subCategory}>Winning Prize: {item.winningPrize}</Text>
-                                <Image style={{ width: 20, height: 20, resizeMode: 'contain', marginLeft: 5 }} source={require('../assets/image/coin.png')} />
-                            </View>
-                            <View style={{ flexDirection: 'row', marginTop: 10, alignItems: 'center' }}>
-                                <Image style={styles.skillIcon} source={require('../assets/image/skillIcon.png')} />
-                                <Text style={styles.Category}>IT</Text>
-                                <View style={{ marginLeft: 10, alignItems: 'center', flexDirection: 'row', }}>
-                                    <Image style={styles.skillIcon} source={require('../assets/image/skillIcon.png')} />
-                                    <Text style={styles.Category}>Digital Marketing</Text>
+                            <View style={{ marginTop: 10 }}>
+                                <Text style={styles.subCategory}>Winning Prize</Text>
+                                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#0B5378',paddingHorizontal:10, borderRadius: 5, alignSelf: 'center',marginTop:3 }}>
+                                    <Text style={styles.subCategory}>{item.winningPrize}</Text>
+                                    <LottieView style={{ width: 40, height: 37,marginLeft:10 }} source={require('../assets/image/coinWithdraaw.json')} autoPlay loop />
                                 </View>
                             </View>
                         </View>
-                        <View style={{ width: '35%', height: 120 }}>
+                        <View style={{ flexDirection: 'row', bottom: 20, alignItems: 'center' }}>
+                            <Image style={styles.skillIcon} source={require('../assets/image/skillIcon.png')} />
+                            <Text style={styles.Category}>IT</Text>
+                            <View style={{ marginLeft: 10, alignItems: 'center', flexDirection: 'row', }}>
+                                <Image style={styles.skillIcon} source={require('../assets/image/skillIcon.png')} />
+                                <Text style={styles.Category}>Digital Marketing</Text>
+                            </View>
+                        </View>
+                        {/* <View style={{ width: '35%', height: 120 }}>
                             {
                                 props.prizeBtn && (
                                     <View>
@@ -104,7 +110,7 @@ export default function Game(props, { navigation }) {
                                     </View>
                                 )
                             }
-                        </View>
+                        </View> */}
                     </View>
                 </LinearGradient>
             </TouchableOpacity>
@@ -134,25 +140,24 @@ export default function Game(props, { navigation }) {
                         </View>
                         <View style={{ justifyContent: 'center', marginLeft: 15 }}>
                             <Text style={styles.userName}>Zaheer</Text>
-                            <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                                <View style={{ backgroundColor: 'rgba(237, 232, 235, 0.31)', width: 70, height: 35, borderTopRightRadius: 20, borderBottomRightRadius: 20, borderTopLeftRadius: 20, paddingHorizontal: 10, flexDirection: 'row', alignItems: 'center' }}>
-                                    <Icon3 name="bar-graph" size={20} color="orange" />
-                                    <Text style={{ marginLeft: 10, fontSize: 14, color: 'white', fontWeight: '700' }}>0</Text>
+                            <View style={{ flexDirection: 'row', marginTop: 5, width: '100%' }}>
+
+                                <View style={{ backgroundColor: '#666666', width: 80, height: 30, borderTopRightRadius: 0, borderBottomRightRadius: 20, borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginLeft: 0, paddingHorizontal: 5, flexDirection: 'row', alignItems: 'center' }}>
+                                    <Ionicons name="wallet-outline" size={16} color="white" />
+                                    <Image style={{ width: 13, height: 13, resizeMode: 'contain', marginLeft: 5 }} source={require('../assets/image/coin.png')} />
+                                    <Text style={{ marginLeft: 5, fontSize: 12, color: 'white', fontWeight: '700' }}>{"5000"}</Text>
                                 </View>
-                                <View style={{ backgroundColor: '#E4E3E3', width: 80, height: 35, borderTopRightRadius: 20, borderBottomRightRadius: 20, borderTopLeftRadius: 20, marginLeft: 10, paddingHorizontal: 5, flexDirection: 'row', alignItems: 'center' }}>
-                                    <Icon3 name="wallet" size={20} color="#172866" />
-                                    <Text style={{ marginLeft: 5, fontSize: 14, color: '#172866', fontWeight: '700' }}>₹ {"5000"}</Text>
-                                </View>
+
                             </View>
                         </View>
                     </View>
                 </View>
                 <ScrollView>
-                    <View style={{ paddingHorizontal: 15, marginTop: 20 }}>
+                    {/* <View style={{ paddingHorizontal: 15, marginTop: 20 }}>
                         <Text style={styles.selectText}>Let’s Play</Text>
                         <Text style={styles.subText}>Choose a single category</Text>
 
-                    </View>
+                    </View> */}
                     <View style={{ flex: 1, justifyContent: 'center', marginTop: 15 }}>
                         <FlatList
 
@@ -179,8 +184,8 @@ const styles = StyleSheet.create({
         tintColor: 'white'
     },
     subCategory: {
-        fontSize: 14, fontWeight: 'bold',
-        color: 'white', marginTop: 0, lineHeight: 26
+        fontSize: 16, fontWeight: 'bold',
+        color: 'white', marginTop: 0, lineHeight: 17
     },
     Category: {
         fontSize: 12, fontWeight: '600',
