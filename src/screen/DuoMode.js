@@ -20,6 +20,7 @@ console.log('-=-=-=-++++++++++++++++++++++',Data);
     return (
         <SafeAreaView style={styles.mainContent}>
             <SubData onPress={()=>props.navigation.navigate('DualModeGame',{data:Data})}
+            goBack={()=>props.navigation.goBack('')}
             // navigation={() => props.navigation.navigate('PlayTyp')}
             // bottomSheetRef={bottomSheetRef}
             // closeBottomSheet={closeBottomSheet}

@@ -7,11 +7,13 @@ import LinearGradient from 'react-native-linear-gradient';
 import Icon3 from 'react-native-vector-icons/Entypo';
 import SubData from '../Component/SubData';
 
-export default function SingleMode({navigation}) {
-  
+export default function SingleMode({ navigation }) {
+
     return (
         <SafeAreaView style={styles.mainContent}>
-           <SubData onPress={()=>navigation.navigate('Quiz')}/>
+            <SubData onPress={() => navigation.navigate('Quiz')}
+                goBack={() => navigation.goBack('')}
+            />
         </SafeAreaView>
     )
 }
@@ -21,21 +23,21 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'white'
     },
-    skillIcon:{
-        resizeMode:'contain',width:20,height:20,
-        tintColor:'white'
+    skillIcon: {
+        resizeMode: 'contain', width: 20, height: 20,
+        tintColor: 'white'
     },
     subCategory: {
         fontSize: 20, fontWeight: 'bold',
         color: 'white', marginTop: 25, lineHeight: 26
     },
-    Category:{
+    Category: {
         fontSize: 14, fontWeight: 'bold',
         color: 'white', marginLeft: 8, lineHeight: 13
     },
-    time:{
+    time: {
         fontSize: 12, fontWeight: '700',
-        color: 'white', lineHeight: 13 ,marginTop:6
+        color: 'white', lineHeight: 13, marginTop: 6
     },
     subDataImg: {
         resizeMode: 'contain', bottom: 30

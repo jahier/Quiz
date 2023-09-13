@@ -12,6 +12,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import Demo from '../screen/Demo';
 import Profile from '../screen/Profile';
 import DrawerNavigator from './DrawerNavigator';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const Tab = createBottomTabNavigator();
 

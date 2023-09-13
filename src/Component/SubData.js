@@ -95,7 +95,7 @@ export default function SubData(props, { navigation }) {
             <ImageBackground style={{ flex: 1 }} source={ImagePath.homeBackground}>
                 <View style={styles.headerMainContent}>
                     <View style={styles.headerContent}>
-                        <TouchableOpacity style={{ alignSelf: 'flex-start', alignItems: 'center' }}>
+                        <TouchableOpacity onPress={props.goBack} style={{ alignSelf: 'flex-start', alignItems: 'center' }}>
                             <Icon3 name="chevron-thin-left" size={17} color="white" />
                         </TouchableOpacity>
 

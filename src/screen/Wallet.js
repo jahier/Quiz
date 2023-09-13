@@ -11,7 +11,7 @@ import LottieView from 'lottie-react-native';
 
 
 export default function Wallet(props) {
-    const [date, setDate] = useState(new Date('0'));
+    const [date, setDate] = useState(new Date());
 
     const [showDatePicker, setShowDatePicker] = useState(false);
 
@@ -73,16 +73,15 @@ export default function Wallet(props) {
         return (
             <View style={{ flex: 1 }}>
                 <View style={styles.DataShowContent}>
-                    <View style={{ width: '25%', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                    <View style={{ width: '25%', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
                         <Text style={{ fontSize: 12, fontWeight: '500', color: 'white', marginLeft: 10 }}>{formattedDate}</Text>
                     </View>
                     <View style={{ width: '50%', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-
-                        <Text style={{ fontSize: 12, fontWeight: '500', color: 'white' }}>UI/UX </Text>
+                        <Text style={{ fontSize: 12, fontWeight: '500', color: 'white' }}>UI/UX</Text>
                     </View>
-                    <View style={{ width: '25%', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}>
+                    <View style={{ width: '25%', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
                         <Text style={{ fontSize: 12, fontWeight: '500', color: 'white' }}>100</Text>
-                        <LottieView style={{ width: 20, height: 33, marginLeft: 10 }} source={require('../assets/image/coinWithdraaw.json')} autoPlay loop />
+                        <LottieView style={{ width: 30, height: 40, marginLeft: 10 }} source={require('../assets/image/coinWithdraaw.json')} autoPlay loop />
 
                     </View>
 
@@ -101,13 +100,11 @@ export default function Wallet(props) {
                     end={{ x: 0, y: 1 }}
                     style={styles.headerMainContent}>
                     <View style={styles.headerContent}>
-                        <TouchableOpacity style={{ alignSelf: 'flex-start', alignItems: 'center' }}>
+                        <TouchableOpacity onPress={()=>props.navigation.goBack('')} style={{ alignSelf: 'flex-start', alignItems: 'center' }}>
                             <Icon3 name="chevron-thin-left" size={17} color="white" />
                         </TouchableOpacity>
-
                         <View style={{ alignItems: 'center', marginLeft: 15 }}>
                             <Text style={styles.projectName}>LEARNO</Text>
-
                         </View>
                         <TouchableOpacity style={{ backgroundColor: '#666666', width: 30, height: 30, borderRadius: 25, justifyContent: 'center', alignItems: 'center', marginLeft: 0 }}>
                             <Icon3 name="bell" size={20} color="white" />
@@ -216,7 +213,7 @@ export default function Wallet(props) {
                     select === '2' && (
                         <View style={{ flex: 1, marginTop: 10 }}>
                             <View style={styles.headingContentDataShow}>
-                                <View style={{ width: '25%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10, justifyContent: 'center', }}>
+                                <View style={{ width: '25%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10, justifyContent: 'flex-start', }}>
 
                                     <Text style={{ fontSize: 14, fontWeight: '500', color: 'white', lineHeight: 30 }}>Date</Text>
                                 </View>
@@ -224,7 +221,7 @@ export default function Wallet(props) {
 
                                     <Text style={{ fontSize: 14, fontWeight: '500', color: 'white', lineHeight: 30 }}>Quiz</Text>
                                 </View>
-                                <View style={{ width: '25%', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}>
+                                <View style={{ width: '25%', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
 
                                     <Text style={{ fontSize: 14, fontWeight: '500', color: 'white', lineHeight: 30 }}>Amount</Text>
                                 </View>

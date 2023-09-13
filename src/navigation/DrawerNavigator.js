@@ -10,13 +10,11 @@
 
 // const DrawerNavigator = () => {
 //     return (
-
-//             <Drawer.Navigator initialRouteName="Screen2">
-//                 <Drawer.Screen name="Screen2" component={Screen2} />
-//             </Drawer.Navigator>
+//         <Drawer.Navigator initialRouteName="Screen2">
+//             <Drawer.Screen name="Screen2" component={Screen2} />
+//         </Drawer.Navigator>
 //     );
 // }
-
 
 // export default DrawerNavigator;
 // const style = StyleSheet.create({});

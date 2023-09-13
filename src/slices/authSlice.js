@@ -2,7 +2,7 @@ const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit")
 const { Alert } = require("react-native")
 const { default: reducer } = require("../message")
 
-const signupSlice = createAsyncThunk('auth/signup', async () => {
+const signupSlice = createAsyncThunk('auth/signup', async ({ FirstName }) => {
     const response = await fetch('', {
         method: 'POST',
         headers: {
@@ -17,7 +17,6 @@ const signupSlice = createAsyncThunk('auth/signup', async () => {
     if (response.status === 200 || 201) {
         let json = response.json()
         if (json.success) {
-
         }
         else {
             Alert.alert('user not successfully')

@@ -23,9 +23,36 @@ import Notifications from '../screen/Notifications';
 import EventRegistration from '../screen/EventRegistration';
 import DrawerNavigator from './DrawerNavigator';
 import Wallet from '../screen/Wallet';
+import Terms_Conditions from '../screen/Terms_Conditions';
+import Privacy_Policy from '../screen/Privacy_Policy';
+import Screen2 from '../screen/Screen2';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import Event from '../screen/Event';
+import EventDetails from '../screen/EventDetails';
+import EventQuiz from '../screen/EventQuiz';
+import Activity from '../screen/Activity';
+import PlayVideo from '../screen/PlayVideo';
 
 const Stack = createNativeStackNavigator();
+//  const Drawer = createDrawerNavigator();
+
+//  function MydDrawer({}) {
+//      return (
+//         <Drawer.Navigator
+//             screenOptions={{
+//                 headerShown: false,
+//                 drawerStyle: {
+//                     backgroundColor: '#c6cbef',
+//                     width: 300,
+//                 },
+//             }}
+//             drawerContent={(props) => <Drawer {...props}  />}>
+//             <Drawer.Screen name="Screen2" component={Screen2}/>
+//         </Drawer.Navigator>
+//      );
+//  }
 function MainStack() {
+    
     return (
         <>
             <Stack.Screen name="SelectSkill" component={SelectSkill} />
@@ -49,19 +76,13 @@ function MainStack() {
             <Stack.Screen name="Notifications" component={Notifications} />
             <Stack.Screen name="EventRegistration" component={EventRegistration} />
             <Stack.Screen name="Wallet" component={Wallet} />
-
-
-
-
-
-
-
-
-
-
-            
-
-
+            <Stack.Screen name="Terms_Conditions" component={Terms_Conditions} />
+            <Stack.Screen name="Privacy_Policy" component={Privacy_Policy} />
+            <Stack.Screen name="Event" component={Event} />
+            <Stack.Screen name="EventDetails" component={EventDetails} />
+            <Stack.Screen name="EventQuiz" component={EventQuiz} />
+            <Stack.Screen name="Activity" component={Activity} />
+            <Stack.Screen name="PlayVideo" component={PlayVideo} />
 
 
 
