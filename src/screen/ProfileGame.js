@@ -60,9 +60,10 @@ export default function ProfileGame(props) {
 
           <Text style={styles.projectName}>LEARNO</Text>
           <View style={{ width: 170, alignSelf: 'center', marginTop: 40, borderRadius: 15, justifyContent: 'center', alignItems: 'center', paddingVertical: 5, paddingHorizontal: 20, backgroundColor: 'black' }}>
-            <Text style={{ color: 'white', fontSize: 14,
-             fontFamily:Font.Bold
- }}>dual mode</Text>
+            <Text style={{
+              color: 'white', fontSize: 14,
+              // fontFamily: Font.Regular,
+            }}>dual mode</Text>
           </View>
           <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 40 }}>
             <Text style={{ color: 'white', fontSize: 14, fontWeight: '700', textAlign: 'center' }}>Room code: {"0789210"}</Text>
@@ -153,7 +154,7 @@ export default function ProfileGame(props) {
               </Animated.View>
             </View>
             :
-            <View style={{ backgroundColor: '#666666', width: 70, height: 30, borderTopRightRadius: 0, borderBottomRightRadius: 20, borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginLeft: 10, paddingHorizontal: 5, flexDirection: 'row', alignItems: 'center',alignSelf:'center' }}>
+            <View style={{ backgroundColor: '#666666', width: 70, height: 30, borderTopRightRadius: 0, borderBottomRightRadius: 20, borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginLeft: 10, paddingHorizontal: 5, flexDirection: 'row', alignItems: 'center', alignSelf: 'center' }}>
               <Icon3 name="wallet" size={16} color="white" />
               <Text style={{ marginLeft: 5, fontSize: 12, color: 'white', fontWeight: '700' }}>₹ {"5000"}</Text>
             </View>}
@@ -173,7 +174,6 @@ export default function ProfileGame(props) {
 const styles = StyleSheet.create({
   projectName: {
     color: 'white', fontSize: 30, textAlign: 'center', marginTop: 20,
-    // fontWeight:'bold',
-    fontFamily:Font.Bold
+    fontWeight: 'bold',
   },
 })

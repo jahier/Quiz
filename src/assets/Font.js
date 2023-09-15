@@ -1,4 +1,6 @@
 const Font={
-Bold:'RubikIso-Regular.ttf'
+Bold:'Kodchasan-Bold.ttf',
+Medium:'Kodchasan-Medium.ttf',
+Regular:'Kodchasan-Regular.ttf'
 }
 export default Font;
