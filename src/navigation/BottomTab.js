@@ -13,10 +13,12 @@ import Demo from '../screen/Demo';
 import Profile from '../screen/Profile';
 import DrawerNavigator from './DrawerNavigator';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import Search from '../screen/Search';
+import Chat from '../screen/Chat';
 
 const Tab = createBottomTabNavigator();
 
-function BottomTab() {
+function BottomTab(props) {
     // const spinValue = useRef(new Animated.Value(0)).current;
 
     // const startAnimation = () => {
@@ -47,7 +49,7 @@ function BottomTab() {
 
     const CustomButton = ({ children, onPress }) => (
         <View>
-            <TouchableOpacity
+            <TouchableOpacity onPress={()=>props.navigation.navigate('Event')}
                 style={{ flex: 1, justifyContent: 'center', alignItems: 'center',padding:0,width:40,marginTop:0 }}
             // onPress={() => ShowDataButton('1') ||setModal(true)}
             // onPress={() => setModal(!modal)}
@@ -107,7 +109,7 @@ function BottomTab() {
                         )
                     }
                 }}
-                name="Sign_up" component={Sign_up} />
+                name="Search" component={Search} />
 
             <Tab.Screen
                 name="post"
@@ -134,14 +136,14 @@ function BottomTab() {
                                 inActive={ImagePath.profileIcon}
                                 isFocus={focused}
                                 TextFocus={focused}
-                                activeText="MyQuiz"
+                                activeText="Message"
                                 // activeRight={-20}
                                 // inActiveRight={-20}
                             />
                         )
                     }
                 }}
-                name="Demo" component={Demo} />
+                name="Chat" component={Chat} />
             <Tab.Screen
                 options={{
                     tabBarLabel: '',

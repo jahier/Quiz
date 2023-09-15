@@ -12,19 +12,19 @@ export default function Event({navigation}) {
     ]
     const renderItem = ({ item }) => {
         return (
-            <View style={{marginTop:20,justifyContent:'center',alignItems:'center',flex:1}}>
+            <View style={{marginTop:10,justifyContent:'center',alignItems:'center',flex:1}}>
                 <TouchableOpacity onPress={()=>navigation.navigate('EventDetails')} style={styles.EventBtn}>
                     <View style={styles.eventDetailsContent}>
-                        <Text style={styles.eventDay}>SAT</Text>
+                        {/* <Text style={styles.eventDay}>SAT</Text> */}
                         <Text style={styles.eventDate}>22</Text>
                         <Text style={styles.eventMonth}>NOVEMBER</Text>
                         <View style={styles.timeContent}>
-                            <View style={{ width: '30%', justifyContent: 'center', alignItems: 'center' }}>
+                            {/* <View style={{ width: '30%', justifyContent: 'center', alignItems: 'center' }}>
                                 <Icon3 name="back-in-time" size={17} color="#001345" />
-                            </View>
-                            <View style={{ flexDirection: 'row', alignItems: 'center', width: '70%' }}>
+                            </View> */}
+                            {/* <View style={{ flexDirection: 'row', alignItems: 'center', width: '70%' }}>
                                 <Text style={styles.eventTime}>{'18:00'}-{'20:00'}</Text>
-                            </View>
+                            </View> */}
                         </View>
                         <View style={styles.timeContent}>
                             <View style={{ width: '30%', justifyContent: 'center', alignItems: 'center' }}>
@@ -43,7 +43,7 @@ export default function Event({navigation}) {
                         <View style={{ padding: 10 }}>
                             <Text style={styles.eventSeats}>500 Seats</Text>
                         </View>
-                        <View style={{ paddingHorizontal: 15, justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
+                        <View style={{ paddingHorizontal: 8, justifyContent: 'center', alignItems: 'center', marginTop:10 }}>
                             <Text style={styles.eventName}>LEARNO MEGA EVENT </Text>
 
                         </View>
@@ -54,31 +54,17 @@ export default function Event({navigation}) {
     }
     return (
         <ImageBackground style={styles.bacImg} source={ImagePath.homeBackground}>
-            <LinearGradient colors={[
-                // 'rgba(138, 136, 144, 1)', 'rgba(109, 108, 114, 0.8)','rgba(109, 108, 114, 0.5)'
-                '#E8E8E836', '#E8E8E836'
-            ]}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 0, y: 1 }}
-                style={styles.headerMainContent}>
+           
                 <View style={styles.headerContent}>
                     <TouchableOpacity style={{ alignSelf: 'flex-start', alignItems: 'center' }}>
                         <Icon3 name="chevron-thin-left" size={17} color="white" />
                     </TouchableOpacity>
-
-                    <View style={{ alignItems: 'center', marginLeft: 15 }}>
-                        <Text style={styles.projectName}>LEARNO</Text>
-
-                    </View>
-                    <TouchableOpacity style={{ backgroundColor: '#666666', width: 30, height: 30, borderRadius: 25, justifyContent: 'center', alignItems: 'center', marginLeft: 0 }}>
-                        <Icon3 name="bell" size={20} color="white" />
-                    </TouchableOpacity>
                 </View>
-                <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
+                <View style={{ justifyContent: 'center', alignItems: 'center', marginTop:0 }}>
                     <Text style={{ fontSize: 24, fontWeight: '700', color: 'white' }}>Events</Text>
                 </View>
-            </LinearGradient>
-            <View style={{ flex: 1, marginTop: 0 }}>
+           
+            <View style={{ flex: 1, marginTop: 20 }}>
                 <FlatList
                     showsVerticalScrollIndicator={false}
                     data={Data}
@@ -131,7 +117,8 @@ const styles = StyleSheet.create({
     timeContent: {
         flexDirection: 'row', alignItems: 'center',
         justifyContent: 'space-between',
-        alignSelf: 'center', paddingHorizontal: 15
+        alignSelf: 'center', paddingHorizontal: 15,
+        marginTop:2
     },
     eventTime: {
         fontSize: 12, fontWeight: '700', color: '#001345', textAlign: 'center'
@@ -146,7 +133,7 @@ const styles = StyleSheet.create({
         fontSize: 12, fontWeight: '400', color: 'white', textAlign: 'right',
     },
     eventName: {
-        fontSize: 20, fontWeight: '600', color: 'white',
+        fontSize: 17, fontWeight: '600', color: 'white',
     }
 
 })

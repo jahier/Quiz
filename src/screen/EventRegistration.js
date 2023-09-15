@@ -13,12 +13,21 @@ import LottieView from 'lottie-react-native';
 
 export default function EventRegistration({navigation}) {
     const [modalVisible, setModalVisible] = useState(false);
+    const [CongratulationsModal, setCongratulationsModal] = useState(false);
+
     const openModal = () => {
         setModalVisible(true);
     };
     const closeModal = () => {
 
         setModalVisible(false);
+    };
+    const openModal2 = () => {
+        setCongratulationsModal(true);
+    };
+    const closeModal2 = () => {
+
+        setCongratulationsModal(false);
     };
     return (
         <ImageBackground source={ImagePath.homeBackground} style={{ flex: 1, }}>
@@ -128,7 +137,7 @@ export default function EventRegistration({navigation}) {
                         // backgroundColor: 'rgba(51, 51, 116, 0.78)',
                         // backgroundColor: 'rgba(34, 32, 63, 0.7)',
                         padding: 20,
-                        width: '100%', height: heightPercentageToDP(20),
+                        width: '100%',
                         borderRadius: 20
                     }}
                         colors={[
@@ -144,13 +153,58 @@ export default function EventRegistration({navigation}) {
                             <Text style={{ fontSize: 15, color: '#000000', lineHeight: 18, fontWeight: 'bold', }}>100</Text>
                             <LottieView style={{ width: 25, height: 25, }} source={require('../assets/image/coinWithdraaw.json')} autoPlay loop />
                         </View>
-                        <View style={{justifyContent:'flex-end',alignItems:'flex-end',paddingHorizontal:70,marginTop:10}}>
-                            <TouchableOpacity onPress={() =>navigation.navigate('BottomTab')} style={styles.changePasswordBtn}>
+                        <View style={{justifyContent:'flex-end',alignItems:'flex-end',paddingHorizontal:50,marginTop:10}}>
+                            <TouchableOpacity onPress={() =>closeModal()||openModal2()} style={styles.changePasswordBtn}>
                                 <Text style={styles.passwordBtnText}>OK</Text>
                             </TouchableOpacity>
                         
                         </View>
 
+                    </LinearGradient>
+                </View>
+            </Modal>
+            <Modal
+                isVisible={CongratulationsModal}
+                animationIn="slideInLeft"  // You can customize the animation style
+                animationOut="slideOutLeft"
+                onBackdropPress={closeModal2}
+            // backdropColor='transparent'
+            >
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 40 }}>
+                    <LinearGradient style={{
+                        // backgroundColor: 'rgba(51, 51, 116, 0.78)',
+                        // backgroundColor: 'rgba(34, 32, 63, 0.7)',
+                        padding: 20,
+                        width: '100%',
+                        borderRadius: 20
+                    }}
+                        colors={[
+                            // '#E3E8FF81', '#E3E8FF64', '#E3E8FF1D', '#FFFFFF66'
+                            'rgba(227,232,255, 0.454)', 'rgba(227,232,255, 0.45)', 'rgba(224,229,255,0.48)', 'rgba(255, 255, 255, 0.4)'
+                            // 'rgba(191, 188, 189, 0.7)', 'rgba(191, 188, 189, 0.7)',
+                        ]}
+                        start={{ x: 0.5, y: 0 }}
+                        end={{ x: 0, y: 0.5 }}
+                    >
+                        {/* <Text style={{ fontSize: 14, color: '#000000', lineHeight: 18, fontWeight: '700', marginTop: 10 }}>You are going to register for this event with the total fee of</Text>
+                        <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center',marginTop:10 }}>
+                            <Text style={{ fontSize: 15, color: '#000000', lineHeight: 18, fontWeight: 'bold', }}>100</Text>
+                            <LottieView style={{ width: 25, height: 25, }} source={require('../assets/image/coinWithdraaw.json')} autoPlay loop />
+                        </View>
+                        <View style={{justifyContent:'flex-end',alignItems:'flex-end',paddingHorizontal:70,marginTop:10}}>
+                            <TouchableOpacity onPress={() =>navigation.navigate('BottomTab')} style={styles.changePasswordBtn}>
+                                <Text style={styles.passwordBtnText}>OK</Text>
+                            </TouchableOpacity>
+                        
+                        </View> */}
+                        <Text style={styles.Congratulation}>Congratulation</Text>
+                        <LottieView style={{ width: '100%', height: 150, }} source={require('../assets/image/Congratulation.json')} autoPlay loop />
+                        <View style={{bottom:0,paddingHorizontal:50}}>
+                        <TouchableOpacity onPress={() =>closeModal2()||navigation.navigate('BottomTab')} style={styles.changePasswordBtn}>
+                                <Text style={styles.passwordBtnText}>OK</Text>
+                            </TouchableOpacity>
+                        </View>
+                      
                     </LinearGradient>
                 </View>
             </Modal>
@@ -201,4 +255,8 @@ const styles = StyleSheet.create({
     projectName: {
         color: 'white', fontSize: 17, fontWeight: 'bold',
     },
+    Congratulation:{
+        fontSize: 20, fontWeight: '600', color: 'white',textAlign:'center'
+    },
+  
 })

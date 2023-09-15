@@ -47,14 +47,14 @@ export default function Profile(props) {
                 </View>
 
                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 15 }}>
-                    <View style={{ marginRight: 30 }}>
+                    <TouchableOpacity onPress={() => props.navigation.navigate('Followers')} style={{ marginRight: 30 }}>
                         <Text style={{ fontSize: 12, fontWeight: '400', color: '#FFFFFF', }}>Followers</Text>
                         <Text style={{ fontSize: 14, fontWeight: '600', color: '#FFFFFF', textAlign: 'center' }}>150</Text>
-                    </View>
-                    <View style={{ marginLeft: 30 }}>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => props.navigation.navigate('Following')} style={{ marginLeft: 30 }}>
                         <Text style={{ fontSize: 12, fontWeight: '400', color: '#FFFFFF', }}>Following</Text>
                         <Text style={{ fontSize: 14, fontWeight: '600', color: '#FFFFFF', textAlign: 'center' }}>150</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
 
                 <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 15 }}>

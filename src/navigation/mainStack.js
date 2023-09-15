@@ -32,6 +32,11 @@ import EventDetails from '../screen/EventDetails';
 import EventQuiz from '../screen/EventQuiz';
 import Activity from '../screen/Activity';
 import PlayVideo from '../screen/PlayVideo';
+import TopAuthors from '../screen/TopAuthors';
+import AuthorsProfile from '../screen/AuthorsProfile';
+import Following from '../screen/Following';
+import Followers from '../screen/Followers';
+import OtherProfile from '../screen/OtherProfile';
 
 const Stack = createNativeStackNavigator();
 //  const Drawer = createDrawerNavigator();
@@ -57,7 +62,6 @@ function MainStack() {
         <>
             <Stack.Screen name="SelectSkill" component={SelectSkill} />
             <Stack.Screen name="BottomTab" component={BottomTab} />
-            {/* <Stack.Screen name="DrawerNavigator" component={DrawerNavigator} /> */}
             <Stack.Screen name="MultipleSkills" component={MultipleSkills} />
             <Stack.Screen name="Demo" component={Demo} />
             <Stack.Screen name="DataShow" component={DataShow} />
@@ -83,7 +87,12 @@ function MainStack() {
             <Stack.Screen name="EventQuiz" component={EventQuiz} />
             <Stack.Screen name="Activity" component={Activity} />
             <Stack.Screen name="PlayVideo" component={PlayVideo} />
-
+            <Stack.Screen name="TopAuthors" component={TopAuthors} />
+            <Stack.Screen name="AuthorsProfile" component={AuthorsProfile} />
+            <Stack.Screen name="Following" component={Following} />
+            <Stack.Screen name="Followers" component={Followers} />
+            <Stack.Screen name="OtherProfile" component={OtherProfile} />
+            
 
 
 

@@ -106,9 +106,39 @@ export default function Screen2(props,{navigation}) {
     { name: 'Digital \n\ Marketing' }, { name: 'Digital \n\ Marketing' }, { name: 'Digital \n\ Marketing' }, { name: 'Digital \n\ Marketing' }, { name: 'Digital  \n\ Marketing' },
   ]
 
+  const TopAuthors = [
+    { img: ImagePath.myImage }, { img: ImagePath.swiper1 },
+    { img: ImagePath.Swiper3 }, { img: ImagePath.Swiper2 },
+    { img: ImagePath.myImage }, { img: ImagePath.Swiper3 },
+  ]
+  const TopAuthorsItem = ({ item, index }) => {
+    return (
+      <TouchableOpacity onPress={()=>props.navigation.navigate('AuthorsProfile')} style={{ flex: 1, marginVertical: 10, marginHorizontal: 6 }}>
+        <LinearGradient style={{
+          width: 110,flex:1, borderRadius: 10, justifyContent: 'center', alignItems: 'center',
+          elevation: 0, shadowColor: 'black',paddingVertical:10
+        }}
+          colors={['#E8E8E836', '#E8E8E836']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 0, y: 0 }}
+        >
+          <View style={{ width: 80, height: 80, borderRadius: 60, justifyContent: 'center', alignItems: 'center', borderColor: '#C1C2C4F0', elevation: 20 }}>
+            <Image style={{ resizeMode: 'contain', height: 78, width: 78, borderRadius: 50 }} source={item.img} />
+          </View>
+
+          <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%', }}>
+            <Text style={{ color: 'white', fontSize: 12, fontWeight: '600', top: 3 }}>Achieve Success Coachingeer</Text>
+            {/* <Text style={{ color: 'white', fontSize: 12, fontWeight: '600', bottom: 0 }}>5000</Text> */}
+          </View>
+
+
+        </LinearGradient>
+      </TouchableOpacity>
+    )
+  }
   const WinnerItem = ({ item, index }) => {
     return (
-      <TouchableOpacity style={{ flex: 1, marginVertical: 10, marginHorizontal: 6 }}>
+      <TouchableOpacity onPress={() => props.navigation.navigate('OtherProfile')} style={{ flex: 1, marginVertical: 10, marginHorizontal: 6 }}>
         <LinearGradient style={{
           width: 110, height: 130, borderRadius: 10, justifyContent: 'center', alignItems: 'center',
           elevation: 0, shadowColor: 'black'
@@ -217,7 +247,7 @@ export default function Screen2(props,{navigation}) {
                 <Text style={styles.event}>LEARNO MEGA EVENT </Text>
                 <Text style={styles.eventDetails}>Event Date: 15/04/2023</Text>
                 <Text style={styles.eventDetails}>500 Seats</Text>
-                <TouchableOpacity onPress={() => props.navigation.navigate('EventRegistration')} style={{ backgroundColor: '#666666', padding: 5, paddingHorizontal: 10, borderRadius: 10, marginTop: 10, marginRight: 15, width: 70 }}>
+                <TouchableOpacity onPress={() => props.navigation.navigate('EventDetails')} style={{ backgroundColor: '#666666', padding: 5, paddingHorizontal: 10, borderRadius: 10, marginTop: 10, marginRight: 15, width: 70 }}>
                   <Text style={styles.btnLabel}>Enroll Now</Text>
                 </TouchableOpacity>
               </View>
@@ -321,6 +351,25 @@ export default function Screen2(props,{navigation}) {
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 15, marginTop: 15 }}>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={styles.TopWinners}>Top Authors</Text>
+          </View>
+          <TouchableOpacity onPress={()=> props.navigation.navigate('TopAuthors')}>
+            <Text style={styles.ViewAll}>View All</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={{ bottom: 15, marginTop: 15 }}>
+          <FlatList
+            horizontal
+            data={TopAuthors}
+            renderItem={TopAuthorsItem}
+            keyExtractor={(item) => item.id}
+            showsHorizontalScrollIndicator={false}
+          />
+        </View>
+
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 15, marginTop: 15 }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Text style={styles.TopWinners}>Top Winners</Text>
             <Image style={styles.winnerCup} source={ImagePath.trophyIcon} />
           </View>
@@ -328,7 +377,6 @@ export default function Screen2(props,{navigation}) {
             <Text style={styles.ViewAll}>View All</Text>
           </TouchableOpacity>
         </View>
-
         <View style={{ bottom: 15, marginTop: 15 }}>
           <FlatList
             horizontal
@@ -338,7 +386,6 @@ export default function Screen2(props,{navigation}) {
             showsHorizontalScrollIndicator={false}
           />
         </View>
-
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 15, marginTop: 15 }}>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Text style={styles.TopWinners}>Trending quiz</Text>

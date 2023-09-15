@@ -97,7 +97,7 @@ export default function PlayVideo(props) {
                             <AntDesign name="playcircleo" size={50} color="white" />
                         </View>
                         <View style={{ justifyContent: 'flex-end',flex:1 }}>
-                            <Text>1. How to play in slots mode?</Text>
+                            <Text style={styles.videoTitle}>1. How to play in slots mode?</Text>
                         </View>
                     </View>
                 </ImageBackground>
@@ -177,5 +177,8 @@ const styles = StyleSheet.create({
     howPlayText: {
         color: 'white', fontSize: 20, fontWeight: '600',
         marginTop: 20, textAlign: 'center'
+    },
+    videoTitle: {
+        color: 'white', fontSize: 14, fontWeight: '600',
     }
 })
