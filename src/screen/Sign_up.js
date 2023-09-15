@@ -1,13 +1,47 @@
 import { StyleSheet, View, SafeAreaView, Image, Text, TouchableOpacity, ImageBackground, ScrollView } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../Component/Header'
 import ImagePath from '../assets/ImagePath'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
 import Input from '../Component/Input'
 import Button from '../Component/ButtonComponent'
-import SocialButton from '../Component/SocialButton'
-
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import moment from "moment";
+import { Dropdown } from 'react-native-element-dropdown';
+import { scale } from 'react-native-size-matters'
 const Sign_up = ({ navigation }) => {
+    const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+
+    const showDatePicker = () => {
+        setDatePickerVisibility(true);
+    };
+
+    const hideDatePicker = () => {
+        setDatePickerVisibility(false);
+    };
+
+    const handleConfirm = (date) => {
+        console.log('Selected date:', date);
+        hideDatePicker();
+    };
+
+
+    const dropdownData = [
+        { label: 'MALE', value3: '1' },
+        { label: 'FEMALE', value3: '2' },
+
+    ]
+    const [label, setlabel] = useState(null);
+    const [isFocus, setIsFocus] = useState(false);
+    const renderLabel = () => {
+        if (label || isFocus) {
+            return (
+                <View>
+
+                </View>);
+        }
+        return null;
+    };
     return (
         <SafeAreaView style={styles.mainContent}>
             <ImageBackground style={{ flex: 1 }} source={ImagePath.bacImage}>
@@ -15,7 +49,7 @@ const Sign_up = ({ navigation }) => {
                     <Header leftBtn={ImagePath.leftArrow} tintColor='white' onPress={() => navigation.goBack()} />
                 </View>
                 <ScrollView style={{ flex: 1, paddingHorizontal: 15 }}>
-                    <Text style={styles.headingText}>LEARN<Text style={{ color: 'orange' }}>NO</Text></Text>
+                    <Text style={styles.headingText}>LEAR<Text style={{ color: 'orange' }}>NO</Text></Text>
                     {/* <Image style={{width:'100%',height:100,resizeMode:'contain'}} source={require('../assets/image/logo.png')}/> */}
                     <Text style={styles.LoginText}>Create an account</Text>
                     <Text style={styles.Lorem}>Please complete your profile</Text>
@@ -41,9 +75,48 @@ const Sign_up = ({ navigation }) => {
                         <View style={styles.inputContent}>
                             <Input placeholder="Refer Code" label="Refer Code (if any)" />
                         </View>
-                        {/* <View style={{ paddingHorizontal: 15, marginTop: 10 }}>
-                        <Text style={styles.label}>DOB</Text>
-                    </View> */}
+                        <View style={styles.inputContent}>
+                            {/* <View style={{ width: '46%', }}>
+                            <TouchableOpacity style={{alignSelf:'flex-end', width: '50%', backgroundColor: "#F7F7F7", height:48, borderRadius: scale(5), alignItems: 'center', justifyContent: 'center' }} title="Show Date Picker"  onPress={showDatePicker} >
+                                <Text style={{ textAlign: 'center', color: 'black',}}></Text>
+                            </TouchableOpacity>
+                            <DateTimePickerModal
+        isVisible={isDatePickerVisible}
+        mode="date" // You can also use "time" or "datetime"
+        onConfirm={handleConfirm}
+        onCancel={hideDatePicker}
+      />
+                        </View> */}
+                            {renderLabel(
+
+                            )}
+                            <Text style={{ fontSize: 12, color: '#FFFFFF', fontWeight: '700', lineHeight: 13 }}>Gender</Text>
+                            <Dropdown
+                                style={[styles.dropdown, isFocus && { borderColor: 'white', backgroundColor: 'rgba(160,156,191,0.25)' }]}
+                                placeholderStyle={styles.placeholderStyle}
+                                selectedTextStyle={styles.selectedTextStyle}
+                                inputSearchStyle={styles.inputSearchStyle}
+                                containerStyle={{ marginTop: -36, width: '100%', alignSelf: 'center', borderBottomEndRadius: 10, borderBottomStartRadius: 10, backgroundColor: 'rgba(125, 126, 133, 0.99)' }}
+                                data={dropdownData}
+                                search
+                                itemTextStyle={{ color: '#3A3A3A' }}
+                                dropdownPosition="bottom"
+                                maxHeight={300}
+                                labelField="label"
+                                valueField="label"
+                                placeholder={!isFocus ? 'Gender' : '...'}
+                                // searchPlaceholder="Search..."
+                                value={label}
+
+                                onFocus={() => setIsFocus(true)}
+                                onBlur={() => setIsFocus(false)}
+                                onChange={item => {
+                                    setlabel(item.label);
+                                    setIsFocus(false);
+                                }}
+
+                            />
+                        </View>
 
                         <View style={styles.BTNContent}>
                             <Button onPress={() => navigation.navigate('MultipleSkills')} title="Sign Up" />
@@ -160,5 +233,31 @@ const styles = StyleSheet.create({
     },
     socialLogo: {
         width: 25, height: 25, resizeMode: 'contain', marginRight: 10, alignSelf: 'flex-end'
+    },
+    dropdown: {
+        height: 40,
+        borderWidth: 1,
+        borderColor: '#E0E0E0',
+        paddingHorizontal: 8,
+        backgroundColor: 'rgba(160,156,191,0.25)',
+        marginTop: 4
+    },
+    placeholderStyle: {
+        fontSize: 14, fontWeight: '700',
+        paddingLeft: 8,
+        color: '#E0E0E0'
+    },
+    selectedTextStyle: {
+        fontSize: 14, fontWeight: '700',
+        paddingLeft: 5,
+        color: 'white'
+    },
+
+    inputSearchStyle: {
+        height: 40,
+        fontSize: 12,
+        backgroundColor: 'rgba(160,156,191,0.25)',
+
+
     },
 })

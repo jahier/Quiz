@@ -4,7 +4,7 @@ import ApplicationStack from './src/navigation/ApplicationStack'
 import { Provider } from 'react-redux'
 import store from './src/store'
 import FlashMessage from 'react-native-flash-message'
-
+import DrawerNavigator from './src/navigation/DrawerNavigator'
 const App = () => {
   return (
     <Provider store={store}>

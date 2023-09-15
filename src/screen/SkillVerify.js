@@ -5,6 +5,7 @@ import ImagePath from '../assets/ImagePath';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Icon3 from 'react-native-vector-icons/Entypo';
 import LinearGradient from 'react-native-linear-gradient';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function SkillVerify(props) {
     console.log('-=-=-=-', props.route.params.data);
@@ -13,13 +14,13 @@ export default function SkillVerify(props) {
             props.navigation.navigate('SingleMode')
         }
         else if (props.route.params.data === '2') {
-            props.navigation.navigate('DuoMode',{data:'1'})
+            props.navigation.navigate('DuoMode', { data: '1' })
         }
         else if (props.route.params.data === '3') {
-            props.navigation.navigate('DuoMode',{data:'2'})
+            props.navigation.navigate('DuoMode', { data: '2' })
         }
         else if (props.route.params.data === '4') {
-            props.navigation.navigate('DuoMode',{data:'3'})
+            props.navigation.navigate('DuoMode', { data: '3' })
         }
         else {
 
@@ -56,7 +57,7 @@ export default function SkillVerify(props) {
                     end={{ x: 0, y: 1 }}
                     style={styles.headerMainContent}>
                     <View style={styles.headerContent}>
-                        <TouchableOpacity style={{ alignSelf: 'flex-start', alignItems: 'center' }}>
+                        <TouchableOpacity onPress={()=>props.navigation.goBack('')} style={{ alignSelf: 'flex-start', alignItems: 'center' }}>
                             <Icon3 name="chevron-thin-left" size={17} color="white" />
                         </TouchableOpacity>
 
@@ -75,15 +76,15 @@ export default function SkillVerify(props) {
                         </View>
                         <View style={{ justifyContent: 'center', marginLeft: 15 }}>
                             <Text style={styles.userName}>Zaheer</Text>
-                            <View style={{ flexDirection: 'row', marginTop: 5 }}>
-                                <View style={{ backgroundColor: 'rgba(237, 232, 235, 0.31)', width: 70, height: 35, borderTopRightRadius: 20, borderBottomRightRadius: 20, borderTopLeftRadius: 20, paddingHorizontal: 10, flexDirection: 'row', alignItems: 'center' }}>
-                                    <Icon3 name="bar-graph" size={20} color="orange" />
-                                    <Text style={{ marginLeft: 10, fontSize: 14, color: 'white', fontWeight: '700' }}>0</Text>
+
+                            <View style={{ flexDirection: 'row', marginTop: 5, width: '100%' }}>
+
+                                <View style={{ backgroundColor: '#666666', width: 80, height: 30, borderTopRightRadius: 0, borderBottomRightRadius: 20, borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginLeft: 0, paddingHorizontal: 5, flexDirection: 'row', alignItems: 'center' }}>
+                                    <Ionicons name="wallet-outline" size={16} color="white" />
+                                    <Image style={{ width: 13, height: 13, resizeMode: 'contain', marginLeft: 5 }} source={require('../assets/image/coin.png')} />
+                                    <Text style={{ marginLeft: 5, fontSize: 12, color: 'white', fontWeight: '700' }}>{"5000"}</Text>
                                 </View>
-                                <View style={{ backgroundColor: '#E4E3E3', width: 80, height: 35, borderTopRightRadius: 20, borderBottomRightRadius: 20, borderTopLeftRadius: 20, marginLeft: 10, paddingHorizontal: 5, flexDirection: 'row', alignItems: 'center' }}>
-                                    <Icon3 name="wallet" size={20} color="#172866" />
-                                    <Text style={{ marginLeft: 5, fontSize: 14, color: '#172866', fontWeight: '700' }}>₹ {"5000"}</Text>
-                                </View>
+
                             </View>
                         </View>
                     </View>

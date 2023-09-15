@@ -8,7 +8,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Icon2 from 'react-native-vector-icons/Entypo';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
 
-export default function WinnerShow({navigation}) {
+export default function WinnerShow({ navigation }) {
 
 
     return (
@@ -23,16 +23,16 @@ export default function WinnerShow({navigation}) {
                         <Text style={styles.projectName}>LEARNO</Text>
                     </View>
                 </View>
-                <View style={{ justifyContent: 'center', alignItems: 'center',marginTop:25 }}>
+                <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 25 }}>
                     <ImageBackground style={{ width: 130, height: 130, justifyContent: 'center', alignItems: 'center' }} source={require('../assets/image/groupWinnerImg.png')}>
                         <Text style={{ fontSize: 12, color: '#172866', fontWeight: '700', lineHeight: 14 }}>Your Score</Text>
-                        <Text style={{ fontSize: 16, color: '#172866', fontWeight: 'bold', lineHeight: 20 }}>150 pts</Text>
+                        {/* <Text style={{ fontSize: 16, color: '#172866', fontWeight: 'bold', lineHeight: 20 }}>150 pts</Text> */}
                     </ImageBackground>
                 </View>
             </View>
             <View style={{ paddingHorizontal: 15 }}>
-                <View style={{ width: '100%', height: 400, backgroundColor: '#E8E8E836', elevation: 10, marginTop: 15, borderRadius: 15 }}>
-                    <View style={{ flexDirection: 'row', marginTop: 10 }}>
+                {/* <View style={{ width: '100%', height: 400, backgroundColor: '#E8E8E836', elevation: 10, marginTop: 15, borderRadius: 15 }}> */}
+                    {/* <View style={{ flexDirection: 'row', marginTop: 10 }}>
                         <View style={{ width: '50%', flexDirection: 'row', paddingHorizontal: 10 }}>
                             <View>
                                 <View style={{ width: 15, height: 15, backgroundColor: 'white', borderRadius: 20 }}></View>
@@ -53,55 +53,52 @@ export default function WinnerShow({navigation}) {
                             </View>
                         </View>
 
-                    </View>
-                    <View style={{ flexDirection: 'row', marginTop: 30 }}>
-                        <View style={{ width: '50%', flexDirection: 'row', paddingHorizontal: 10 }}>
-                            <View>
-                                <View style={{ width: 15, height: 15, backgroundColor: '#1F8435', borderRadius: 20 }}></View>
-                            </View>
-                            <View style={{ marginLeft: 10 }}>
-                                <Text style={{ fontSize: 15, color: '#1F8435', fontWeight: '700', lineHeight: 16 }}>15</Text>
-                                <Text style={{ fontSize: 15, color: 'white', fontWeight: '400', lineHeight: 16 }}>Correct</Text>
-                            </View>
+                    </View> */}
+                    <View style={{ marginTop: 80, justifyContent: 'center', alignItems: 'center' }}>
+
+                        <View style={{ marginLeft: 10, alignItems: 'center' }}>
+                            <Text style={{ fontSize: 50, color: '#1F8435', fontWeight: '700', lineHeight: 52 }}>15</Text>
+                            <Text style={{ fontSize: 15, color: 'white', fontWeight: '400', lineHeight: 16 }}>Correct</Text>
                         </View>
-                        <View style={{ width: '50%', flexDirection: 'row', paddingHorizontal: 10 }}>
-                            <View>
-                                <View style={{ width: 15, height: 15, backgroundColor: '#FF2626', borderRadius: 20 }}></View>
-                            </View>
-                            <View style={{ marginLeft: 10 }}>
-                                <Text style={{ fontSize: 15, color: '#FF2626', fontWeight: '700', lineHeight: 16 }}>05</Text>
-                                <Text style={{ fontSize: 15, color: 'white', fontWeight: '400', lineHeight: 16 }}>Wrong</Text>
-                            </View>
+
+
+                        <View style={{ marginLeft: 10, alignItems: 'center', marginTop: 30 }}>
+                            <Text style={{ fontSize: 15, color: '#FF2626', fontWeight: '700', lineHeight: 16 }}>05</Text>
+                            <Text style={{ fontSize: 15, color: 'white', fontWeight: '400', lineHeight: 16 }}>Wrong</Text>
                         </View>
                     </View>
 
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 40 }}>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 70 }}>
                         <View style={styles.btnContent}>
-                            <TouchableOpacity onPress={()=>navigation.navigate('SingleMode')} style={{ width: 50, height: 50, borderRadius: 30, backgroundColor: '#655252',
-                            justifyContent:'center',alignItems:'center' }}>
+                            <TouchableOpacity onPress={() => navigation.navigate('SingleMode')} style={{
+                                width: 50, height: 50, borderRadius: 30, backgroundColor: '#655252',
+                                justifyContent: 'center', alignItems: 'center', marginRight: 30
+                            }}>
                                 <Icon1 name="replay" size={20} color="white" />
                             </TouchableOpacity>
-                            <Text style={styles.btnText}>Play Again</Text>
+                            <View style={{ marginRight: 20 }}>
+                                <Text style={styles.btnText}>Play Again</Text>
+
+                            </View>
                         </View>
-                        <View style={styles.btnContent}>
-                            <TouchableOpacity style={{ width: 50, height: 50, borderRadius: 30, backgroundColor: '#BB3D5B',
-                            justifyContent:'center',alignItems:'center' }}>
-                                <Icon2 name="eye" size={23} color="white" />
-                            </TouchableOpacity>
-                            <Text style={styles.btnText}>Review Answer</Text>
-                        </View>
-                        <View style={styles.btnContent}>
-                            <TouchableOpacity style={{ width: 50, height: 50, borderRadius: 30, backgroundColor: '#777FA5',
-                            justifyContent:'center',alignItems:'center' }}>
+
+                        <View style={{ justifyContent: 'center', alignItems: 'center', width: '50%', alignItems: 'flex-start' }}>
+                            <TouchableOpacity style={{
+                                width: 50, height: 50, borderRadius: 30, backgroundColor: '#777FA5',
+                                justifyContent: 'center', alignItems: 'center', marginLeft: 30
+                            }}>
                                 <Icon2 name="share" size={25} color="white" />
                             </TouchableOpacity>
-                            <Text style={styles.btnText}>Share Score</Text>
+                            <View style={{ marginLeft: 20 }}>
+                                <Text style={styles.btnText}>Share Score</Text>
+
+                            </View>
                         </View>
 
                     </View>
                 </View>
 
-            </View>
+            {/* </View> */}
         </ImageBackground>
     )
 }
@@ -111,10 +108,11 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     btnContent: {
-        justifyContent: 'center', alignItems: 'center', width: '33.33%'
+        justifyContent: 'center', alignItems: 'center', width: '50%',
+        alignItems: 'flex-end'
     },
-    btnText:{
-        fontSize:13,color:'white',fontWeight:'500',lineHeight:14,marginTop:15
+    btnText: {
+        fontSize: 13, color: 'white', fontWeight: '500', lineHeight: 14, marginTop: 15
     },
     CountdownCircleTimer: {
         justifyContent: 'center', alignItems: 'center',
@@ -139,7 +137,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#E8E8E836', width: '100%',
         height: 250, borderBottomLeftRadius: 15,
         borderBottomRightRadius: 15, paddingHorizontal: 15,
-        elevation:0, shadowColor: 'black'
+        elevation: 0, shadowColor: 'black'
     },
     headerContent: {
         flexDirection: 'row',

@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Screen2 from '../screen/Screen2';
 import ImagePath from '../assets/ImagePath';
-import { View, Image, Animated, Text, TouchableOpacity } from 'react-native';
+import { View, Image, Animated, Text, TouchableOpacity, ImageBackground } from 'react-native';
 import { scale } from 'react-native-size-matters';
 import { useRef } from 'react';
 import { widthPercentageToDP } from 'react-native-responsive-screen';
@@ -10,10 +10,15 @@ import Login from '../screen/Login';
 import HomeScreen from '../screen/HomeScreen';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Demo from '../screen/Demo';
+import Profile from '../screen/Profile';
+import DrawerNavigator from './DrawerNavigator';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import Search from '../screen/Search';
+import Chat from '../screen/Chat';
 
 const Tab = createBottomTabNavigator();
 
-function BottomTab() {
+function BottomTab(props) {
     // const spinValue = useRef(new Animated.Value(0)).current;
 
     // const startAnimation = () => {
@@ -29,10 +34,15 @@ function BottomTab() {
     //     outputRange: ['0deg', '360deg'],
     // });
     RenderTabIcon = (props) => {
-        const { isFocus, active, inActive, marginLeft, TextFocus, activeText, inActiveText, activeRight, inActiveRight } = props;
+        const { isFocus, active, inActive, TextFocus, activeText, inActiveText, activeRight, inActiveRight } = props;
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', marginRight: isFocus ? activeRight : inActiveRight }}>
-                <View style={{ justifyContent: 'center', alignItems: 'center', borderRadius: 15,  padding: 1, paddingHorizontal: 5, marginTop: 12, }}>
+                <View style={{ justifyContent: 'center', alignItems: 'center', borderRadius: 15, paddingHorizontal: 5, marginTop: 12, }}>
+                    {/* {isFocus ?
+                        <FontAwesome name={isFocus ? active : inActive} size={20} color="white" />
+                        :
+                        <Ionicons name={isFocus ? active : inActive} size={18} color="white" />
+                    } */}
                     <Image style={{ width: isFocus ? 28 : 23, height: isFocus ? 24 : 22, resizeMode: 'contain', margin: 3, tintColor: isFocus ? 'white' : 'lightgray' }} source={isFocus ? active : inActive} />
                     {TextFocus && (
                         <Text style={{ color: 'white', fontSize: 14, fontWeight: '300', lineHeight: 15 }}>{TextFocus ? activeText : inActiveText}</Text>
@@ -44,7 +54,7 @@ function BottomTab() {
 
     const CustomButton = ({ children, onPress }) => (
         <View>
-            <TouchableOpacity
+            <TouchableOpacity onPress={()=>props.navigation.navigate('Event')}
                 style={{ flex: 1, justifyContent: 'center', alignItems: 'center',padding:0,width:40,marginTop:0 }}
             // onPress={() => ShowDataButton('1') ||setModal(true)}
             // onPress={() => setModal(!modal)}
@@ -104,7 +114,7 @@ function BottomTab() {
                         )
                     }
                 }}
-                name="Sign_up" component={Sign_up} />
+                name="Search" component={Search} />
 
             <Tab.Screen
                 name="post"
@@ -117,7 +127,6 @@ function BottomTab() {
                     tabBarButton: (props) => (
                         <CustomButton {...props} />
                     )
-
                 }}
             />
             <Tab.Screen
@@ -132,14 +141,14 @@ function BottomTab() {
                                 inActive={ImagePath.profileIcon}
                                 isFocus={focused}
                                 TextFocus={focused}
-                                activeText="MyQuiz"
+                                activeText="Message"
                                 // activeRight={-20}
                                 // inActiveRight={-20}
                             />
                         )
                     }
                 }}
-                name="Demo" component={Demo} />
+                name="Chat" component={Chat} />
             <Tab.Screen
                 options={{
                     tabBarLabel: '',
@@ -157,7 +166,7 @@ function BottomTab() {
                         )
                     }
                 }}
-                name="HomeScreen" component={HomeScreen} />
+                name="Profile" component={Profile} />
 
 
 

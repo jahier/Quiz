@@ -48,16 +48,16 @@ export default function Congratulations(props) {
     <View style={{ flex: 1, }}>
       <ImageBackground style={{ flex: 1 }} source={ImagePath.homeBackground}>
         <Text style={styles.projectName}>LEARNO</Text>
-        <LinearGradient style={{ flex: 1, backgroundColor: 'rgba(138, 136, 144, 0.6)', marginTop: 40, borderTopRightRadius: 20, borderTopLeftRadius: 20 }}
+        {/* <LinearGradient style={{ flex: 1, backgroundColor: 'rgba(138, 136, 144, 0.6)', marginTop: 40, borderTopRightRadius: 20, borderTopLeftRadius: 20 }}
           colors={[
             'rgba(47, 47, 49, 0.4)', 'rgba(47, 47, 49, 0.9)',
             // 'rgba(133, 132, 139, 0.9)', 'rgba(47, 47, 49, 0.7)','rgba(47, 47, 49, 0.9)'
           ]}
           start={{ x: 0, y: 0 }}
           end={{ x: 0, y: 1 }}
-        >
+        > */}
           <Text style={styles.Congratulations}>Congratulations!</Text>
-          <LinearGradient style={{ width: 200, backgroundColor: 'rgba(138, 136, 144, 0.6)', marginTop: 40, borderRadius: 10, paddingVertical: 8, paddingHorizontal: 10, alignSelf: 'center', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}
+          {/* <LinearGradient style={{ width: 200, backgroundColor: 'rgba(138, 136, 144, 0.6)', marginTop: 40, borderRadius: 10, paddingVertical: 8, paddingHorizontal: 10, alignSelf: 'center', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}
             colors={[
               'rgba(47, 47, 49, 0.4)', 'rgba(47, 47, 49, 0.9)',
             ]}
@@ -71,7 +71,7 @@ export default function Congratulations(props) {
             <View style={{ marginLeft: 7 }}>
               <Icon3 name="star" size={20} color="rgba(210, 161, 5, 0.99)" />
             </View>
-          </LinearGradient>
+          </LinearGradient> */}
           <View style={{ paddingHorizontal: 15 }}>
             <LinearGradient style={{ width: '100%', backgroundColor: 'rgba(138, 136, 144, 0.6)', marginTop: 40, borderRadius: 10, paddingVertical: 5, paddingHorizontal: 10, alignSelf: 'center', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}
               colors={[
@@ -100,7 +100,7 @@ export default function Congratulations(props) {
             <Text style={{ color: 'white', fontSize: 14, fontWeight: '700', textAlign: 'center' }}>Menu</Text>
           </LinearGradient>
           </TouchableOpacity>
-        </LinearGradient>
+        {/* </LinearGradient> */}
       </ImageBackground>
     </View>
   )

@@ -16,9 +16,49 @@ import PlayTyp from '../screen/PlayTyp';
 import DualModeGame from '../screen/DualModeGame';
 import ProfileGame from '../screen/ProfileGame';
 import Congratulations from '../screen/Congratulations';
+import WinningShow from '../screen/WinningShow';
+import Edit_Profile from '../screen/Edit_Profile';
+import Change_Password from '../screen/Change_Password';
+import Notifications from '../screen/Notifications';
+import EventRegistration from '../screen/EventRegistration';
+import DrawerNavigator from './DrawerNavigator';
+import Wallet from '../screen/Wallet';
+import Terms_Conditions from '../screen/Terms_Conditions';
+import Privacy_Policy from '../screen/Privacy_Policy';
+import Screen2 from '../screen/Screen2';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import Event from '../screen/Event';
+import EventDetails from '../screen/EventDetails';
+import EventQuiz from '../screen/EventQuiz';
+import Activity from '../screen/Activity';
+import PlayVideo from '../screen/PlayVideo';
+import TopAuthors from '../screen/TopAuthors';
+import AuthorsProfile from '../screen/AuthorsProfile';
+import Following from '../screen/Following';
+import Followers from '../screen/Followers';
+import OtherProfile from '../screen/OtherProfile';
+import Chating from '../screen/Chating';
 
 const Stack = createNativeStackNavigator();
+//  const Drawer = createDrawerNavigator();
+
+//  function MydDrawer({}) {
+//      return (
+//         <Drawer.Navigator
+//             screenOptions={{
+//                 headerShown: false,
+//                 drawerStyle: {
+//                     backgroundColor: '#c6cbef',
+//                     width: 300,
+//                 },
+//             }}
+//             drawerContent={(props) => <Drawer {...props}  />}>
+//             <Drawer.Screen name="Screen2" component={Screen2}/>
+//         </Drawer.Navigator>
+//      );
+//  }
 function MainStack() {
+    
     return (
         <>
             <Stack.Screen name="SelectSkill" component={SelectSkill} />
@@ -35,14 +75,27 @@ function MainStack() {
             <Stack.Screen name="DualModeGame" component={DualModeGame} />
             <Stack.Screen name="ProfileGame" component={ProfileGame} />
             <Stack.Screen name="Congratulations" component={Congratulations} />
-
-
-
+            <Stack.Screen name="WinningShow" component={WinningShow} />
+            <Stack.Screen name="Edit_Profile" component={Edit_Profile} />
+            <Stack.Screen name="Change_Password" component={Change_Password} />
+            <Stack.Screen name="Notifications" component={Notifications} />
+            <Stack.Screen name="EventRegistration" component={EventRegistration} />
+            <Stack.Screen name="Wallet" component={Wallet} />
+            <Stack.Screen name="Terms_Conditions" component={Terms_Conditions} />
+            <Stack.Screen name="Privacy_Policy" component={Privacy_Policy} />
+            <Stack.Screen name="Event" component={Event} />
+            <Stack.Screen name="EventDetails" component={EventDetails} />
+            <Stack.Screen name="EventQuiz" component={EventQuiz} />
+            <Stack.Screen name="Activity" component={Activity} />
+            <Stack.Screen name="PlayVideo" component={PlayVideo} />
+            <Stack.Screen name="TopAuthors" component={TopAuthors} />
+            <Stack.Screen name="AuthorsProfile" component={AuthorsProfile} />
+            <Stack.Screen name="Following" component={Following} />
+            <Stack.Screen name="Followers" component={Followers} />
+            <Stack.Screen name="OtherProfile" component={OtherProfile} />
+            <Stack.Screen name="Chating" component={Chating} />
 
             
-
-
-
 
 
 

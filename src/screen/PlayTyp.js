@@ -12,6 +12,7 @@ import Input from '../Component/Input';
 
 export default function PlayTyp(props) {
     const [Data, setData] = useState(props.route.params.data) 
+    console.log('=-=-=-=-=========>>>>DATAAAAAAAAAAA',Data);
     const navigation=()=>{
         props.navigation.navigate('ProfileGame',{data:Data})
     }
@@ -21,10 +22,10 @@ export default function PlayTyp(props) {
                 flex: 1,
                 //  justifyContent: 'center', alignItems: 'center' 
             }} source={ImagePath.homeBackground}>
-                <View style={{
+                {/* <View style={{
                     width: '100%', height: heightPercentageToDP(100),
                     backgroundColor: 'rgba(59, 67, 72, 0.47)'
-                }}>
+                }}> */}
                     <Text style={styles.headingText}>LEARNO</Text>
                     <View style={{ paddingHorizontal: 25, marginTop: 100 }}>
                         <View style={{
@@ -57,7 +58,7 @@ export default function PlayTyp(props) {
                     </View>
                     
 
-                </View>
+                {/* </View> */}
             </ImageBackground >
         </View >
     )
