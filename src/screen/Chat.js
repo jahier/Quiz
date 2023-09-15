@@ -13,7 +13,7 @@ export default function Chat(props) {
     const renderItem = ({ item, index }) => {
         return (
             <View style={{ marginVertical: 7 }}>
-                <TouchableOpacity onPress={() => navigation.navigate('OtherProfile')} style={styles.userDataMainContent}>
+                <TouchableOpacity onPress={() => props.navigation.navigate('Chating')} style={styles.userDataMainContent}>
                     <View style={styles.userProfileContent}>
                         <Image style={styles.userProfile} source={ImagePath.myImage} />
                     </View>

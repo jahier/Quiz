@@ -5,7 +5,7 @@ import Icon3 from 'react-native-vector-icons/Entypo';
 import LottieView from 'lottie-react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-export default function OtherProfile(props,{ navigation }) {
+export default function OtherProfile(props, { navigation }) {
     const [select, setSelect] = useState(false)
     const selectBtn = () => {
         setSelect(!select)
@@ -50,9 +50,9 @@ export default function OtherProfile(props,{ navigation }) {
     }
     return (
         <ImageBackground style={{ flex: 1 }} source={ImagePath.homeBackground}>
-                <TouchableOpacity onPress={() => navigation.goBack('')} style={{ alignSelf: 'flex-start', alignItems: 'center', marginTop: 10 }}>
-                    <Icon3 name="chevron-thin-left" size={18} color="white" />
-                </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.goBack('')} style={{ alignSelf: 'flex-start', alignItems: 'center', marginTop: 10 }}>
+                <Icon3 name="chevron-thin-left" size={18} color="white" />
+            </TouchableOpacity>
             <View style={{ flexDirection: 'row', marginTop: 30 }}>
                 <View style={styles.userProfileContent}>
                     <Image style={styles.userProfile} source={ImagePath.myImage} />
@@ -77,22 +77,22 @@ export default function OtherProfile(props,{ navigation }) {
                 <TouchableOpacity onPress={selectBtn} style={{ width: '48%', justifyContent: 'center', alignItems: 'center', backgroundColor: select ? 'rgba(94, 94, 103, 0.65)' : '#1877F2', paddingVertical: 6, borderRadius: 7 }}>
                     <Text style={styles.btnText}>{select ? 'Following' : 'Follow'}</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{ width: '48%', justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(94, 94, 103, 0.65)', paddingVertical: 6, borderRadius: 7 }}>
+                <TouchableOpacity onPress={() => props.navigation.navigate('Chating')} style={{ width: '48%', justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(94, 94, 103, 0.65)', paddingVertical: 6, borderRadius: 7 }}>
                     <Text style={styles.btnText}>Message</Text>
                 </TouchableOpacity>
             </View>
-           {
-            select&&
-            <View style={{ flex: 1, justifyContent: 'center', marginTop: 15 }}>
-                        <FlatList
+            {
+                select &&
+                <View style={{ flex: 1, justifyContent: 'center', marginTop: 15 }}>
+                    <FlatList
 
-                            data={Data}
-                            renderItem={renderItem}
-                            keyExtractor={(item) => item.id}
-                            showsHorizontalScrollIndicator={false}
-                        />
-                    </View>
-           }
+                        data={Data}
+                        renderItem={renderItem}
+                        keyExtractor={(item) => item.id}
+                        showsHorizontalScrollIndicator={false}
+                    />
+                </View>
+            }
         </ImageBackground>
     )
 }
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
         fontSize: 20, fontWeight: 'bold',
         color: 'white', marginTop: 25, lineHeight: 26
     },
-   
+
     Category: {
         fontSize: 14, fontWeight: 'bold',
         color: 'white', marginLeft: 8, lineHeight: 13

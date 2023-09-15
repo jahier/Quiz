@@ -37,6 +37,7 @@ import AuthorsProfile from '../screen/AuthorsProfile';
 import Following from '../screen/Following';
 import Followers from '../screen/Followers';
 import OtherProfile from '../screen/OtherProfile';
+import Chating from '../screen/Chating';
 
 const Stack = createNativeStackNavigator();
 //  const Drawer = createDrawerNavigator();
@@ -92,6 +93,8 @@ function MainStack() {
             <Stack.Screen name="Following" component={Following} />
             <Stack.Screen name="Followers" component={Followers} />
             <Stack.Screen name="OtherProfile" component={OtherProfile} />
+            <Stack.Screen name="Chating" component={Chating} />
+
             
 
 
