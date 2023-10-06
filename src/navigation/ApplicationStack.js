@@ -12,9 +12,9 @@ const Stack = createNativeStackNavigator();
 function ApplicationStack() {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName='authStack' screenOptions={{ headerShown: false }}>
+            <Stack.Navigator initialRouteName='AuthorsProfile' screenOptions={{ headerShown: false }}>
                 {authStack(Stack)}
-                {MainStack(Stack)}  
+                {MainStack(Stack)}
             </Stack.Navigator>
         </NavigationContainer>
     );

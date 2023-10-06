@@ -60,7 +60,7 @@ export default function Activity(props, { navigation }) {
                 end={{ x: 0, y: 1 }}
                 style={styles.headerMainContent}>
                 <View style={styles.headerContent}>
-                    <TouchableOpacity style={{ alignSelf: 'flex-start', alignItems: 'center' }}>
+                    <TouchableOpacity onPress={()=>props.navigation.goBack('')} style={{ alignSelf: 'flex-start', alignItems: 'center' }}>
                         <Icon3 name="chevron-thin-left" size={17} color="white" />
                     </TouchableOpacity>
 

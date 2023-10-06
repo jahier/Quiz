@@ -32,7 +32,7 @@ const styles = ScaledSheet.create({
         backgroundColor: 'rgba(150,156,191,0.25)',
         // backgroundColor: 'rgba(255, 7, 72, 0.89)',
         justifyContent: 'center', alignItems: 'center',
-        borderWidth: 0.5,
+        borderWidth: 1,
         borderColor: '#FFFCFC',
         flexDirection: 'row',
     },

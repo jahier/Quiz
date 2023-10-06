@@ -18,8 +18,19 @@ export default function AuthorsProfile({ navigation }) {
     ]
     const renderItem = ({ item }) => {
         return (
-            <View style={{ marginTop: 20, justifyContent: 'center', alignItems: 'center', flex: 1 }}>
-                <TouchableOpacity onPress={() => navigation.navigate('EventDetails')} style={styles.EventBtn}>
+            <View style={{ marginTop: 50, justifyContent: 'center', alignItems: 'center', flex: 1,marginVertical:0 }}>
+              
+                 <ImageBackground style={{width:'100%',height:300}} source={ImagePath.myImage} resizeMode='cover'>
+                 <View style={{ flexDirection: 'row', justifyContent: 'space-between',bottom:50 }}>
+                    <View style={{ width: '20%', paddingLeft: 15 }}>
+                        <Image style={{ width: 60, height: 60, resizeMode: 'contain', borderRadius: 30 }} source={ImagePath.myImage} />
+                    </View>
+                    <View style={{ width: '80%', paddingHorizontal: 15, justifyContent: 'center' }}>
+                        <Text style={{ fontSize: 16, fontWeight: '600', color: '#FFFFFF', }}>Achieve Success Coachingeer</Text>
+                    </View>
+                </View>
+                 </ImageBackground>   
+                {/* <TouchableOpacity onPress={() => navigation.navigate('EventDetails')} style={styles.EventBtn}>
                     <View style={styles.eventDetailsContent}>
                         <Text style={styles.eventDay}>SAT</Text>
                         <Text style={styles.eventDate}>22</Text>
@@ -39,7 +50,6 @@ export default function AuthorsProfile({ navigation }) {
                             <View style={{ flexDirection: 'row', alignItems: 'center', width: '70%' }}>
                                 <Text style={styles.eventWinnerPrize}>1000</Text>
                                 <LottieView style={{ width: 30, height: 25 }} source={require('../assets/image/coinWithdraaw.json')} autoPlay loop />
-
                             </View>
                         </View>
 
@@ -54,7 +64,7 @@ export default function AuthorsProfile({ navigation }) {
 
                         </View>
                     </View>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </View>
         )
     }
@@ -96,7 +106,7 @@ export default function AuthorsProfile({ navigation }) {
             </View>
 
             {btnSELECT === '1' &&
-                <View style={{ flex: 1, marginTop: 0 }}>
+                <View style={{ flex: 1, marginTop:30,bottom:15 }}>
                     <FlatList
                         showsVerticalScrollIndicator={false}
                         data={Data}
@@ -166,7 +176,7 @@ const styles = StyleSheet.create({
     selectBtnContent: {
         marginTop: 15, flexDirection: 'row',
         justifyContent: 'space-between',
-    
+
         paddingHorizontal: 15, paddingVertical: 4,
         width: '95%', alignSelf: 'center', borderRadius: 10
     },

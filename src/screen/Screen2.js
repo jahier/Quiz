@@ -13,9 +13,9 @@ import { heightPercentageToDP } from 'react-native-responsive-screen';
 import LottieView from 'lottie-react-native';
 import Drawer from 'react-native-drawer';
 
-export default function Screen2(props,{navigation}) {
+export default function Screen2(props, { navigation }) {
 
-  
+
   const [about, setAbout] = useState(false)
   const aboutBtn = () => {
     setAbout(!about)
@@ -113,10 +113,10 @@ export default function Screen2(props,{navigation}) {
   ]
   const TopAuthorsItem = ({ item, index }) => {
     return (
-      <TouchableOpacity onPress={()=>props.navigation.navigate('AuthorsProfile')} style={{ flex: 1, marginVertical: 10, marginHorizontal: 6 }}>
+      <TouchableOpacity onPress={() => props.navigation.navigate('AuthorsProfile')} style={{ flex: 1, marginVertical: 10, marginHorizontal: 6 }}>
         <LinearGradient style={{
-          width: 110,flex:1, borderRadius: 10, justifyContent: 'center', alignItems: 'center',
-          elevation: 0, shadowColor: 'black',paddingVertical:10
+          width: 110, flex: 1, borderRadius: 10, justifyContent: 'center', alignItems: 'center',
+          elevation: 0, shadowColor: 'black', paddingVertical: 10
         }}
           colors={['#E8E8E836', '#E8E8E836']}
           start={{ x: 0, y: 0 }}
@@ -126,8 +126,8 @@ export default function Screen2(props,{navigation}) {
             <Image style={{ resizeMode: 'contain', height: 78, width: 78, borderRadius: 50 }} source={item.img} />
           </View>
 
-          <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%', }}>
-            <Text style={{ color: 'white', fontSize: 12, fontWeight: '600', top: 3 }}>Achieve Success Coachingeer</Text>
+          <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%', paddingHorizontal: 6 }}>
+            <Text style={{ color: 'white', fontSize: 12, fontWeight: '600', top: 3, textAlign: 'center' }}>Achieve Success Coachingeer</Text>
             {/* <Text style={{ color: 'white', fontSize: 12, fontWeight: '600', bottom: 0 }}>5000</Text> */}
           </View>
 
@@ -140,8 +140,8 @@ export default function Screen2(props,{navigation}) {
     return (
       <TouchableOpacity onPress={() => props.navigation.navigate('OtherProfile')} style={{ flex: 1, marginVertical: 10, marginHorizontal: 6 }}>
         <LinearGradient style={{
-          width: 110, height: 130, borderRadius: 10, justifyContent: 'center', alignItems: 'center',
-          elevation: 0, shadowColor: 'black'
+          width: 110, flex: 1, borderRadius: 10, justifyContent: 'center', alignItems: 'center',
+          elevation: 0, shadowColor: 'black', paddingVertical: 10
         }}
           colors={['#E8E8E836', '#E8E8E836']}
           start={{ x: 0, y: 0 }}
@@ -164,24 +164,25 @@ export default function Screen2(props,{navigation}) {
   const QuizRender = ({ item }) => {
     return (
       <TouchableOpacity onPress={() => openModal2()} style={{ flex: 1, marginVertical: 10, marginHorizontal: 6 }}>
-        {/* <ImageBackground style={{ resizeMode: 'contain', width: 110, height: 130, borderRadius: 15, overflow: 'hidden', alignItems: 'center', justifyContent: 'flex-end' }} source={ImagePath.bacImage}> */}
-        <LinearGradient style={{
-          width: 110, height: 130, alignItems: 'center',
-          elevation: 0, borderWidth: 0, borderColor: 'lightgray',
-          shadowColor: 'black', paddingHorizontal: 0, justifyContent: 'center', borderTopRightRadius: 15, borderTopLeftRadius: 15, borderBottomRightRadius: 10
-        }}
-          colors={['#F3F3F31F', '#F3F3F31F',]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 0, y: 1 }}
-        >
-          {/* <Image style={{ width: 120, height: 100, resizeMode: 'contain' }} source={ImagePath.Sports} /> */}
-          {/* <View style={{ justifyContent: 'center', width: '100%', borderBottomLeftRadius: 10, borderBottomRightRadius: 10, backgroundColor: 'skyblue', height: 40, paddingHorizontal: 5 }}> */}
-          <Text style={{ color: 'white', fontSize: 12, fontWeight: '500', top: 0, textAlign: 'center' }}>{item.name}</Text>
-          {/* <Text style={{ color: 'white', fontSize: 12, fontWeight: '500', top: 0, }}>{item.name}</Text> */}
-          <Text style={{ color: 'white', fontSize: 12, fontWeight: '500', top: 33, }}>Players: 500</Text>
-          {/* </View> */}
-          {/* </ImageBackground> */}
-        </LinearGradient>
+        <ImageBackground style={{ resizeMode: 'contain', width: 110, flex: 1, borderRadius: 15, overflow: 'hidden', alignItems: 'center', justifyContent: 'flex-end' }} source={ImagePath.bacImage}>
+          <LinearGradient style={{
+            width: 110, height: 130, alignItems: 'center',
+            elevation: 0, borderWidth: 0, borderColor: 'lightgray',
+            shadowColor: 'black', paddingHorizontal: 0, justifyContent: 'center', borderTopRightRadius: 15, borderTopLeftRadius: 15, borderBottomRightRadius: 10
+          }}
+            colors={['#F3F3F31F', '#F3F3F31F',]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 0, y: 1 }}
+          >
+            {/* <Image style={{ width: 120, height: 100, resizeMode: 'contain' }} source={ImagePath.Sports} /> */}
+            {/* <View style={{ justifyContent: 'center', width: '100%', borderBottomLeftRadius: 10, borderBottomRightRadius: 10, backgroundColor: 'skyblue', height: 40, paddingHorizontal: 5 }}> */}
+            <Text style={{ color: 'white', fontSize: 12, fontWeight: '500', top: 0, textAlign: 'center' }}>{item.name}</Text>
+            {/* <Text style={{ color: 'white', fontSize: 12, fontWeight: '500', top: 0, }}>{item.name}</Text> */}
+            <Text style={{ color: 'white', fontSize: 12, fontWeight: '500', top: 33, }}>Players: 500</Text>
+            {/* </View> */}
+          </LinearGradient>
+        </ImageBackground>
+
       </TouchableOpacity>
     )
   }
@@ -247,7 +248,7 @@ export default function Screen2(props,{navigation}) {
                 <Text style={styles.event}>LEARNO MEGA EVENT </Text>
                 <Text style={styles.eventDetails}>Event Date: 15/04/2023</Text>
                 <Text style={styles.eventDetails}>500 Seats</Text>
-                <TouchableOpacity onPress={() => props.navigation.navigate('EventDetails')} style={{ backgroundColor: '#666666', padding: 5, paddingHorizontal: 10, borderRadius: 10, marginTop: 10, marginRight: 15, width: 70 }}>
+                <TouchableOpacity onPress={() => props.navigation.navigate('EventDetails')} style={styles.enrollBtn}>
                   <Text style={styles.btnLabel}>Enroll Now</Text>
                 </TouchableOpacity>
               </View>
@@ -353,12 +354,12 @@ export default function Screen2(props,{navigation}) {
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Text style={styles.TopWinners}>Top Authors</Text>
           </View>
-          <TouchableOpacity onPress={()=> props.navigation.navigate('TopAuthors')}>
+          <TouchableOpacity onPress={() => props.navigation.navigate('TopAuthors')}>
             <Text style={styles.ViewAll}>View All</Text>
           </TouchableOpacity>
         </View>
 
-        <View style={{ bottom: 15, marginTop: 15 }}>
+        <View style={{ bottom: 0, marginTop: 0 }}>
           <FlatList
             horizontal
             data={TopAuthors}
@@ -377,7 +378,7 @@ export default function Screen2(props,{navigation}) {
             <Text style={styles.ViewAll}>View All</Text>
           </TouchableOpacity>
         </View>
-        <View style={{ bottom: 15, marginTop: 15 }}>
+        <View style={{}}>
           <FlatList
             horizontal
             data={Winner}
@@ -471,13 +472,14 @@ export default function Screen2(props,{navigation}) {
                       backgroundColor: dashboard ? 'rgba(160,156,191,0.25)' : null,
                       width: '100%'
                     }}>
-                      <View style={{ marginLeft: drawer ? 0 : 17 }}>
-                        <AntDesign name="windowso" size={30} color="#242220" />
+                      <View style={{ marginLeft: drawer ? 0 : 17, flexDirection: 'row' }}>
+                        <AntDesign name="windowso" size={25} color="#242220" />
+                        {drawer ?
+                          <Text style={styles.dashboardText}>Dashboard</Text>
+                          : ''
+                        }
                       </View>
-                      {drawer ?
-                        <Text style={styles.dashboardText}>Dashboard</Text>
-                        : ''
-                      }
+
                       {drawer ?
                         <TouchableOpacity onPress={() => dashboardBTn()}>
                           <Icon3 name={dashboard ? "chevron-thin-up" : "chevron-thin-down"} size={17} color="#242220" />
@@ -490,14 +492,14 @@ export default function Screen2(props,{navigation}) {
                         <Image style={{ resizeMode: 'contain', marginLeft: 30, height: 90 }} source={ImagePath.Union} />
                         {drawer ?
                           <View>
-                            <TouchableOpacity onPress={() => colorBtn()} style={{ paddingHorizontal: 10, marginTop: 8 }}>
+                            <TouchableOpacity onPress={() => props.navigation.navigate('Activity')} style={{ paddingHorizontal: 10, marginTop: 8 }}>
                               <Text style={styles.selectText}>Activity</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => colorBtn()} style={{ paddingHorizontal: 10, marginTop: 18 }}>
-                              <Text style={styles.selectText}>Profile</Text>
+                            <TouchableOpacity onPress={() => props.navigation.navigate('PlayVideo')} style={{ paddingHorizontal: 10, marginTop: 18 }}>
+                              <Text style={styles.selectText}>How to play?</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => colorBtn()} style={{ paddingHorizontal: 10, marginTop: 18 }}>
-                              <Text style={styles.selectText}>Quiz</Text>
+                            <TouchableOpacity onPress={() => props.navigation.navigate('Event')} style={{ paddingHorizontal: 10, marginTop: 18 }}>
+                              <Text style={styles.selectText}>Event Quiz</Text>
                             </TouchableOpacity>
                           </View>
                           :
@@ -527,17 +529,17 @@ export default function Screen2(props,{navigation}) {
                       :
                       ''
                     }
-                    <TouchableOpacity style={{ flexDirection: 'row', justifyContent: drawer ? null : 'center', alignItems: 'center', marginTop: 15 }}>
+                    <TouchableOpacity style={{ flexDirection: 'row', justifyContent: drawer ? null : 'center', alignItems: 'center', marginTop: 0 }}>
                       <View style={{ marginTop: 0, alignItems: 'center', marginLeft: drawer ? 10 : 0 }}>
                         <Ionicons name="notifications-outline" size={25} color="#242220" />
                       </View>
                       {drawer ?
-                        <View style={{ marginLeft: 19, justifyContent: 'center' }}>
+                        <View style={{ marginLeft: 20, justifyContent: 'center' }}>
                           <Text style={styles.selectText}>Skills</Text>
                         </View> : ""
                       }
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ flexDirection: 'row', justifyContent: drawer ? null : 'center', alignItems: 'center', marginTop: 15 }}>
+                    <TouchableOpacity onPress={()=>props.navigation.navigate('Wallet')} style={{ flexDirection: 'row', justifyContent: drawer ? null : 'center', alignItems: 'center', marginTop: 15 }}>
                       <View onPress={() => colorBtn()} style={{ marginTop: 0, alignItems: 'center', marginLeft: drawer ? 10 : 0 }}>
                         <Ionicons name="wallet-outline" size={25} color="#242220" />
                       </View>
@@ -547,7 +549,7 @@ export default function Screen2(props,{navigation}) {
                         </View> : ""
                       }
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ flexDirection: 'row', justifyContent: drawer ? null : 'center', alignItems: 'center', marginTop: 15 }}>
+                    <TouchableOpacity style={{ flexDirection: 'row', justifyContent: drawer ? null : 'center', alignItems: 'center', marginTop: 0 }}>
                       {
                         drawer ? '' :
                           <TouchableOpacity onPress={() => aboutBtn()} style={{ marginTop: 0, alignItems: 'center', marginLeft: drawer ? 10 : 0 }}>
@@ -563,13 +565,14 @@ export default function Screen2(props,{navigation}) {
                           backgroundColor: about ? 'rgba(160,156,191,0.25)' : null,
                           width: '100%'
                         }}>
-                          <View style={{ marginLeft: drawer ? 0 : 17 }}>
+                          <View style={{ marginLeft: drawer ? 0 : 17, flexDirection: 'row', alignItems: 'center' }}>
                             <Ionicons name="notifications-outline" size={25} color="#242220" />
+                            {drawer ?
+                              <Text style={styles.dashboardText}>About us</Text>
+                              : ''
+                            }
                           </View>
-                          {drawer ?
-                            <Text style={styles.dashboardText}>About us</Text>
-                            : ''
-                          }
+
                           {drawer ?
                             <TouchableOpacity onPress={() => aboutBtn()}>
                               <Icon3 name={about ? "chevron-thin-up" : "chevron-thin-down"} size={17} color="#242220" />
@@ -583,18 +586,16 @@ export default function Screen2(props,{navigation}) {
                     </TouchableOpacity>
                     {about ?
                       <View style={{ flexDirection: 'row' }}>
-                        <Image style={{ resizeMode: 'contain', marginLeft: 30, height: 90 }} source={ImagePath.Union} />
+                        <Image style={{ resizeMode: 'contain', marginLeft: 30, height: 90, bottom: 13 }} source={require('../assets/image/Union2.png')} />
                         {drawer ?
                           <View>
-                            <TouchableOpacity onPress={() => colorBtn()} style={{ paddingHorizontal: 10, marginTop: 8 }}>
-                              <Text style={styles.selectText}>Activity</Text>
+                            <TouchableOpacity onPress={() => props.navigation.navigate('Terms_Conditions')} style={{ paddingHorizontal: 10, marginTop: 8 }}>
+                              <Text style={styles.selectText}>Terms & Conditions</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => colorBtn()} style={{ paddingHorizontal: 10, marginTop: 18 }}>
-                              <Text style={styles.selectText}>Profile</Text>
+                            <TouchableOpacity onPress={() => props.navigation.navigate('Privacy_Policy')} style={{ paddingHorizontal: 10, marginTop: 25 }}>
+                              <Text style={styles.selectText}>Privacy Policy</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => colorBtn()} style={{ paddingHorizontal: 10, marginTop: 18 }}>
-                              <Text style={styles.selectText}>Quiz</Text>
-                            </TouchableOpacity>
+
                           </View>
                           :
                           <View style={{ height: 105, width: 150, backgroundColor: 'rgba(160,156,191,0.25)', borderRadius: 15, borderWidth: 1, borderColor: 'darkgray', marginLeft: 10 }}>
@@ -607,15 +608,13 @@ export default function Screen2(props,{navigation}) {
                               start={{ x: 0.5, y: 0 }}
                               end={{ x: 0, y: 0.5 }}
                             >
-                              <TouchableOpacity onPress={() => colorBtn()} style={{ paddingHorizontal: 10, marginTop: 3 }}>
+                              <TouchableOpacity onPress={() => colorBtn()} style={{ paddingHorizontal: 10, marginTop: 3, width: '100%' }}>
                                 <Text style={styles.selectText}>Activity</Text>
                               </TouchableOpacity>
-                              <TouchableOpacity onPress={() => colorBtn()} style={{ paddingHorizontal: 10, marginTop: 14 }}>
-                                <Text style={styles.selectText}>Profile</Text>
+                              <TouchableOpacity onPress={() => colorBtn()} style={{ paddingHorizontal: 10, marginTop: 14, width: '100%' }}>
+                                <Text style={styles.selectText}>Privacy Policy</Text>
                               </TouchableOpacity>
-                              <TouchableOpacity onPress={() => colorBtn()} style={{ paddingHorizontal: 10, marginTop: 19 }}>
-                                <Text style={styles.selectText}>Quiz</Text>
-                              </TouchableOpacity>
+
                             </LinearGradient>
                           </View>
                         }
@@ -683,7 +682,7 @@ export default function Screen2(props,{navigation}) {
                     }
                   </ScrollView>
                 </View>
-                
+
 
 
               </View>
@@ -691,7 +690,7 @@ export default function Screen2(props,{navigation}) {
             </LinearGradient>
           </View>
         </Modal>
-     
+
         <RBSheet
           ref={bottomSheetRef}
           closeOnDragDown={false}
@@ -716,7 +715,7 @@ export default function Screen2(props,{navigation}) {
             <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 15 }}>
               <TextInput style={{ width: 150, padding: 4, paddingHorizontal: 15, borderRadius: 15, color: 'white', fontSize: 17, backgroundColor: 'rgba(59, 67, 72, 0.37)' }} />
             </View>
-            <TouchableOpacity onPress={() =>navigation.navigate('ProfileGame')} style={{ width: '95%', padding: 4, borderRadius: 5, backgroundColor: 'rgba(59, 67, 72, 0.37)', justifyContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: 7 }}>
+            <TouchableOpacity onPress={() => navigation.navigate('ProfileGame')} style={{ width: '95%', padding: 4, borderRadius: 5, backgroundColor: 'rgba(59, 67, 72, 0.37)', justifyContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: 7 }}>
               <Text style={{ fontSize: 18, color: 'white', fontWeight: '700', }}>Join Room</Text>
             </TouchableOpacity>
           </View>
@@ -779,7 +778,7 @@ const styles = StyleSheet.create({
   },
   selectText: { color: '#242220', fontSize: 13, fontWeight: '500', },
   dashboardText: {
-    color: '#242220', fontSize: 13, fontWeight: '500', marginLeft: 0
+    color: '#242220', fontSize: 13, fontWeight: '500', marginLeft: 20
 
   },
   // historyUser:{},
@@ -816,10 +815,10 @@ const styles = StyleSheet.create({
     fontSize: 10, color: '#FFFF', fontWeight: '700'
   },
   TopWinners: {
-    fontSize: 16, lineHeight: 19, fontWeight: '700', color: 'white'
+    fontSize: 16, lineHeight: 16, fontWeight: '700', color: 'white'
   },
   winnerCup: {
-    resizeMode: 'contain', width: 20, height: 18, marginLeft: 5,
+    resizeMode: 'contain', width: 20, height: 16, marginLeft: 5,
   },
   ViewAll: {
     fontSize: 13, lineHeight: 14, fontWeight: '400', color: 'white'
@@ -829,6 +828,12 @@ const styles = StyleSheet.create({
     borderStyle: 'solid', borderColor: 'rgba(112, 112, 136, 0.78)',
     marginTop: 10
   },
+  enrollBtn: {
+    backgroundColor: '#666666',
+    padding: 5, paddingHorizontal: 10,
+    borderRadius: 10, marginTop: 10,
+    marginRight: 15, justifyContent: 'center', alignItems: 'center'
+  }
 
 
 

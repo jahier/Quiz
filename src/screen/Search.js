@@ -19,8 +19,8 @@ export default function Search(props) {
         return (
             <TouchableOpacity onPress={() => props.navigation.navigate('AuthorsProfile')} style={{ flex: 1, marginVertical: 10, marginHorizontal: 6 }}>
                 <LinearGradient style={{
-                    width: 110, height: 130, borderRadius: 10, justifyContent: 'center', alignItems: 'center',
-                    elevation: 0, shadowColor: 'black'
+                    width: 110, flex: 1, borderRadius: 10, justifyContent: 'center', alignItems: 'center',
+                    elevation: 0, shadowColor: 'black', paddingVertical: 10
                 }}
                     colors={['#E8E8E836', '#E8E8E836']}
                     start={{ x: 0, y: 0 }}
@@ -30,12 +30,10 @@ export default function Search(props) {
                         <Image style={{ resizeMode: 'contain', height: 78, width: 78, borderRadius: 50 }} source={item.img} />
                     </View>
 
-                    <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%', }}>
-                        <Text style={{ color: 'white', fontSize: 12, fontWeight: '600', top: 3 }}>Achieve Success Coachingeer</Text>
+                    <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%', paddingHorizontal: 6 }}>
+                        <Text style={{ color: 'white', fontSize: 12, fontWeight: '600', top: 3, textAlign: 'center' }}>Achieve Success Coachingeer</Text>
                         {/* <Text style={{ color: 'white', fontSize: 12, fontWeight: '600', bottom: 0 }}>5000</Text> */}
                     </View>
-
-
                 </LinearGradient>
             </TouchableOpacity>
         )
@@ -44,8 +42,8 @@ export default function Search(props) {
         return (
             <TouchableOpacity onPress={() => props.navigation.navigate('OtherProfile')} style={{ flex: 1, marginVertical: 10, marginHorizontal: 6 }}>
                 <LinearGradient style={{
-                    width: 110, height: 130, borderRadius: 10, justifyContent: 'center', alignItems: 'center',
-                    elevation: 0, shadowColor: 'black'
+                    width: 110, flex: 1, borderRadius: 10, justifyContent: 'center', alignItems: 'center',
+                    elevation: 0, shadowColor: 'black', paddingVertical: 10
                 }}
                     colors={['#E8E8E836', '#E8E8E836']}
                     start={{ x: 0, y: 0 }}
@@ -66,16 +64,17 @@ export default function Search(props) {
         )
     }
     return (
-        <ScrollView style={{ flex: 1 }}>
-            <ImageBackground style={{ flex: 1 }} source={ImagePath.homeBackground}>
-                <View style={styles.inputContent}>
-                    <TextInput style={styles.input}
-                        placeholder='Search'
-                    />
-                    <View style={styles.searchIconContent}>
-                        <AntDesign name="search1" size={17} color="white" />
-                    </View>
+        <ImageBackground style={{ flex: 1 }} source={ImagePath.homeBackground}>
+            <View style={styles.inputContent}>
+                <TextInput style={styles.input}
+                    placeholder='Search'
+                />
+                <View style={styles.searchIconContent}>
+                    <AntDesign name="search1" size={17} color="white" />
                 </View>
+            </View>
+            <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
+
                 <Text style={styles.topText}>Top Authors</Text>
                 <View style={{}}>
                     <FlatList
@@ -97,8 +96,9 @@ export default function Search(props) {
                         showsHorizontalScrollIndicator={false}
                     />
                 </View>
-            </ImageBackground>
-        </ScrollView>
+            </ScrollView>
+
+        </ImageBackground>
     )
 }
 

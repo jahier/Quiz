@@ -2,17 +2,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Screen2 from '../screen/Screen2';
 import ImagePath from '../assets/ImagePath';
 import { View, Image, Animated, Text, TouchableOpacity, ImageBackground } from 'react-native';
-import { scale } from 'react-native-size-matters';
-import { useRef } from 'react';
 import { widthPercentageToDP } from 'react-native-responsive-screen';
-import Sign_up from '../screen/Sign_up';
 import Login from '../screen/Login';
-import HomeScreen from '../screen/HomeScreen';
 import Icon from 'react-native-vector-icons/AntDesign';
-import Demo from '../screen/Demo';
 import Profile from '../screen/Profile';
-import DrawerNavigator from './DrawerNavigator';
-import { createDrawerNavigator } from '@react-navigation/drawer';
 import Search from '../screen/Search';
 import Chat from '../screen/Chat';
 
@@ -45,7 +38,7 @@ function BottomTab(props) {
                     } */}
                     <Image style={{ width: isFocus ? 28 : 23, height: isFocus ? 24 : 22, resizeMode: 'contain', margin: 3, tintColor: isFocus ? 'white' : 'lightgray' }} source={isFocus ? active : inActive} />
                     {TextFocus && (
-                        <Text style={{ color: 'white', fontSize: 14, fontWeight: '300', lineHeight: 15 }}>{TextFocus ? activeText : inActiveText}</Text>
+                        <Text style={{ color: 'white', fontSize: 12, fontWeight: '400', lineHeight: 15 }}>{TextFocus ? activeText : inActiveText}</Text>
                     )}
                 </View>
             </View>
@@ -54,27 +47,27 @@ function BottomTab(props) {
 
     const CustomButton = ({ children, onPress }) => (
         <View>
-            <TouchableOpacity onPress={()=>props.navigation.navigate('Event')}
-                style={{ flex: 1, justifyContent: 'center', alignItems: 'center',padding:0,width:40,marginTop:0 }}
+            <TouchableOpacity onPress={() => props.navigation.navigate('Event')}
+                style={{ height: 50, width: 40, justifyContent: 'center', alignItems: 'center', padding: 2, marginTop: 0 }}
             // onPress={() => ShowDataButton('1') ||setModal(true)}
             // onPress={() => setModal(!modal)}
             >
                 {/* <View
                     style={{ width: 40, height: 40, borderRadius: 20, backgroundColor: 'white', justifyContent: 'center', alignItems: 'center',  bottom: 0,elevation:10 }}> */}
-                    {children} 
+                {children}
                 {/* </View> */}
 
             </TouchableOpacity>
         </View>
     )
 
-    
+
     return (
         <Tab.Navigator
             screenOptions={{
                 tabBarHideOnKeyboard: true,
                 headerShown: false,
-                tabBarStyle: { backgroundColor: 'black', height: 50, elevation:0,  width: widthPercentageToDP(100), alignSelf: 'center',  },
+                tabBarStyle: { backgroundColor: 'black', height: 50, elevation: 0, width: widthPercentageToDP(100), alignSelf: 'center', },
             }}>
             <Tab.Screen
                 options={{
@@ -108,8 +101,8 @@ function BottomTab(props) {
                                 isFocus={focused}
                                 TextFocus={focused}
                                 activeText="Search"
-                                // activeRight={20}
-                                // inActiveRight={20}
+                            // activeRight={20}
+                            // inActiveRight={20}
                             />
                         )
                     }
@@ -122,7 +115,7 @@ function BottomTab(props) {
                 options={{
                     tabBarLabel: '',
                     tabBarIcon: ({ focus }) => (
-                        <Icon name="pluscircleo" size={30} color="#FFFF" marginTop={5} />
+                        <Icon name="pluscircleo" size={25} color="#FFFF" marginTop={5} />
                     ),
                     tabBarButton: (props) => (
                         <CustomButton {...props} />
@@ -137,13 +130,13 @@ function BottomTab(props) {
 
                         return (
                             <RenderTabIcon
-                                active={ImagePath.activeUser}
-                                inActive={ImagePath.profileIcon}
+                                active={ImagePath.activeChat}
+                                inActive={ImagePath.inActiveChat}
                                 isFocus={focused}
                                 TextFocus={focused}
                                 activeText="Message"
-                                // activeRight={-20}
-                                // inActiveRight={-20}
+                            // activeRight={-20}
+                            // inActiveRight={-20}
                             />
                         )
                     }

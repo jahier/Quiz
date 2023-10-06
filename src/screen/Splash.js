@@ -36,6 +36,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'pink'
   },
   learnTEXT: {
-    fontSize: 20, color: 'white', fontWeight: 'bold'
+    fontSize: 25, color: 'white', fontWeight: 'bold'
   },
 })

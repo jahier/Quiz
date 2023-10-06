@@ -24,7 +24,10 @@ const ImagePath={
     ITBack:require('../assets/image/ITBack.png'),
     subDataImg:require('../assets/image/subDataImg.png'),
     homeBackground:require('../assets/image/homebackground.png'),
-    profileIcon:(require('../assets/image/profileIcon.png')),
+    profileIcon:require('../assets/image/profileIcon.png'),
+    inActiveChat:require('../assets/image/inActiveChat.png'),
+    activeChat:require('../assets/image/activeChat.png'),
+
 
 
 

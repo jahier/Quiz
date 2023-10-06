@@ -125,62 +125,10 @@ export default function ProfileGame(props) {
                 keyExtractor={(item) => item.id}
                 showsHorizontalScrollIndicator={false}
               />
-              <View style={{ width: 32, height: 32, backgroundColor: 'black', bottom: 100, borderRadius: 20, justifyContent: 'center', alignItems: 'center', borderWidth: 0.5, borderColor: 'rgba(190, 189, 194, 0.99)' }}>
+              {/* <View style={{ width: 32, height: 32, backgroundColor: 'black', bottom: 100, borderRadius: 20, justifyContent: 'center', alignItems: 'center', borderWidth: 0.5, borderColor: 'rgba(190, 189, 194, 0.99)' }}>
                 <Text style={{ color: 'white', fontSize: 12, fontWeight: '700', textAlign: 'center' }}>VS</Text>
-              </View>
-            </View>}
-          {
-            Dataa === '2' &&
-            <View>
-              <View style={{ marginHorizontal: 10 }}>
-                <TouchableOpacity style={{ width: 120, height: 120, borderWidth: 0.5, borderColor: 'darkgray', borderRadius: 15, justifyContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: 30 }}>
-                  {/* <Image style={{ width: 120, height: 120, borderColor: 'darkgray', borderRadius: 15, resizeMode: 'contain' }} source={ImagePath.singleMode} /> */}
-                  <Icon name="plus" size={80} color="darkgray" />
-                </TouchableOpacity>
-                <Text style={{ color: 'white', fontSize: 14, fontWeight: '600', textAlign: 'center', marginTop: 6 }}>Isha Gupta</Text>
-              </View>
-              <View style={{ marginTop: 50, justifyContent: 'center', alignItems: 'center', }}>
-                <FlatList
-                  // horizontal
-                  numColumns={3}
-                  data={MultiplyData}
-                  renderItem={Multiply}
-                  keyExtractor={(item) => item.id}
-                  showsHorizontalScrollIndicator={false}
-                />
-                <View style={{ width: 32, height: 32, backgroundColor: 'black', bottom: 170, borderRadius: 20, justifyContent: 'center', alignItems: 'center', borderWidth: 0.5, borderColor: 'rgba(190, 189, 194, 0.99)' }}>
-                  <Text style={{ color: 'white', fontSize: 12, fontWeight: '700', textAlign: 'center' }}>VS</Text>
-                </View>
-              </View>
-            </View>
-          }
-          {
-            Dataa === '3' &&
-            <ScrollView showsVerticalScrollIndicator={false}>
-              <View style={{ marginHorizontal: 10 }}>
-                <TouchableOpacity style={{ width: 100, height: 100, borderWidth: 0.5, borderColor: 'darkgray', borderRadius: 15, justifyContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: 30 }}>
-                  {/* <Image style={{ width: 120, height: 120, borderColor: 'darkgray', borderRadius: 15, resizeMode: 'contain' }} source={ImagePath.singleMode} /> */}
-                  <Icon name="plus" size={80} color="darkgray" />
-                </TouchableOpacity>
-                <Text style={{ color: 'white', fontSize: 14, fontWeight: '600', textAlign: 'center', marginTop: 6 }}>Isha Gupta</Text>
-              </View>
-              <View style={{ marginTop: 50, justifyContent: 'center', alignItems: 'center', }}>
-                <FlatList
-                  // horizontal
-                  numColumns={4}
-                  data={Slot}
-                  renderItem={SlotRender}
-                  keyExtractor={(item) => item.id}
-                  showsHorizontalScrollIndicator={false}
-                />
-                <View style={{ width: 32, height: 32, backgroundColor: 'black', bottom: 475, borderRadius: 20, justifyContent: 'center', alignItems: 'center', borderWidth: 0.5, borderColor: 'rgba(190, 189, 194, 0.99)' }}>
-                  <Text style={{ color: 'white', fontSize: 12, fontWeight: '700', textAlign: 'center' }}>VS</Text>
-                </View>
-              </View>
-            </ScrollView>
-          }
-
-          {coinShow ?
+              </View> */}
+              {coinShow ?
             <View style={{}}>
               <Animated.View style={[{ width: '100%', justifyContent: 'center', alignItems: 'center', paddingHorizontal: 15 }, {
                 transform: [
@@ -261,6 +209,221 @@ export default function ProfileGame(props) {
               <Text style={{ color: 'black', fontSize: 12, fontWeight: '500', textAlign: 'center' }}>Waiting for the friend to join</Text>
             </View>
           </View>
+            </View>}
+          {
+            Dataa === '2' &&
+            <View>
+              <View style={{ marginHorizontal: 10 }}>
+                <TouchableOpacity style={{ width: 120, height: 120, borderWidth: 0.5, borderColor: 'darkgray', borderRadius: 15, justifyContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: 30 }}>
+                  {/* <Image style={{ width: 120, height: 120, borderColor: 'darkgray', borderRadius: 15, resizeMode: 'contain' }} source={ImagePath.singleMode} /> */}
+                  <Icon name="plus" size={80} color="darkgray" />
+                </TouchableOpacity>
+                <Text style={{ color: 'white', fontSize: 14, fontWeight: '600', textAlign: 'center', marginTop: 6 }}>Isha Gupta</Text>
+              </View>
+              <View style={{ marginTop: 50, justifyContent: 'center', alignItems: 'center', }}>
+                <FlatList
+                  // horizontal
+                  numColumns={3}
+                  data={MultiplyData}
+                  renderItem={Multiply}
+                  keyExtractor={(item) => item.id}
+                  showsHorizontalScrollIndicator={false}
+                />
+                {/* <View style={{ width: 32, height: 32, backgroundColor: 'black', bottom: 170, borderRadius: 20, justifyContent: 'center', alignItems: 'center', borderWidth: 0.5, borderColor: 'rgba(190, 189, 194, 0.99)' }}>
+                  <Text style={{ color: 'white', fontSize: 12, fontWeight: '700', textAlign: 'center' }}>VS</Text>
+                </View> */}
+              </View>
+              {coinShow ?
+            <View style={{}}>
+              <Animated.View style={[{ width: '100%', justifyContent: 'center', alignItems: 'center', paddingHorizontal: 15 }, {
+                transform: [
+                  {
+                    translateY: animated2.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [0, 0]
+                    })
+                  },
+
+                  {
+                    rotate: animated2.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: ['50deg', '0deg']
+                    })
+                  },
+                  {
+                    translateX: animated2.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [-100, 0]
+                    })
+                  },
+                  {
+                    scale: animated2.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [0, 1]
+                    })
+                  },
+                ]
+              }]}>
+                <TouchableOpacity onPress={startAnimation2()} style={{}}>
+                  <Image style={{ width: 15, height: 15, resizeMode: 'contain' }} source={require('../assets/image/coin.png')} />
+                </TouchableOpacity>
+              </Animated.View>
+              <Animated.View style={[{ width: '100%', justifyContent: 'center', alignItems: 'center', paddingHorizontal: 15 }, {
+                transform: [
+                  {
+                    translateY: animated2.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [-40, 0]
+                    })
+                  },
+
+                  {
+                    rotate: animated2.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: ['-50deg', '0deg']
+                    })
+                  },
+                  {
+                    translateX: animated2.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [120, 0]
+                    })
+                  },
+                  {
+                    scale: animated2.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [0, 1]
+                    })
+                  },
+                ]
+              }]}>
+                <TouchableOpacity onPress={startAnimation2()} style={{}}>
+                  <Image style={{ width: 15, height: 15, resizeMode: 'contain' }} source={require('../assets/image/coin.png')} />
+                </TouchableOpacity>
+              </Animated.View>
+            </View>
+            :
+            <View style={{ paddingHorizontal: 5, flexDirection: 'row', alignItems: 'center', alignSelf: 'center',marginTop:15 }}>
+              <Image style={{ width: 30, height: 30, resizeMode: 'contain' }} source={require('../assets/image/COINADD.png')} />
+              <Text style={{ marginLeft: 5, fontSize: 12, color: 'white', fontWeight: '700' }}> {"100"}</Text>
+            </View>
+          }
+
+          <View style={{ marginTop: 20, paddingHorizontal: 70 }}>
+            <View style={{ backgroundColor: 'white', padding: 10, justifyContent: 'center', alignItems: 'center', borderRadius: 20 }}>
+              <Text style={{ color: 'black', fontSize: 12, fontWeight: '500', textAlign: 'center' }}>Waiting for the friend to join</Text>
+            </View>
+          </View>
+            </View>
+          }
+          {
+            Dataa === '3' &&
+            <ScrollView showsVerticalScrollIndicator={false}>
+              <View style={{ marginHorizontal: 10 }}>
+                <TouchableOpacity style={{ width: 100, height: 100, borderWidth: 0.5, borderColor: 'darkgray', borderRadius: 15, justifyContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: 30 }}>
+                  {/* <Image style={{ width: 120, height: 120, borderColor: 'darkgray', borderRadius: 15, resizeMode: 'contain' }} source={ImagePath.singleMode} /> */}
+                  <Icon name="plus" size={80} color="darkgray" />
+                </TouchableOpacity>
+                <Text style={{ color: 'white', fontSize: 14, fontWeight: '600', textAlign: 'center', marginTop: 6 }}>Isha Gupta</Text>
+              </View>
+              <View style={{ marginTop: 50, justifyContent: 'center', alignItems: 'center', }}>
+                <FlatList
+                  // horizontal
+                  numColumns={4}
+                  data={Slot}
+                  renderItem={SlotRender}
+                  keyExtractor={(item) => item.id}
+                  showsHorizontalScrollIndicator={false}
+                />
+                {/* <View style={{ width: 32, height: 32, backgroundColor: 'black', bottom: 475, borderRadius: 20, justifyContent: 'center', alignItems: 'center', borderWidth: 0.5, borderColor: 'rgba(190, 189, 194, 0.99)' }}>
+                  <Text style={{ color: 'white', fontSize: 12, fontWeight: '700', textAlign: 'center' }}>VS</Text>
+                </View> */}
+              </View>
+              {coinShow ?
+            <View style={{}}>
+              <Animated.View style={[{ width: '100%', justifyContent: 'center', alignItems: 'center', paddingHorizontal: 15 }, {
+                transform: [
+                  {
+                    translateY: animated2.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [0, 0]
+                    })
+                  },
+
+                  {
+                    rotate: animated2.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: ['50deg', '0deg']
+                    })
+                  },
+                  {
+                    translateX: animated2.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [-100, 0]
+                    })
+                  },
+                  {
+                    scale: animated2.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [0, 1]
+                    })
+                  },
+                ]
+              }]}>
+                <TouchableOpacity onPress={startAnimation2()} style={{}}>
+                  <Image style={{ width: 15, height: 15, resizeMode: 'contain' }} source={require('../assets/image/coin.png')} />
+                </TouchableOpacity>
+              </Animated.View>
+              <Animated.View style={[{ width: '100%', justifyContent: 'center', alignItems: 'center', paddingHorizontal: 15 }, {
+                transform: [
+                  {
+                    translateY: animated2.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [-40, 0]
+                    })
+                  },
+
+                  {
+                    rotate: animated2.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: ['-50deg', '0deg']
+                    })
+                  },
+                  {
+                    translateX: animated2.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [120, 0]
+                    })
+                  },
+                  {
+                    scale: animated2.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [0, 1]
+                    })
+                  },
+                ]
+              }]}>
+                <TouchableOpacity onPress={startAnimation2()} style={{}}>
+                  <Image style={{ width: 15, height: 15, resizeMode: 'contain' }} source={require('../assets/image/coin.png')} />
+                </TouchableOpacity>
+              </Animated.View>
+            </View>
+            :
+            <View style={{ paddingHorizontal: 5, flexDirection: 'row', alignItems: 'center', alignSelf: 'center',marginTop:15 }}>
+              <Image style={{ width: 30, height: 30, resizeMode: 'contain' }} source={require('../assets/image/COINADD.png')} />
+              <Text style={{ marginLeft: 5, fontSize: 12, color: 'white', fontWeight: '700' }}> {"100"}</Text>
+            </View>
+          }
+
+          <View style={{ marginTop: 20, paddingHorizontal: 70 }}>
+            <View style={{ backgroundColor: 'white', padding: 10, justifyContent: 'center', alignItems: 'center', borderRadius: 20 }}>
+              <Text style={{ color: 'black', fontSize: 12, fontWeight: '500', textAlign: 'center' }}>Waiting for the friend to join</Text>
+            </View>
+          </View>
+            </ScrollView>
+          }
+
+         
         {/* </LinearGradient> */}
       </ImageBackground>
     </View>

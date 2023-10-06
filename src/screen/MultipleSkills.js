@@ -28,25 +28,27 @@ export default function MultipleSkills({ navigation }) {
     const renderItem = ({ item }) => {
         return (
             <View>
-                <TouchableOpacity onPress={() => toggleItemSelection(item.id)} style={{ flex: 1, elevation: 15 }}>
+                <TouchableOpacity onPress={() => toggleItemSelection(item.id)} style={{ flex: 1, }}>
                     <View style={{
-                        backgroundColor: select.includes(item.id) ? 'rgba(160,156,191,0.25)' : 'rgba(160,156,191,0.25)',
+                        backgroundColor: select.includes(item.id) ? 'rgba(160,156,191,0.35)' : 'rgba(160,156,191,0.35)',
                         width: 150, height: 120, margin: 5, marginVertical: 10,
                         justifyContent: 'center', padding: 0,
                         alignItems: 'center',
                         borderWidth: select.includes(item.id) ? 1.5 : 0.3,
-                        borderColor: select.includes(item.id) ? 'skyblue' : 'white',
+                        borderColor: select.includes(item.id) ? 'white' : 'lightgray',
                         elevation: 0, shadowColor: 'rgba(188, 4, 161, 0.2)',
-                        borderTopLeftRadius: 20, borderBottomRightRadius: 20
+                        // borderTopLeftRadius: 20, borderBottomRightRadius: 20
+                        borderRadius:10
                     }}>
                         {select.includes(item.id) ?
                             <ImageBackground style={{
-                                width: 150,
-                                height: 120, alignItems: 'center',
+                                width: 148,
+                                height: 118, alignItems: 'center',
                                 justifyContent: 'center',
-                                borderTopLeftRadius: 20, borderBottomRightRadius: 20,
-                                borderWidth: select.includes(item.id) ? 1.5 : 0.3,
-                                borderColor: select.includes(item.id) ? 'skyblue' : 'white',
+                                // borderTopLeftRadius: 20, borderBottomRightRadius: 20,
+                                borderRadius:10,
+                                // borderWidth: select.includes(item.id) ? 1.5 : 0.3,
+                                // borderColor: select.includes(item.id) ? 'skyblue' : 'white',
                                 overflow: 'hidden'
                             }} source={ImagePath.swiper1} >
                                 <Text style={styles.skillText}>{item.skill}</Text>
@@ -95,10 +97,11 @@ export default function MultipleSkills({ navigation }) {
 const styles = ScaledSheet.create({
     mainContent: {
         flex: 1,
-        backgroundColor: 'rgba(160,156,191,0.25)',
+        backgroundColor: 'rgba(160,156,191,0.35)',
         marginTop: 50,
         borderRadius: 30,
-        bottom:30
+        bottom:30,
+        borderWidth: 0.5,borderColor: 'white'
     },
     headingText: {
         fontSize: 45, lineHeight: 46,

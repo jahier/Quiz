@@ -39,7 +39,7 @@ export default function Profile(props) {
                 </LinearGradient>
 
                 <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
-                    <View style={{ width: 80, height: 80, borderRadius: 40,justifyContent:'center',alignItems:'center' }}>
+                    <View style={{ width: 80, height: 80, borderRadius: 40, justifyContent: 'center', alignItems: 'center' }}>
                         <LottieView style={{ width: 80, height: 80, borderRadius: 40 }} source={require('../assets/image/userIcon.json')} autoPlay loop />
                     </View>
                     <Text style={{ fontSize: 15, fontWeight: '700', color: 'white', marginTop: 10 }}>Zaheer</Text>
@@ -77,8 +77,15 @@ export default function Profile(props) {
                     </View>
                 </View>
 
-                <TouchableOpacity onPress={() => props.navigation.navigate('MultipleSkills')} style={{ justifyContent: 'center', alignItems: 'center', marginTop: 15 }}>
-                    <View style={styles.CategoryBox}>
+                <View style={{ justifyContent: 'space-between', alignItems: 'center', marginTop: 15, flexDirection: 'row', paddingHorizontal: 20 }}>
+                    <TouchableOpacity onPress={() => props.navigation.navigate('Wallet')} style={styles.twoBox}>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+                            <Text style={{ fontSize: 15, fontWeight: '700', color: '#FFFFFF', }}>200</Text>
+                            <Image style={{ height: 15, width: 15, resizeMode: 'contain', marginLeft: 5 }} source={require('../assets/image/coin.png')} />
+                        </View>
+                        <Text style={styles.subText}>Wallet Amount</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => props.navigation.navigate('MultipleSkills')} style={styles.CategoryBox}>
                         <View style={{ padding: 10, alignItems: 'flex-end' }}>
                             <AntDesign name="edit" size={17} color="white" />
                         </View>
@@ -88,8 +95,8 @@ export default function Profile(props) {
                         <View style={{ marginTop: 8 }}>
                             <Text style={styles.subText}>Category</Text>
                         </View>
-                    </View>
-                </TouchableOpacity>
+                    </TouchableOpacity>
+                </View>
             </ImageBackground>
         </SafeAreaView>
     )

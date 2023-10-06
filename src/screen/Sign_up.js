@@ -5,25 +5,21 @@ import ImagePath from '../assets/ImagePath'
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen'
 import Input from '../Component/Input'
 import Button from '../Component/ButtonComponent'
-import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import moment from "moment";
 import { Dropdown } from 'react-native-element-dropdown';
-import { scale } from 'react-native-size-matters'
-const Sign_up = ({ navigation }) => {
-    const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+import Icon3 from 'react-native-vector-icons/Entypo';
+import DateTimePicker from 'react-native-modal-datetime-picker'
 
-    const showDatePicker = () => {
-        setDatePickerVisibility(true);
+const Sign_up = (props) => {
+    const [date, setDate] = useState(new Date());
+    const [showDatePicker, setShowDatePicker] = useState(true);
+    const onChange = (event, selectedDate) => {
+        const currentDate = selectedDate || date;
+        setShowDatePicker(false);
+        setDate(currentDate);
     };
+    const formattedDate = moment(date).format('DD-MM-YYYY',);
 
-    const hideDatePicker = () => {
-        setDatePickerVisibility(false);
-    };
-
-    const handleConfirm = (date) => {
-        console.log('Selected date:', date);
-        hideDatePicker();
-    };
 
 
     const dropdownData = [
@@ -45,9 +41,9 @@ const Sign_up = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.mainContent}>
             <ImageBackground style={{ flex: 1 }} source={ImagePath.bacImage}>
-                <View style={{ marginTop: 0, }}>
+                {/* <View style={{ marginTop: 0, }}>
                     <Header leftBtn={ImagePath.leftArrow} tintColor='white' onPress={() => navigation.goBack()} />
-                </View>
+                </View> */}
                 <ScrollView style={{ flex: 1, paddingHorizontal: 15 }}>
                     <Text style={styles.headingText}>LEAR<Text style={{ color: 'orange' }}>NO</Text></Text>
                     {/* <Image style={{width:'100%',height:100,resizeMode:'contain'}} source={require('../assets/image/logo.png')}/> */}
@@ -76,21 +72,30 @@ const Sign_up = ({ navigation }) => {
                             <Input placeholder="Refer Code" label="Refer Code (if any)" />
                         </View>
                         <View style={styles.inputContent}>
-                            {/* <View style={{ width: '46%', }}>
-                            <TouchableOpacity style={{alignSelf:'flex-end', width: '50%', backgroundColor: "#F7F7F7", height:48, borderRadius: scale(5), alignItems: 'center', justifyContent: 'center' }} title="Show Date Picker"  onPress={showDatePicker} >
-                                <Text style={{ textAlign: 'center', color: 'black',}}></Text>
-                            </TouchableOpacity>
-                            <DateTimePickerModal
-        isVisible={isDatePickerVisible}
-        mode="date" // You can also use "time" or "datetime"
-        onConfirm={handleConfirm}
-        onCancel={hideDatePicker}
-      />
-                        </View> */}
+                            <View style={{ width: '100%', }}>
+                            <Text style={styles.genderText}>DOB: (date of birth)</Text>
+                                <TouchableOpacity style={styles.dateContent} title="Show Date Picker" onPress={() => setShowDatePicker(true)} >
+                                    <Text style={{ color: 'white', fontSize: 14, fontWeight: '700' }}>{formattedDate}</Text>
+                                    <Icon3 name="chevron-small-down" size={22} color="gray" />
+
+                                </TouchableOpacity>
+                                {showDatePicker && (
+                                    <DateTimePicker
+                                        testID="dateTimePicker"
+                                        value={date}
+                                        mode="date"
+                                        // dateFormat='DD/MM/YYYY' 
+                                        is24Hour={false}
+                                        display="default"
+                                        onChange={onChange}
+                                    />
+                                )}
+                            </View>
                             {renderLabel(
 
                             )}
-                            <Text style={{ fontSize: 12, color: '#FFFFFF', fontWeight: '700', lineHeight: 13 }}>Gender</Text>
+                            <View style={{marginTop:15}}>
+                            <Text style={styles.genderText}>Gender</Text>
                             <Dropdown
                                 style={[styles.dropdown, isFocus && { borderColor: 'white', backgroundColor: 'rgba(160,156,191,0.25)' }]}
                                 placeholderStyle={styles.placeholderStyle}
@@ -104,7 +109,7 @@ const Sign_up = ({ navigation }) => {
                                 maxHeight={300}
                                 labelField="label"
                                 valueField="label"
-                                placeholder={!isFocus ? 'Gender' : '...'}
+                                placeholder={!isFocus ? 'Select' : '...'}
                                 // searchPlaceholder="Search..."
                                 value={label}
 
@@ -114,15 +119,17 @@ const Sign_up = ({ navigation }) => {
                                     setlabel(item.label);
                                     setIsFocus(false);
                                 }}
-
                             />
+                            </View>
                         </View>
-
                         <View style={styles.BTNContent}>
-                            <Button onPress={() => navigation.navigate('MultipleSkills')} title="Sign Up" />
+                            <Button onPress={() => props.navigation.navigate('MultipleSkills')} title="Sign Up" />
                         </View>
-                        <View style={{ paddingHorizontal: 20, marginTop: 15 }}>
+                        <View style={{ paddingHorizontal: 20, marginTop: 15,flexDirection:'row',justifyContent:'center',alignItems:'center' }}>
                             <Text style={styles.Lorem}>Login in with </Text>
+                            <TouchableOpacity onPress={()=>props.navigation.navigate('Login')}>
+                            <Text style={styles.SignInText}>Sign in </Text>
+                            </TouchableOpacity>
                         </View>
                         <View style={styles.socialBtnContent}>
                             <TouchableOpacity>
@@ -132,10 +139,8 @@ const Sign_up = ({ navigation }) => {
                                 <Image style={styles.appleLogo} source={ImagePath.appleLogo} />
                             </TouchableOpacity>
                         </View>
-
                     </View>
                 </ScrollView>
-
             </ImageBackground>
         </SafeAreaView>
     )
@@ -151,7 +156,8 @@ const styles = StyleSheet.create({
         marginTop: 30, bottom: 20,
         flexDirection: 'row',
         justifyContent: 'center',
-        width: '25%', alignSelf: 'center',
+        width: '25%',
+        alignSelf: 'center',
         alignItems: 'center'
     },
     inputContent: {
@@ -159,7 +165,8 @@ const styles = StyleSheet.create({
         marginTop: 15
     },
     socialLogo: {
-        width: 25, height: 25, resizeMode: 'contain',
+        width: 25, height: 25,
+        resizeMode: 'contain',
 
     },
     appleLogo: {
@@ -194,7 +201,7 @@ const styles = StyleSheet.create({
         fontSize: 12, lineHeight: 12,
         color: 'white',
         fontWeight: '500',
-        textAlign: 'center', marginTop: 8
+        textAlign: 'center',
     },
     whiteContent: {
         backgroundColor: 'rgba(160,156,191,0.25)',
@@ -203,24 +210,29 @@ const styles = StyleSheet.create({
         borderRadius: 30, width: '100%',
         alignSelf: 'center',
         // flex: 1
-        marginBottom: heightPercentageToDP(5)
+        marginBottom: heightPercentageToDP(5),
+        borderWidth: 0.5, borderColor: 'white',
     },
     loginTopImage: {
         resizeMode: 'contain', height: 180
     },
     SignInText: {
-        fontSize: 30, fontWeight: '700',
-        lineHeight: 31, color: 'white',
+        fontSize: 14, fontWeight: '700',
+        lineHeight: 14, color: 'white',
         textAlign: 'center'
     },
     forgetText: {
-        color: '#27374D', fontSize: 12, lineHeight: 14, fontWeight: '500', textAlign: 'right'
+        color: '#27374D', fontSize: 12,
+        lineHeight: 14, fontWeight: '500',
+        textAlign: 'right'
     },
     BTNContent: {
         paddingHorizontal: 15, marginTop: 20
     },
     orSign: {
-        color: '#27374D', fontSize: 12, lineHeight: 14, fontWeight: '500', textAlign: 'center', marginTop: 10
+        color: '#27374D', fontSize: 12,
+        lineHeight: 14, fontWeight: '500',
+        textAlign: 'center', marginTop: 10
     },
     DonHaveAccount: {
         color: 'white', fontSize: 12, lineHeight: 12, fontWeight: '500',
@@ -238,9 +250,10 @@ const styles = StyleSheet.create({
         height: 40,
         borderWidth: 1,
         borderColor: '#E0E0E0',
-        paddingHorizontal: 8,
+        paddingRight: 15,
         backgroundColor: 'rgba(160,156,191,0.25)',
-        marginTop: 4
+        marginTop: 4,
+        paddingLeft: 5
     },
     placeholderStyle: {
         fontSize: 14, fontWeight: '700',
@@ -257,7 +270,20 @@ const styles = StyleSheet.create({
         height: 40,
         fontSize: 12,
         backgroundColor: 'rgba(160,156,191,0.25)',
-
-
+    },
+    genderText: {
+        fontSize: 12,
+        color: '#FFFFFF',
+        fontWeight: '700', lineHeight: 13
+    },
+    dateContent: {
+        flexDirection: 'row',
+        width: '100%', backgroundColor: "rgba(160,156,191,0.25)",
+        height: 40,
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingHorizontal: 15,
+        borderWidth: 1, borderColor: '#E0E0E0',
+        marginTop:3
     },
 })

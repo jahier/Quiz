@@ -6,8 +6,19 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Icon3 from 'react-native-vector-icons/Entypo';
 import LinearGradient from 'react-native-linear-gradient';
 import { Dropdown } from 'react-native-element-dropdown';
+import ImagePicker from 'react-native-image-crop-picker';
 
 export default function Edit_Profile(props) {
+    const [selectedImage, setSelectedImage] = useState(null);
+    const openImagePicker = () => {
+        ImagePicker.openPicker({
+            width: 300,
+            height: 400,
+            cropping: true
+        }).then(image => {
+            setSelectedImage(image.path);
+        });
+    };
 
     const dropdownData = [
         { label: 'MALE', value3: '1' },
@@ -54,10 +65,12 @@ export default function Edit_Profile(props) {
                 </LinearGradient>
 
                 <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
-                    <View style={{ width: 80, height: 80, borderRadius: 40 }}>
-                        <Image style={{ width: 80, height: 80, borderRadius: 40, resizeMode: 'contain' }} source={ImagePath.myImage} />
+                    <View style={{ width: 90, height: 90, borderRadius: 40 }}>
+                        <ImageBackground style={{ width: 90, height: 90, borderRadius: 50, overflow: 'hidden' }} source={ImagePath.myImage}>
+                            {selectedImage && <Image style={{ width: '100%', height: '100%', borderRadius: 50, }} source={{ uri: selectedImage }} />}
+                        </ImageBackground>
                     </View>
-                    <TouchableOpacity style={{ marginTop: 20 }}>
+                    <TouchableOpacity onPress={() => openImagePicker()} style={{ marginTop: 20 }}>
                         <Text style={{ fontSize: 15, fontWeight: '700', color: '#0267FF', }}>Edit Picture</Text>
                     </TouchableOpacity>
                 </View>
@@ -95,12 +108,18 @@ export default function Edit_Profile(props) {
 
                     <Text style={styles.label}>Password & Security</Text>
                     <View style={{ marginTop: 20 }}>
-                        <TouchableOpacity onPress={()=>props.navigation.navigate('Change_Password')} style={styles.changePasswordBtn}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate('Change_Password')} style={styles.changePasswordBtn}>
                             <Text style={styles.passwordBtnText}>Change Password</Text>
                             <AntDesign name="right" size={18} color="white" />
                         </TouchableOpacity>
                     </View>
+                   
                 </View>
+                <View style={{ flex:1,alignItems:'flex-end',justifyContent:'flex-end',bottom:15,paddingHorizontal:15 }}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate('BottomTab')} style={styles.submitBtn}>
+                            <Text style={styles.passwordBtnText}>Submit</Text>
+                        </TouchableOpacity>
+                    </View>
             </ImageBackground>
         </SafeAreaView>
     )
@@ -114,9 +133,16 @@ const styles = StyleSheet.create({
     changePasswordBtn: {
         width: '100%', height: 35, backgroundColor: 'black',
         borderWidth: 0.5, borderColor: '#666666',
-        shadowColor: 'white', elevation: 5, borderRadius: 20,
+        shadowColor: 'white', elevation: 2, borderRadius: 20,
         justifyContent: 'space-between', alignItems: 'center',
         flexDirection: 'row', paddingHorizontal: 15
+    },
+    submitBtn:{
+        width: '100%', height: 35, backgroundColor: 'black',
+        borderWidth: 0.5, borderColor: '#666666',
+        shadowColor: 'white', elevation: 2, borderRadius: 20,
+        justifyContent: 'center', alignItems: 'center',
+         paddingHorizontal: 15 
     },
     CategoryBox: {
         width: 130, height: 130,
@@ -182,7 +208,7 @@ const styles = StyleSheet.create({
     inputSearchStyle: {
         height: 40,
         fontSize: 12,
-        backgroundColor: 'rgba(160,156,191,0.25)',
+        // backgroundColor: 'rgba(160,156,191,0.25)',
 
 
     },

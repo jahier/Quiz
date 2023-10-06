@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addUser, fetchApiData } from '../slices/userSlice';
 import { Image } from 'react-native-animatable';
 import Input from '../Component/Input';
+import { scale } from 'react-native-size-matters';
 
 export default function Demo(props) {
   const dispatch = useDispatch()
@@ -73,7 +74,49 @@ export default function Demo(props) {
       </View>
       <View style={{ height: 1, width: '100%', backgroundColor: 'white', marginTop: 0 }}></View> */}
       </View>
-
+<View>
+<View style={styles.topbtnvew}>
+                                    <TouchableOpacity style={{
+                                        width: '50%',
+                                        height: scale(45),
+                                        borderRadius: scale(15),
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        backgroundColor: slect == 0 ? '#029CAB' : '#ccc2',
+                                        elevation: slect == 0 ? 0 : 0,
+                                    }} onPress={() => {
+                                        setslect(0), setchake(1)
+                                    }}>
+                                        <Text style={{
+                                            fontSize: scale(14),
+                                            lineHeight: scale(17),
+                                            fontWeight: '700',
+                                            // fontFamily: Font.Regular,
+                                            color: slect == 0 ? '#FFFFFF' : '#029CAB'
+                                        }}>Giveaway</Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity
+                                        style={{
+                                            width: '50%',
+                                            borderRadius: scale(15),
+                                            justifyContent: 'center',
+                                            height: scale(45),
+                                            backgroundColor: slect == 1 ? '#029CAB' : '#ccc2',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            elevation: slect == 1 ? 0 : 0,
+                                        }} onPress={() => {
+                                            setslect(1), setchake(2)
+                                        }} >
+                                        <Text style={{
+                                            fontSize: scale(14),
+                                            lineHeight: scale(17),
+                                            fontWeight: '700',
+                                            color: slect == 1 ? '#FFFFFF' : '#029CAB'
+                                        }}>Exclusive offer</Text>
+                                    </TouchableOpacity>
+                                </View>
+</View>
       <View style={{ paddingHorizontal: 15, marginTop: 20 }}>
         <Text style={{ fontSize: 12, color: filteredData.length === 0 ? 'maroon' : 'black', fontWeight: '700', lineHeight: 13 }}>Search</Text>
         <TextInput
@@ -119,8 +162,8 @@ export default function Demo(props) {
 
 
 
-<View>
-{/* import React, { useEffect, useState } from 'react';
+      <View>
+        {/* import React, { useEffect, useState } from 'react';
 import { Card } from 'react-native-paper';
 import { Text, View, Image, Alert, ToastAndroid, TouchableHighlight, TouchableOpacity } from 'react-native';
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
@@ -293,7 +336,7 @@ const DrawerContents = ({ ...props }) => {
 
 
 export default React.memo(DrawerContents); */}
-</View>
+      </View>
     </View>
   )
 }

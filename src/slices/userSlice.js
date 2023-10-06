@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
 const initialState = {
     data: [],
     loading: false,
@@ -18,7 +17,6 @@ export const fetchApiData = createAsyncThunk('user', async () => {
     return json.data;
 }
 );
-
 const apiSlice = createSlice({
     name: "user",
     initialState,
@@ -38,7 +36,6 @@ const apiSlice = createSlice({
                 state.error = action.payload;
             });
     },
-
 });
 
 export default apiSlice.reducer;

@@ -71,63 +71,60 @@ const Login = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.mainContent}>
             <ImageBackground style={{ flex: 1 }} source={ImagePath.bacImage}>
-                {/* <View style={{ marginTop: 0 }}>
-                    <Header  leftBtn={ImagePath.leftArrow} tintColor='white' />
-                </View> */}
+
 
                 <Text style={styles.headingText}>LEARNO</Text>
                 <Text style={styles.LoginText}>Login into account</Text>
                 <Text style={styles.Lorem}>Please into your account</Text>
+                <View style={{ paddingHorizontal: 15 }}>
+                    <View style={styles.whiteContent}>
+                        <View style={{ marginTop: 20 }}>
+                            <Text style={styles.SignInText}>WELCOME !</Text>
+                        </View>
+                        <View style={{ paddingHorizontal: 15, marginTop: 45 }}>
+                            <Input placeholder="Email" label="Email Address"
+                                value={email}
+                                onChangeText={(text) => setEmail(text)}
+                                onFocus={() => handleError(null, 'email')}
 
-
-                {/* <ImageBackground style={styles.whiteContent} source={ImagePath.bacImage}> */}
-                <View style={styles.whiteContent}>
-                    <View style={{ marginTop: 20 }}>
-                        <Text style={styles.SignInText}>WELCOME !</Text>
-                    </View>
-                    <View style={{ paddingHorizontal: 15, marginTop: 45 }}>
-                        <Input placeholder="Email" label="Email Address"
-                            value={email}
-                            onChangeText={(text) => setEmail(text)}
-                            onFocus={() => handleError(null, 'email')}
-
-                        />
-                        {errors.email &&
-                            (<View style={{}}>
-                                <Text style={{ color: 'darkred', fontSize: 10 }}>{errors.email}</Text>
-                            </View>
+                            />
+                            {errors.email &&
+                                (<View style={{}}>
+                                    <Text style={{ color: 'darkred', fontSize: 10 }}>{errors.email}</Text>
+                                </View>
+                                )}
+                        </View>
+                        <View style={{ paddingHorizontal: 15, marginTop: 15 }}>
+                            <Input placeholder="Password" label="Password"
+                                value={password}
+                                onChangeText={(text) => setPassword(text)}
+                                onFocus={() => handleError(null, 'password')}
+                            />
+                            {errors.password && (
+                                <View style={{}}>
+                                    <Text style={{ color: 'darkred', fontSize: 10 }}>{errors.password}</Text>
+                                </View>
                             )}
-                    </View>
-                    <View style={{ paddingHorizontal: 15, marginTop: 15 }}>
-                        <Input placeholder="Password" label="Password"
-                            value={password}
-                            onChangeText={(text) => setPassword(text)}
-                            onFocus={() => handleError(null, 'password')}
-                        />
-                        {errors.password && (
-                            <View style={{}}>
-                                <Text style={{ color: 'darkred', fontSize: 10 }}>{errors.password}</Text>
-                            </View>
-                        )}
-                    </View>
+                        </View>
 
-                    <View style={styles.BTNContent}>
-                        <Button onPress={() => validate() || setShowImage(true)} title="Login Now" />
-                    </View>
-                    <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')} style={{ paddingHorizontal: 15, marginTop: 15 }}>
-                        <Text style={styles.forgetText}>Forgot password?</Text>
-                    </TouchableOpacity>
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 15 }}>
-                        <Text style={styles.DonHaveAccount}>Don’t have an account?</Text>
-                        <TouchableOpacity onPress={() => navigation.navigate('Sign_up')} style={{ justifyContent: 'center', alignItems: 'center' }}>
-                            <Text style={styles.createAccount}> Sign up </Text>
+                        <View style={styles.BTNContent}>
+                            <Button onPress={() => validate() || setShowImage(true)} title="Login Now" />
+                        </View>
+                        <TouchableOpacity onPress={() => navigation.navigate('ForgetPassword')} style={{ paddingHorizontal: 15, marginTop: 15 }}>
+                            <Text style={styles.forgetText}>Forgot password?</Text>
                         </TouchableOpacity>
-                    </View>
-                    <View style={{ paddingHorizontal: 20, marginTop: 5 }}>
-                        <SocialButton title="Login in with Google" socialLogo={ImagePath.googleLogo} />
-                    </View>
-                    <View style={{ paddingHorizontal: 20, marginTop: 50,bottom:35 }}>
-                        <SocialButton title="Login in with Apple" socialLogo={ImagePath.appleLogo} tintColor="white"/>
+                        <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 15 }}>
+                            <Text style={styles.DonHaveAccount}>Don’t have an account?</Text>
+                            <TouchableOpacity onPress={() => navigation.navigate('Sign_up')} style={styles.signUpBtn}>
+                                <Text style={styles.createAccount}> Sign up </Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{ paddingHorizontal: 20, marginTop: 5 }}>
+                            <SocialButton title="Login in with Google" socialLogo={ImagePath.googleLogo} />
+                        </View>
+                        <View style={{ paddingHorizontal: 20, marginTop: 50, bottom: 35 }}>
+                            <SocialButton title="Login in with Apple" socialLogo={ImagePath.appleLogo} tintColor="white" />
+                        </View>
                     </View>
                 </View>
                 {/* </ImageBackground> */}
@@ -156,7 +153,7 @@ const styles = StyleSheet.create({
         color: 'white',
         fontWeight: '700',
         textAlign: 'center',
-        marginTop:8
+        marginTop: 8
     },
     Lorem: {
         fontSize: 12, lineHeight: 12,
@@ -165,12 +162,12 @@ const styles = StyleSheet.create({
         textAlign: 'center', marginTop: 8
     },
     whiteContent: {
-        backgroundColor: 'rgba(160,156,191,0.25)',
+        backgroundColor: 'rgba(160,156,191,0.35)',
         // height: heightPercentageToDP(100),
         marginTop: heightPercentageToDP(10),
         borderRadius: 30, width: '100%',
         alignSelf: 'center',
-        // borderWidth: 0.5, borderColor: 'white',
+        borderWidth: 0.5, borderColor: 'white',
         // elevation: 10, shadowColor: 'white'
     },
     loginTopImage: {
@@ -195,6 +192,9 @@ const styles = StyleSheet.create({
     },
     createAccount: {
         color: 'white', fontSize: 16, lineHeight: 17, fontWeight: 'bold',
-
+    },
+    signUpBtn: {
+        justifyContent: 'center',
+        alignItems: 'center'
     },
 })

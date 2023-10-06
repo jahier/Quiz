@@ -39,10 +39,8 @@ export default function Change_Password(props) {
                         <TouchableOpacity style={{ alignSelf: 'flex-start', alignItems: 'center' }}>
                             <Icon3 name="chevron-thin-left" size={17} color="white" />
                         </TouchableOpacity>
-
                         <View style={{ alignItems: 'center', marginLeft: 15 }}>
                             <Text style={styles.projectName}>LEARNO</Text>
-
                         </View>
                         <TouchableOpacity style={{ backgroundColor: '#666666', width: 30, height: 30, borderRadius: 25, justifyContent: 'center', alignItems: 'center', marginLeft: 0 }}>
                             <Icon3 name="bell" size={20} color="white" />
@@ -53,12 +51,12 @@ export default function Change_Password(props) {
                     </View>
                 </LinearGradient>
 
-                <View style={{ marginTop: 20,paddingHorizontal:15 }}>
+                <View style={{ marginTop: 20, paddingHorizontal: 15 }}>
                     <Text style={styles.label}>Your password must be at least six characters and
                         should include a combination of numbers, letters
                         and special characters (!$!%).</Text>
                 </View>
-                <View style={{ paddingHorizontal: 15,marginTop:15 }}>
+                <View style={{ paddingHorizontal: 15, marginTop: 15 }}>
                     <Text style={styles.label}>Current Password</Text>
                     <TextInput style={styles.TextInput} />
                     <Text style={styles.label}>New Password</Text>
@@ -66,16 +64,16 @@ export default function Change_Password(props) {
                     <Text style={styles.label}>Re-enter New Password</Text>
                     <TextInput style={styles.TextInput} />
 
-                    <TouchableOpacity style={{marginTop:20}}>
+                    <TouchableOpacity onPress={() => props.navigation.navigate('ForgetPassword')} style={{ marginTop: 20 }}>
                         <Text style={styles.forgetPassword}>Forgotten your password?</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={{ alignItems:'flex-end',flex:1,justifyContent:'flex-end',bottom:30,paddingHorizontal:15 }}>
-                        <TouchableOpacity onPress={()=>props.navigation.navigate('BottomTab')} style={styles.changePasswordBtn}>
-                            <Text style={styles.passwordBtnText}>Change Password</Text>
-                            {/* <AntDesign name="right" size={20} color="white" /> */}
-                        </TouchableOpacity>
-                    </View>
+                <View style={{ alignItems: 'flex-end', flex: 1, justifyContent: 'flex-end', bottom: 30, paddingHorizontal: 15 }}>
+                    <TouchableOpacity onPress={() => props.navigation.navigate('BottomTab')} style={styles.changePasswordBtn}>
+                        <Text style={styles.passwordBtnText}>Change Password</Text>
+                        {/* <AntDesign name="right" size={20} color="white" /> */}
+                    </TouchableOpacity>
+                </View>
             </ImageBackground>
         </SafeAreaView>
     )
@@ -91,7 +89,7 @@ const styles = StyleSheet.create({
         borderWidth: 0.5, borderColor: '#666666',
         shadowColor: 'white', elevation: 5, borderRadius: 20,
         justifyContent: 'center', alignItems: 'center'
-      ,paddingHorizontal: 15
+        , paddingHorizontal: 15
     },
     CategoryBox: {
         width: 130, height: 130,

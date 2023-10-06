@@ -8,11 +8,11 @@ import LinearGradient from 'react-native-linear-gradient';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import moment from 'moment';
 import LottieView from 'lottie-react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 export default function Wallet(props) {
     const [date, setDate] = useState(new Date());
-
     const [showDatePicker, setShowDatePicker] = useState(false);
 
     const [date2, setDate2] = useState(new Date());
@@ -23,12 +23,13 @@ export default function Wallet(props) {
     const selectBtn = (id) => {
         setSelect(id)
     }
+
     const onChange = (event, selectedDate) => {
         const currentDate = selectedDate || date;
         setShowDatePicker(false);
         setDate(currentDate);
     };
-    const formattedDate = moment(date).format('DD-MM-YYYY');
+    const formattedDate = moment(date).format('DD-MM-YYYY',);
     const onChange2 = (event, selectedDate2) => {
         const currentDate2 = selectedDate2 || date2;
         setShowDatePicker2(false);
@@ -49,15 +50,15 @@ export default function Wallet(props) {
             <View style={{ flex: 1 }}>
                 <View style={styles.DataShowContent}>
                     <View style={{ width: '25%', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <View style={{ width: 33, height: 33, borderRadius: 25, justifyContent: 'center', alignItems: 'center' }}>
+                        <View style={{ width: 33, height: 33, borderRadius: 25, justifyContent: 'center', }}>
                             <AntDesign name={item.icon} size={15} color="white" />
                         </View>
-                        <View style={{ width: '75%', marginLeft: 10 }}>
+                        <View style={{ width: '75%', marginLeft: 0 }}>
                             <Text style={{ fontSize: 12, fontWeight: '500', color: 'white', }}>{formattedDate}</Text>
                         </View>
                     </View>
                     <View style={{ width: '50%', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 12, fontWeight: '500', color: 'white' }}>UI/UX </Text>
+                        <Text style={{ fontSize: 12, fontWeight: '500', color: 'white' }}>UI/UX</Text>
                     </View>
                     <View style={{ width: '25%', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', paddingHorizontal: 10 }}>
                         <Text style={{ fontSize: 12, fontWeight: '500', color: 'white' }}>100</Text>
@@ -100,7 +101,7 @@ export default function Wallet(props) {
                     end={{ x: 0, y: 1 }}
                     style={styles.headerMainContent}>
                     <View style={styles.headerContent}>
-                        <TouchableOpacity onPress={()=>props.navigation.goBack('')} style={{ alignSelf: 'flex-start', alignItems: 'center' }}>
+                        <TouchableOpacity onPress={() => props.navigation.goBack('')} style={{ alignSelf: 'flex-start', alignItems: 'center' }}>
                             <Icon3 name="chevron-thin-left" size={17} color="white" />
                         </TouchableOpacity>
                         <View style={{ alignItems: 'center', marginLeft: 15 }}>
@@ -111,9 +112,31 @@ export default function Wallet(props) {
                         </TouchableOpacity>
                     </View>
                     <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
-                        <Text style={{ fontSize: 24, fontWeight: '700', color: 'white' }}>History</Text>
+                        <Text style={{ fontSize: 24, fontWeight: '700', color: 'white' }}>Wallet</Text>
                     </View>
                 </LinearGradient>
+                <View style={{ paddingHorizontal: 15, marginTop: 15 }}>
+                    <View style={styles.userCard}>
+                        <View style={styles.userProfileMainContent}>
+                            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                <Image style={styles.profile} source={ImagePath.myImage} />
+                                <Text style={styles.userName}>Himanshu Saini</Text>
+                            </View>
+                        </View>
+                        <View style={styles.userAmountContent}>
+                            <View>
+                                {/* <Text style={styles.userName}>Amount</Text> */}
+                                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                    <Ionicons name="wallet-outline" size={25} color="white" />
+
+                                    {/* <Image style={{ width: 20, height: 20, resizeMode: 'contain', }} source={require('../assets/image/coin.png')} /> */}
+                                    <Text style={{ fontSize: 25, color: 'white', fontWeight: '600', marginLeft: 10 }}>200</Text>
+                                </View>
+                            </View>
+                        </View>
+                    </View>
+                </View>
+
                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 15, marginTop: 20 }}>
                     <TouchableOpacity onPress={() => selectBtn('1')} style={{ width: '48%', height: 40 }}>
                         <LinearGradient colors={[
@@ -271,11 +294,34 @@ const styles = StyleSheet.create({
     },
     headerContent: {
         flexDirection: 'row',
-        alignItems: 'center', justifyContent: 'space-between',
+        alignItems: 'center',
+        justifyContent: 'space-between',
         marginTop: 10
     },
     projectName: {
-        color: 'white', fontSize: 17, fontWeight: 'bold',
+        color: 'white', fontSize: 17,
+        fontWeight: 'bold',
     },
-
+    userCard: {
+        width: '100%',
+        backgroundColor: '#E8E8E836',
+        borderRadius: 15, flexDirection: 'row',
+        justifyContent: 'space-between',
+        // alignItems:'center'
+    },
+    userProfileMainContent: {
+        width: '50%', padding: 15
+    },
+    profile: {
+        width: 50, height: 50, borderRadius: 10
+    },
+    userName: {
+        fontSize: 13, fontWeight: '600', color: 'white',
+        marginLeft: 10
+    },
+    userAmountContent: {
+        width: '50%', padding: 15,
+        justifyContent: 'center',
+        alignItems: 'flex-end'
+    },
 })
