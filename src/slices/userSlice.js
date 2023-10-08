@@ -6,7 +6,7 @@ const initialState = {
     error: null,
 };
 export const fetchApiData = createAsyncThunk('user', async () => {
-    const response = await fetch('https://reqres.in/api/users?page=1', {
+    const response = await fetch('https://reqres.in/api/users?page=2', {
         method: 'GET',
         headers: {
             Accept: 'application/json',

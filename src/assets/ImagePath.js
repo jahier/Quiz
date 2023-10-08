@@ -6,7 +6,7 @@ const ImagePath={
     leftArrow:require('../assets/image/leftArrow.png'),
     loginFormImage:require('../assets/image/loginFormImage.png'),
     googleLogo:require('../assets/image/googleLogo.png'),
-    facebookLogo:require('../assets/image/facebookLogo.png'),
+    appleLogo:require('../assets/image/appleLogo.png'),
     twitterLogo:require('../assets/image/twitterLogo.png'),
     homeIcon:require('../assets/image/homeIcon.png'),
     profileIcon:require('../assets/image/profileIcon.png'),
@@ -35,6 +35,28 @@ const ImagePath={
     activeHome:require('../assets/image/activeHome.png'),
     activeSearch:require('../assets/image/activeSearch.png'),
     activeUser:require('../assets/image/activeUser.png'),
+    bacImage:require('../assets/image/bacImage.png'),
+    rightGif:require('../assets/image/rightGif.gif'),
+    singleMode:require('../assets/image/singalMode.png'),
+    dualMode:require('../assets/image/dualMode.png'),
+    multipleMode:require('../assets/image/multipleMode.png'),
+    drawerBac:require('../assets/image/drawerBac.png'),
+    menuDrawer:require('../assets/image/menuDrawer.jpg'),
+    Union:require('../assets/image/Union.png'),
+    sportsBac:require('../assets/image/sportsBac.png'),
+    ITBack:require('../assets/image/ITBack.png'),
+    subDataImg:require('../assets/image/subDataImg.png'),
+    gameTypBac:require('../assets/image/gameTypBac.jpg'),
+
+
+
+
+
+    
+
+
+
+
 
 
 

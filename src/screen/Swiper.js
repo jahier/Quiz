@@ -75,7 +75,7 @@ const Swiper = ({ navigation }) => {
     const onLastSlide = (index, lastIndex) => {
         if (slides[index].key == slides.length) {
             setTimeout(() => {
-                navigation.navigate('Login')
+                navigation.navigate('SelectVerify')
             }, 1000)
         }
     }
@@ -87,27 +87,6 @@ const Swiper = ({ navigation }) => {
                     <Text style={styles.Text}>Open your wings{'\n'}
                         and Fly with Learno </Text>
                 </ImageBackground>
-                {/* <View style={styles.skytextview}>
-                    <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-                        <Text style={item.skipText}>Skip</Text>
-                    </TouchableOpacity>
-                </View>
-                <Image source={item?.image} style={styles.imageStyle} resizeMode={'contain'} />
-                <View style={styles.infoContainer}>
-
-                    <View style={{ marginTop: hp(0) }}>
-                        <Text style={item.txt}>{item.text}</Text>
-                    </View>
-                    <View>
-                        <Text style={item.text}>{item.subText}</Text>
-                    </View>
-                </View>
-                {item.key === 3 && (
-                    <View style={styles.BTNContent}>
-                        <Button onPress={()=>navigation.navigate('Login')} title="Get Started"/>
-                    </View>
-                )} */}
-
             </SafeAreaView>
         );
     }
@@ -138,15 +117,15 @@ const styles = ScaledSheet.create({
         // alignItems:'center'
     },
     Text: {
-        fontSize: 15, fontWeight: 'bold',
-        lineHeight: 16, color: '#FFFF', textAlign: 'center',
+        fontSize: 18, fontWeight: 'bold',
+        lineHeight: 19, color: '#FFFF', textAlign: 'center',
         marginTop: 10
     },
 
 
     titleText: {
-        fontSize: 25, fontWeight: 'bold',
-        lineHeight: 27, color: '#FFFF'
+        fontSize: 60, fontWeight: 'bold',
+        lineHeight: 61, color: '#FFFF'
     },
     imageStyle: {
         flex: 1,

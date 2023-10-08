@@ -1,14 +1,14 @@
 import { StyleSheet, View, TouchableOpacity, Image ,Text} from 'react-native'
 import React from 'react'
-import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import Icon from 'react-native-vector-icons/dist/AntDesign';
 import ImagePath from '../assets/ImagePath';
 
-const Header = ({leftBtn,rightText,tintColor,navigation}) => {
+const Header = ({leftBtn,rightText,onPress,tintColor}) => {
     return (
         <View style={styles.mainContent}>
-            <TouchableOpacity onPress={()=>    navigation.goBack()}>
+            <TouchableOpacity onPress={onPress}>
                 <Image style={{tintColor:tintColor,width: 20, height: 17, resizeMode: 'contain'}} source={leftBtn} />
-                {/* <Icon name='rocket' size={30} color="#900" />; */}
+                {/* <Icon name={leftBtn} size={30} color="white" />; */}
             </TouchableOpacity>
             <TouchableOpacity>
                 <Text style={{fontSize:14,fontWeight:'500',lineHeight:17,color:'white'}}>{rightText}</Text>
