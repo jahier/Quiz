@@ -18,18 +18,33 @@ export default function AuthorsProfile({ navigation }) {
     ]
     const renderItem = ({ item }) => {
         return (
-            <View style={{ marginTop: 50, justifyContent: 'center', alignItems: 'center', flex: 1,marginVertical:0 }}>
-              
-                 <ImageBackground style={{width:'100%',height:300}} source={ImagePath.myImage} resizeMode='cover'>
-                 <View style={{ flexDirection: 'row', justifyContent: 'space-between',bottom:50 }}>
-                    <View style={{ width: '20%', paddingLeft: 15 }}>
-                        <Image style={{ width: 60, height: 60, resizeMode: 'contain', borderRadius: 30 }} source={ImagePath.myImage} />
+            <View style={{ marginTop: 50, justifyContent: 'center', alignItems: 'center', flex: 1, marginVertical: 30 }}>
+                <ImageBackground style={{ width: '100%', height: 300 }} source={ImagePath.swiper1} resizeMode='cover'>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', bottom: 50 }}>
+                        <View style={{ width: '20%', paddingLeft: 15 }}>
+                            <Image style={{ width: 60, height: 60, resizeMode: 'contain', borderRadius: 30 }} source={ImagePath.myImage} />
+                        </View>
+                        <View style={{ width: '80%', paddingHorizontal: 15, justifyContent: 'center' }}>
+                            <Text style={{ fontSize: 16, fontWeight: '600', color: '#FFFFFF', }}>Achieve Success Coachingeer</Text>
+                        </View>
                     </View>
-                    <View style={{ width: '80%', paddingHorizontal: 15, justifyContent: 'center' }}>
-                        <Text style={{ fontSize: 16, fontWeight: '600', color: '#FFFFFF', }}>Achieve Success Coachingeer</Text>
+                </ImageBackground>
+                <View style={{ marginTop: 10, flexDirection: 'row', alignItems: 'center' }}>
+                    <View style={{ width: '15%', paddingLeft: 15 }}>
+                        <Text style={styles.eventDay}>day:</Text>
+                    </View>
+                    <View style={{ width: '85%', justifyContent: 'center' }}>
+                        <Text style={styles.eventDay}>SAT</Text>
                     </View>
                 </View>
-                 </ImageBackground>   
+                <View style={{ marginTop: 7, flexDirection: 'row', alignItems: 'center' }}>
+                    <View style={{ width: '15%', paddingLeft: 15 }}>
+                        <Text style={styles.eventDay}>month:</Text>
+                    </View>
+                    <View style={{ width: '85%', justifyContent: 'center' }}>
+                        <Text style={styles.eventDay}>NOVEMBER</Text>
+                    </View>
+                </View>
                 {/* <TouchableOpacity onPress={() => navigation.navigate('EventDetails')} style={styles.EventBtn}>
                     <View style={styles.eventDetailsContent}>
                         <Text style={styles.eventDay}>SAT</Text>
@@ -106,7 +121,7 @@ export default function AuthorsProfile({ navigation }) {
             </View>
 
             {btnSELECT === '1' &&
-                <View style={{ flex: 1, marginTop:30,bottom:15 }}>
+                <View style={{ flex: 1, marginTop: 10 }}>
                     <FlatList
                         showsVerticalScrollIndicator={false}
                         data={Data}
@@ -192,7 +207,8 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 15, borderBottomRightRadius: 15
     },
     eventDay: {
-        fontSize: 14, fontWeight: '700', color: '#001345', textAlign: 'center'
+        fontSize: 14, fontWeight: '700', color: '#FFFFFFFF',
+        //  textAlign: 'center'
     },
     eventDate: {
         fontSize: 24, fontWeight: '700', color: '#001345', textAlign: 'center'
